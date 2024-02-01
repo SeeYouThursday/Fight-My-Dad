@@ -1,0 +1,4 @@
+/02-Challenge
+node_modules
+package-lock.json
+.env
