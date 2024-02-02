@@ -8,6 +8,7 @@ const dadSchema = new Schema({
     Nickname: {
         type: String,
         required: true,
+        unique: true,
     },
     Username: {
         type: String,

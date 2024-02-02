@@ -4,6 +4,7 @@ const statsSchema = new Schema({
     Username: {
         type: String,
         required: true,
+        unique: true,
     },
     WinNum: {
         type: Number,
