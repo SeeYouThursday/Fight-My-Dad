@@ -8,6 +8,12 @@ const Fight = () => {
   const handleFightStart = () => {
     //onClick={runFightAnimation}
   };
+
+  return (
+    <>
+    
+    </>
+  )
 };
 
 export default Fight;
