@@ -1,3 +1,5 @@
-const Dashboard = () => {};
+const Dashboard = () => {
+  //Card
+};
 
 export default Dashboard;
