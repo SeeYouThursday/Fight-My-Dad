@@ -2,15 +2,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './assets/css/index.css';
+// import './assets/css/index.css';
 
 //Page Imports
 import App from './App.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import Dashboard from './pages/Dashboard.jsx';
-
-
 
 //Set Up Page Routes Here
 const router = createBrowserRouter([
@@ -21,12 +19,12 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPage />
+        element: <LandingPage />,
       },
       {
-          path: '/dashboard',
-          element: <Dashboard />
-      }
+        path: '/dashboard',
+        element: <Dashboard />,
+      },
     ],
   },
 ]);
