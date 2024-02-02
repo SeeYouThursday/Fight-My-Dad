@@ -1,7 +1,6 @@
-import './App.css';
+import './assets/css/app.css';
 import { Outlet } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import './App.css';
 
 const client = new ApolloClient({
   uri: '/graphql',
