@@ -9,7 +9,11 @@ const DadCreate = () => {
     const [createDad] = useMutation(CREATE_DAD);
   };
 
-  return <></>;
+  return (
+  <>
+  
+  </>
+  );
 };
 
 export default DadCreate;
