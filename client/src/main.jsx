@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-// import './assets/css/index.css';
+import './assets/css/index.css';
 
 //Page Imports
 import App from './App.jsx';
