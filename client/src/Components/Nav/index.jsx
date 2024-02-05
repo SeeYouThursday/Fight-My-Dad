@@ -1,3 +1,4 @@
+import './index.css';
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,9 +13,17 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Logo from '../../assets/images/FIGHTMYDAD.gif';
+import { createTheme } from '@mui/material/styles';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['DASHBOARD', 'FIGHT', 'LOGIN', 'SIGNUP', 'LOGOUT'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const theme = createTheme({
+  palette: {
+    primary: '#fedb0e',
+    // secondary: purple,
+  },
+});
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -31,12 +40,12 @@ function ResponsiveAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = ({ color }) => {
     setAnchorElUser(null);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="colorDefault">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -94,10 +103,13 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+          <Button href="/">
+            {/* <img src={Logo} alt="fightmydad logo" height="10%" width="10%"/> */}
+          </Button>
           <Typography
             variant="h5"
-            noWrap
+            Wrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
@@ -111,7 +123,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            MY DAD CAN BEAT UP YOUR DAD
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

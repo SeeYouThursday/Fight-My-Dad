@@ -13,7 +13,7 @@ import {
 import Button from '@mui/material-next/Button';
 import Logo from '../assets/images/FIGHTMYDAD.gif';
 // import AltLogo from '../assets/images/output-onlinegiftools.gif';
-import StillLogo from '../assets/images/FMDBounce.png';
+// import StillLogo from '../assets/images/FMDBounce.png';
 
 const LandingPage = () => {
   // import into App to show on load '/'
