@@ -1,6 +1,6 @@
 // import Logo from '../assets/images/FIGHTMYDAD.svg';
 
-// import '../assets/css/landing.css';
+import '../assets/css/landing.css';
 
 const LandingPage = () => {
   // import into App to show on load '/'
