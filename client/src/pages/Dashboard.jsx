@@ -2,10 +2,9 @@ import Nav from '../Components/Nav'
 import Image from '../Components/Image'
 
 const styles = {
-  main: {
-    // display: 'flex',
-    // margin: '20px',
-  },
+  //   display: 'flex',
+  //   margin: '40px',
+  // },
   mainSection: {
     display: 'flex',
     margin: '20px',
@@ -13,11 +12,23 @@ const styles = {
   },
   user: {
     background: '#142f36',
-    height: 'auto',
+    height: '10vh',
     padding: '20px',
     borderRadius: '10px',
     color: '#fedb0e',
     fontSize: '40px',
+    alignSelf: 'baseline'
+  },
+  divider: {
+    background: '#142f36',
+    padding: '10px',
+    borderRadius: '10px',
+  },
+  dads: {
+    background: '#142f36',
+    padding: '10px',
+    borderRadius: '10px',
+    margin: '20px'
   }
 }
 
@@ -27,7 +38,7 @@ const Dashboard = () => {
 
   return(
     <main >
-      <div style={styles.main}>
+      <div style={styles.container}>
         <Nav />
         <section style={styles.mainSection}>
           <Image />
@@ -37,11 +48,15 @@ const Dashboard = () => {
         </section>
       </div>
       
+      <div style={styles.divider}>
+      </div>
+
       {/* PUT DAD COLLECTION HERE */}
 
-      <div>
-
+      
+      <div style={styles.dads}>
       </div>
+
     </main>
   )
 };
