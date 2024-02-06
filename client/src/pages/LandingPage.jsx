@@ -1,9 +1,7 @@
 // import Logo from '../assets/images/FIGHTMYDAD.gif';
-import Navigate from 'react';
 import '../assets/css/landing.css';
 import {
   ButtonBase,
-  Box,
   Container,
   Grid,
   // ImageButton,

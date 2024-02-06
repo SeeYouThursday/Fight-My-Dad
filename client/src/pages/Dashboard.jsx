@@ -1,11 +1,7 @@
 const Dashboard = () => {
   //Card
 
-  return(
-    <>
-    
-    </>
-  )
+  return <></>;
 };
 
 export default Dashboard;
