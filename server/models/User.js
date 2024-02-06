@@ -20,6 +20,6 @@ const userSchema = new Schema({
     },
 });
 
-const User = model('Login', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;
