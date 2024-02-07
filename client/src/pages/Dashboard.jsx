@@ -1,5 +1,6 @@
 import Nav from '../Components/Nav'
 import Image from '../Components/Image'
+import Stat from '../Components/Stat'
 
 const styles = {
   //   display: 'flex',
@@ -56,10 +57,7 @@ const Dashboard = (dads) => {
 
       
         {dads.map((dad) => (
-          <div style={styles.dads} key={dad._id}>
-            <img src={dad.icon}/>
-            <h4>{dad.name}</h4>
-          </div>
+          <Stat />
         ))}
 
 
