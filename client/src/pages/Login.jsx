@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import loginImage from '../assets/images/login.png'; //background for form
-import loginLabel from '../assets/images/labels/login-animated.gif'; //label for form
-import smallLogin from '../assets/images/labels/login300200.gif'; //label for form
+import loginImage from '../assets/images/login-signup/login.png'; //background for form
+import loginLabel from '../assets/images/login-signup/labels/login-animated.gif'; //label for form
+import smallLogin from '../assets/images/login-signup/labels/login300200.gif'; //label for form
 import { Grid, TextField, Button } from '@mui/material/';
 // import Auth from '../utils/auth';
 // import { LOGIN_USER } from '../utils/mutationsStandIn';
