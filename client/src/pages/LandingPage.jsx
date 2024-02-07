@@ -14,7 +14,7 @@ const LandingPage = () => {
     <div
       style={{
         backgroundImage: `url(${FMDLanding}),linear-gradient(to right, #41a6de, #123456)`,
-        backgroundSize: 'cover',
+        backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundColor: '#41a6de',
