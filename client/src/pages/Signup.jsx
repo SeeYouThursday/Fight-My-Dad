@@ -1,5 +1,7 @@
 import loginImage from '../assets/images/login.png';
 import Logo from '../assets/images/FIGHTMYDAD.gif';
+import signUpImage from '../assets/images/labels/signup.png';
+
 import { Grid, TextField, Button } from '@mui/material/';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
@@ -13,6 +15,7 @@ const Signup = () => {
     lastName: '',
     password: '',
   });
+
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
@@ -48,7 +51,7 @@ const Signup = () => {
         id="filled-basic"
         label={label}
         variant="filled"
-        margin="dense"
+        margin="none"
         name={label}
         onChange={handleChange}
       />
@@ -57,38 +60,38 @@ const Signup = () => {
 
   return (
     <Grid>
-      <div
+      <form
         style={{
           backgroundImage: `url(${loginImage})`,
-          backgroundSize: 'cover',
-          width: '100%',
-          height: '100vh', // This sets the height to the full height of the viewport
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundColor: '#41a6de',
+          height: '100vh', // 100% of the viewport height
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexWrap: 'nowrap',
+          flexDirection: 'column',
+          margin: 0,
+          padding: 0,
         }}
       >
-        <form
-          style={{
-            backgroundImage: `url(${loginImage})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            height: '100vh', // 100% of the viewport height
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            flexDirection: 'column',
-          }}
+        <img
+          src={signUpImage}
+          alt="Sign Up"
+          height={'30%'}
+          width={'30%'}
+          style={{ overflow: 'hidden' }}
+        />
+        {InputFields}
+        <Button
+          style={{ backgroundImage: `url(${Logo})` }}
+          onClick={handleFormSubmit}
         >
-          <h2>Sign In</h2>
-          {InputFields}
-          <Button
-            style={{ backgroundImage: `url(${Logo})` }}
-            onClick={handleFormSubmit}
-          >
-            BET!
-          </Button>
-        </form>
-      </div>
+          BET!
+        </Button>
+      </form>
     </Grid>
   );
 };
