@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const loginSchema = new Schema({
+const userSchema = new Schema({
     FirstName: {
         type: String,
         required: true,
@@ -20,6 +20,6 @@ const loginSchema = new Schema({
     },
 });
 
-const Login = model('Login', loginSchema);
+const User = model('User', userSchema);
 
-module.exports = Login;
+module.exports = User;

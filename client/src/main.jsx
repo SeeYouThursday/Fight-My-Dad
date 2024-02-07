@@ -12,9 +12,8 @@ import Dashboard from './pages/Dashboard.jsx';
 import DadCreate from './pages/DadCreate.jsx';
 import FightBefore from './pages/FightBefore.jsx';
 import Results from './pages/Results.jsx';
-
-
-
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 
 //Set Up Page Routes Here
 const router = createBrowserRouter([
@@ -42,7 +41,15 @@ const router = createBrowserRouter([
       {
         path: '/leaderboard',
         element: <Results />
-      }
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
+      },
     ],
   },
 ]);
