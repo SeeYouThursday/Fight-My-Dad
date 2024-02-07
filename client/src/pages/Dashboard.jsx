@@ -33,7 +33,7 @@ const styles = {
 }
 
 // const drawerbar = ''
-const Dashboard = () => {
+const Dashboard = (dads) => {
   //Card
 
   return(
@@ -53,9 +53,15 @@ const Dashboard = () => {
 
       {/* PUT DAD COLLECTION HERE */}
 
+
       
-      <div style={styles.dads}>
-      </div>
+        {dads.map((dad) => (
+          <div style={styles.dads} key={dad._id}>
+            <img src={dad.icon}/>
+            <h4>{dad.name}</h4>
+          </div>
+        ))}
+
 
     </main>
   )
