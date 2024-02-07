@@ -51,9 +51,13 @@ const Dashboard = (dads) => {
 
       {/* PUT DAD COLLECTION HERE */}
 
-      {/* {dads.map((dad) => (
+
+      
+        {/* {dads.map((dad) => (
           <Stat />
         ))} */}
+
+
     </main>
   );
 };
