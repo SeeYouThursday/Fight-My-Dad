@@ -56,9 +56,9 @@ const Dashboard = (dads) => {
 
 
       
-        {dads.map((dad) => (
+        {/* {dads.map((dad) => (
           <Stat />
-        ))}
+        ))} */}
 
 
     </main>
