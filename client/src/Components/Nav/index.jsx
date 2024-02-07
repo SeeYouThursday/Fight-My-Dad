@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -20,12 +20,11 @@ const styles = {
     background: '#142f36',
     color: '#fedb0e',
     height: '100vh',
-
   },
   navItems: {
     display: 'flex',
-    alignItems: 'space-evenly'
-  }
+    alignItems: 'space-evenly',
+  },
 };
 
 //Links for the navbar
@@ -33,22 +32,21 @@ const styles = {
 const links = [
   {
     name: 'Logout',
-    link: '/'
+    link: '/',
   },
   {
     name: 'Create Dad',
-    link: '/dadcreate'
+    link: '/dadcreate',
   },
   {
     name: 'Fight!',
-    link: '/fight'
+    link: '/fight',
   },
   {
     name: 'Leaderboard',
-    link: '/leaderboard'
-  }
-
-]
+    link: '/leaderboard',
+  },
+];
 
 // Defining the Nav component
 export default function Nav() {
@@ -60,7 +58,10 @@ export default function Nav() {
   // Function to handle opening and closing of the drawer
   const toggleDrawer = (anchor, open) => (event) => {
     // If the event was a keydown event on the Tab or Shift key, don't do anything
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
       return;
     }
 
@@ -81,15 +82,13 @@ export default function Nav() {
     >
       <List>
         {links.map((link) => (
-          <ListItem key={link.name} 
-          // disablePadding
+          <ListItem
+            key={link.name}
+            // disablePadding
           >
             <ListItemButton component={Link} to={link.link}>
-              <ListItemIcon>
-                
-              </ListItemIcon>
+              <ListItemIcon></ListItemIcon>
               <ListItemText primary={link.name} />
-
             </ListItemButton>
           </ListItem>
         ))}
@@ -98,23 +97,22 @@ export default function Nav() {
   );
 
   return (
-    <div>
+    <div style={{ backgroundColor: '#41a6de' }}>
       {/* Map over an array of anchors and create a button and a drawer for each one */}
       <Divider />
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           {/* When the button is clicked, open the drawer */}
           <Button onClick={toggleDrawer(anchor, true)}>
-
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
           </Button>
           <Drawer
             anchor={anchor}
