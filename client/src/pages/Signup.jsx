@@ -1,6 +1,6 @@
-import loginImage from '../assets/images/login.png';
-import Logo from '../assets/images/FIGHTMYDAD.gif';
-import signUpImage from '../assets/images/labels/signup.png';
+import loginImage from '../assets/images/login-signup/login.png';
+// import Logo from '../assets/images/FIGHTMYDAD.gif';
+import signUpImage from '../assets/images/login-signup/labels/signup.png';
 
 import { Grid, TextField, Button } from '@mui/material/';
 import { useState } from 'react';
@@ -85,10 +85,7 @@ const Signup = () => {
           style={{ overflow: 'hidden' }}
         />
         {InputFields}
-        <Button
-          style={{ backgroundImage: `url(${Logo})` }}
-          onClick={handleFormSubmit}
-        >
+        <Button style={{}} onClick={handleFormSubmit}>
           BET!
         </Button>
       </form>
