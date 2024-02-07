@@ -1,15 +1,54 @@
+// Importing necessary components and icons from Material UI and React
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
+import {Link} from 'react-router-dom'
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+
+//styles
+
+const styles = {
+  navBG: {
+    background: '#142f36',
+    color: '#fedb0e',
+    height: '100vh',
+
+  },
+  navItems: {
+    display: 'flex',
+    alignItems: 'space-evenly'
+  }
+};
+
+//Links for the navbar
+
+const links = [
+  {
+    name: 'Logout',
+    link: '/'
+  },
+  {
+    name: 'Create Dad',
+    link: '/dadcreate'
+  },
+  {
+    name: 'Fight!',
+    link: '/fight'
+  },
+  {
+    name: 'Leaderboard',
+    link: '/leaderboard'
+  }
+
+]
 
 // Defining the Nav component
 export default function Nav() {
@@ -21,10 +60,7 @@ export default function Nav() {
   // Function to handle opening and closing of the drawer
   const toggleDrawer = (anchor, open) => (event) => {
     // If the event was a keydown event on the Tab or Shift key, don't do anything
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
-    ) {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
 
@@ -35,6 +71,7 @@ export default function Nav() {
   // Function to render the list of items in the drawer
   const list = (anchor) => (
     <Grid
+      style={styles.navBG}
       // Set the width of the drawer
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
@@ -43,28 +80,16 @@ export default function Nav() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {/* Map over an array of texts and create a list item for each one */}
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
+        {links.map((link) => (
+          <ListItem key={link.name} 
+          // disablePadding
+          >
+            <ListItemButton component={Link} to={link.link}>
               <ListItemIcon>
-                {/* If the index is even, use the InboxIcon, otherwise use the MailIcon */}
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                
               </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={link.name} />
+
             </ListItemButton>
           </ListItem>
         ))}
@@ -74,12 +99,23 @@ export default function Nav() {
 
   return (
     <div>
-      <h1>hi</h1>
       {/* Map over an array of anchors and create a button and a drawer for each one */}
+      <Divider />
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           {/* When the button is clicked, open the drawer */}
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>
+
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          </Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
