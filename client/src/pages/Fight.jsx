@@ -1,3 +1,6 @@
+import Btn from '../Components/Btn'
+
+
 const Fight = () => {
   //setTimeout
   //Cards
@@ -11,7 +14,7 @@ const Fight = () => {
 
   return (
     <>
-    
+      <Btn />
     </>
   )
 };
