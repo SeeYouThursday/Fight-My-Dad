@@ -5,7 +5,7 @@ import signUpImage from '../assets/images/login-signup/labels/signup.png';
 import { Grid, TextField, Button } from '@mui/material/';
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutationsStandIn';
+import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {

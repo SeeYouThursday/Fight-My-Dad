@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const dadSchema = new Schema(
   {
-    DadName: {
+    dadName: {
       type: String,
       required: true,
     },

@@ -1,10 +1,10 @@
 const typeDefs = `
   type User {
     _id: ID!
-    FirstName: String!
-    LastName: String!
-    Password: String!
-    Username: String!
+    firstName: String!
+    lastName: String!
+    password: String!
+    username: String!
   }
 
   type Dad {
@@ -35,12 +35,14 @@ const typeDefs = `
 }
 
 input DadStats {
+  _id: ID!
   dadName: String!
   nickname: String!
   entryMusic: String!
   dadJoke: String!
   weight: Int!
   armLength: Int!
+  weapon: String!
   winNum: Int
   lossNum: Int
 }
@@ -51,8 +53,8 @@ input DadStats {
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    loginUser(email: String!, password: String!): Auth
+    addUser(firstName: String!, lastName: String!,username: String!,  password: String!): Auth
+    loginUser(username: String!, password: String!): Auth
 
     saveDad(input: DadStats): User
     removeDad(_id: ID!): User

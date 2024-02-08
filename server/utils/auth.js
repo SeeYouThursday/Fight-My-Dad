@@ -1,7 +1,7 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
-const secret = process.env.secret
+const secret = 'poopypants';
 
 module.exports = {
   AuthenticationError: new GraphQLError('Could not authenticate user.', {
@@ -29,8 +29,8 @@ module.exports = {
 
     return req;
   },
-  signToken: function ({ email, username, _id }) {
-    const payload = { email, username, _id };
+  signToken: function ({ firstName, lastName, username, _id }) {
+    const payload = { firstName, lastName, username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
