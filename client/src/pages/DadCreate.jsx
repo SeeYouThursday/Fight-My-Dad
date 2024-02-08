@@ -6,15 +6,39 @@ import { Grid, TextField, Button } from '@mui/material/';
 
 const DadCreate = () => {
   const [dadName, setDadName] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [entryMusic, setEntryMusic] = useState('');
+  const [dadJoke, setDadJoke] = useState('');
+  const [weight, setWeight] = useState('');
+  const [armLength, setArmLength] = useState('');
+  const [weapon, setWeapon] = useState('');
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+  
+  };
 
   const handleDadChange = (event) => {
     setDadName(event.target.value);
   };
-
-  const [nickname, setNickname] = useState('');
-
   const handleNicknameChange = (event) => {
     setNickname(event.target.value);
+  };
+  const handleEntryMusicChange = (event) => {
+    setEntryMusic(event.target.value);
+  };
+  const handleDadJokeChange = (event) => {
+    setDadJoke(event.target.value);
+  };
+  const handleWeightChange = (event) => {
+    setWeight(event.target.value);
+  };
+  const handleArmLengthChange = (event) => {
+    setArmLength(event.target.value);
+  };
+  const handleWeaponChange = (event) => {
+    setWeapon(event.target.value);
   };
   //card component
   //closebtn componet - top right
@@ -30,6 +54,22 @@ const DadCreate = () => {
   <>
   <Btn />
   <Grid>
+  <form
+    style={{
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundColor: '#41a6de',
+          height: '100vh', // 100% of the viewport height
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexWrap: 'nowrap',
+          flexDirection: 'column',
+          margin: 0,
+          padding: 0,
+        }}
+      >
     <input
         type="text"
         value={dadName}
@@ -44,52 +84,39 @@ const DadCreate = () => {
       />
       <input
         type="text"
-        value={dadName}
-        onChange={handleInputChange}
+        value={entryMusic}
+        onChange={handleEntryMusicChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
-        value={dadName}
-        onChange={handleInputChange}
+        value={dadJoke}
+        onChange={handleDadJokeChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
-        value={dadName}
-        onChange={handleInputChange}
+        value={weight}
+        onChange={handleWeightChange}
         placeholder="Enter something..."
       />
         <input
         type="text"
-        value={dadName}
-        onChange={handleInputChange}
+        value={armLength}
+        onChange={handleArmLengthChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
-        value={dadName}
-        onChange={handleInputChange}
+        value={weapon}
+        onChange={handleWeaponChange}
         placeholder="Enter something..."
       />
-        <input
-        type="text"
-        value={dadName}
-        onChange={handleInputChange}
-        placeholder="Enter something..."
-      />
-        <input
-        type="text"
-        value={dadName}
-        onChange={handleInputChange}
-        placeholder="Enter something..."
-      />
-        <input
-        type="text"
-        value={dadName}
-        onChange={handleInputChange}
-        placeholder="Enter something..."
-      />
+
+  <Button style={{}} onClick={handleFormSubmit}>
+          BET!#2
+  </Button>
+  </form>
   </Grid>
   </>
   );
