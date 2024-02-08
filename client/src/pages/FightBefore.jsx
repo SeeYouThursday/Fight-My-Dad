@@ -23,6 +23,8 @@ const FightBefore = () => {
   return (
     <>
       <Btn />
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid item xs={2}>
       <FormControl fullWidth>
       <InputLabel id="select-dad">Select Your Dad!</InputLabel>
       <Select
@@ -37,12 +39,22 @@ const FightBefore = () => {
         <MenuItem value={30}>Joel</MenuItem>
       </Select>
       </FormControl>
+      </Grid>
+
+      <Grid item xs={8}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      <Grid item xs={12}>
+      <h4>Names:</h4>
+      </Grid>
       <Grid id="my-dad-name" xs={6}>
         <div>1</div>
       </Grid>
       <Grid id="opponent-name" xs={6}>
         <div>2</div>
+      </Grid>
+
+      <Grid item xs={12}>
+      <h4>Nicknames:</h4>
       </Grid>
       <Grid id="my-dad-nickname" xs={6}>
         <div>1</div>
@@ -50,11 +62,19 @@ const FightBefore = () => {
       <Grid id="opponent-nickname" xs={6}>
         <div>2</div>
       </Grid>
+
+      <Grid item xs={12}>
+      <h4>Entry Music:</h4>
+      </Grid>
       <Grid id="my-dad-entry-music" xs={6}>
         <div>1</div>
       </Grid>
       <Grid id="opponent-entry-music" xs={6}>
         <div>2</div>
+      </Grid>
+
+      <Grid item xs={12}>
+      <h4>Dad Joke:</h4>
       </Grid>
       <Grid id="my-dad-dad-joke"xs={6}>
         <div>1</div>
@@ -62,11 +82,19 @@ const FightBefore = () => {
       <Grid id="opponent-dad-joke" xs={6}>
         <div>2</div>
       </Grid>
+
+      <Grid item xs={12}>
+      <h4>Weight:</h4>
+      </Grid>
       <Grid id="my-dad-weight" xs={6}>
         <div>1</div>
       </Grid>
       <Grid id="opponent-weight" xs={6}>
         <div>2</div>
+      </Grid>
+
+      <Grid item xs={12}>
+      <h4>Arm Length:</h4>
       </Grid>
       <Grid id="my-dad-arm-length" xs={6}>
         <div>1</div>
@@ -74,11 +102,17 @@ const FightBefore = () => {
       <Grid id="opponent-arm-length" xs={6}>
         <div>2</div>
       </Grid>
+      <Grid item xs={12}>
+      <h4>Number of Wins:</h4>
+      </Grid>
       <Grid id="my-dad-win-num" xs={6}>
         <div>1</div>
       </Grid>
       <Grid id="opponent-win-num" xs={6}>
         <div>2</div>
+      </Grid>
+      <Grid item xs={12}>
+      <h4>Number of Losses:</h4>
       </Grid>
       <Grid id="my-dad-loss-num" xs={6}>
         <div>1</div>
@@ -87,6 +121,9 @@ const FightBefore = () => {
         <div>2</div>
       </Grid>
       </Grid>
+      </Grid>
+
+      <Grid item xs={2}>
       <FormControl fullWidth>
       <InputLabel id="select-oppoent">Select Your Oppoent!</InputLabel>
       <Select
@@ -101,6 +138,9 @@ const FightBefore = () => {
         <MenuItem value={30}>Joel</MenuItem>
       </Select>
       </FormControl>
+    </Grid>
+
+    </Grid>
     </>
   )
 };
