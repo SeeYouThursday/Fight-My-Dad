@@ -1,6 +1,6 @@
 import Nav from '../Components/Nav';
 import Image from '../Components/Image';
-import Stat from '../Components/Stat';
+import DadCard from '../Components/Card';
 
 const styles = {
   //   display: 'flex',
@@ -52,7 +52,7 @@ const Dashboard = (dads) => {
       {/* PUT DAD COLLECTION HERE */}
 
 
-      <Stat />
+      <DadCard />
         {/* {dads.map((dad) => (
           <Stat />
         ))} */}
