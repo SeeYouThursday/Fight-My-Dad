@@ -40,7 +40,7 @@ const Dashboard = (dads) => {
   return (
     <main>
       <div style={styles.container}>
-        <Nav />
+        {/* <Nav /> */}
         <section style={styles.mainSection}>
           <Image />
           <h1 style={styles.user}>Put Username Here</h1>
@@ -52,7 +52,7 @@ const Dashboard = (dads) => {
       {/* PUT DAD COLLECTION HERE */}
 
 
-      
+      <Stat />
         {/* {dads.map((dad) => (
           <Stat />
         ))} */}
