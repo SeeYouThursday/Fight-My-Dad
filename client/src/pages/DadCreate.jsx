@@ -1,4 +1,5 @@
 import { useMutation } from 'react';
+import Btn from '../Components/Btn'
 
 const DadCreate = () => {
   //card component
@@ -11,7 +12,7 @@ const DadCreate = () => {
 
   return (
   <>
-  
+   <Btn />
   </>
   );
 };

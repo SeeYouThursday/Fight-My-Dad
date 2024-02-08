@@ -11,7 +11,7 @@ const dadSchema = new Schema({
         unique: true,
     },
     Username: {
-        type: String,
+        type: Number,
         required: true,
     },
     EntryMusic: {
@@ -41,6 +41,9 @@ const dadSchema = new Schema({
     LossNum: {
         type: Number,
         default: 0,
+    Icon: {
+        type: String,
+    }
     },
 });
 
