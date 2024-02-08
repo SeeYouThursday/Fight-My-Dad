@@ -9,33 +9,54 @@ const typeDefs = `
 
   type Dad {
     _id: ID!
-    DadName: String!
-    Nickname: String!
-    User: Int
-    EntryMusic: String!
-    DadJoke: String!
-    Weight: Int
-    ArmLength: Int
-    Weapon: Int
-    WinNum: Int
-    LossNum: Int
+    dadName: String!
+    nickname: String!
+    userId: Int!
+    entryMusic: String!
+    dadJoke: String!
+    weight: Int
+    armLength: Int
+    weapon: Int
+    winNum: Int
+    lossNum: Int
   }
 
   type Stats {
     _id: ID!
-    User: Int
+    dadId: ID!
+    dadName: String!
     WinNum: Int
     LossNum: Int
   }  
 
+  type Auth {
+    token: ID!
+    user: User
+}
+
+input DadStats {
+  dadName: String!
+  nickname: String!
+  entryMusic: String!
+  dadJoke: String!
+  weight: Int!
+  armLength: Int!
+  winNum: Int
+  lossNum: Int
+}
+
   type Query {
-    user: [User]
-    matchups(_id: String): [Matchup]
+    me: User
+    dad: User #Dad returns a user obj? 
   }
 
   type Mutation {
-    createMatchup(tech1: String!, tech2: String!): Matchup
-    createVote(_id: String!, techNum: Int!): Matchup
+    addUser(username: String!, email: String!, password: String!): Auth
+    loginUser(email: String!, password: String!): Auth
+
+    saveDad(input: DadStats): User
+    removeDad(_id: ID!): User
+    #/////consider adding a dadId to Dad schema to reference above
   }
 `;
 

@@ -1,52 +1,63 @@
 const { Schema, model } = require('mongoose');
 
-const dadSchema = new Schema({
+const dadSchema = new Schema(
+  {
     DadName: {
+      type: String,
+      required: true,
+    },
+    nickname: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    entryMusic: {
+      type: String,
+      required: true,
+    },
+    dadJoke: {
+      type: String,
+      required: true,
+    },
+    weight: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+    armLength: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
+    weapon: {
+      type: Number,
+      default: 0,
+    },
+    winNum: {
+      type: Number,
+      default: 0,
+    },
+    lossNum: {
+      type: Number,
+      default: 0,
+      Icon: {
         type: String,
-        required: true,
+      },
     },
-    Nickname: {
-        type: String,
-        required: true,
-        unique: true,
+  },
+  {
+    toJSON: {
+      virtuals: true,
     },
-    Username: {
-        type: Number,
-        required: true,
-    },
-    EntryMusic: {
-        type: String,
-        required: true,
-    },
-    DadJoke: {
-        type: String,
-        required: true,
-    },
-    Weight: {
-        type: Number,
-        default: 0,
-    },
-    ArmLength: {
-        type: Number,
-        default: 0,
-    },
-    Weapon: {
-        type: Number,
-        default: 0,
-    },
-    WinNum: {
-        type: Number,
-        default: 0,
-    },
-    LossNum: {
-        type: Number,
-        default: 0,
-    Icon: {
-        type: String,
-    }
-    },
-});
+  }
+);
 
-const Dad = model('Dad', dadSchema);
+//leaving weapon as optional
 
-module.exports = Dad;
+//   Consider showing win/loss through reference to Stat as a virtual
+
+//Should the type be changed to Number?
+
+// const Dad = model('Dad', dadSchema); //! Changed to just a schema instead of a model to use in reference
+
+module.exports = dadSchema;
