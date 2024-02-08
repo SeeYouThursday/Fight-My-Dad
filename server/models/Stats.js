@@ -1,19 +1,19 @@
 const { Schema, model } = require('mongoose');
 
 const statsSchema = new Schema({
-    Username: {
-        type: String,
-        required: true,
-        unique: true,
-    },
-    WinNum: {
-        type: Number,
-        default: 0,
-    },
-    LossNum: {
-        type: Number,
-        default: 0,
-    },
+  dadId: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  winNum: {
+    type: Number,
+    default: 0,
+  },
+  lossNum: {
+    type: Number,
+    default: 0,
+  },
 });
 
 const Stats = model('Stats', statsSchema);
