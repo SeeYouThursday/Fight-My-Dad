@@ -8,26 +8,20 @@ const dadSchema = new Schema(
     },
     nickname: {
       type: String,
-      required: true,
-      unique: true,
     },
     entryMusic: {
       type: String,
-      required: true,
     },
     dadJoke: {
       type: String,
-      required: true,
     },
     weight: {
       type: Number,
       default: 0,
-      required: true,
     },
     armLength: {
       type: Number,
       default: 0,
-      required: true,
     },
     weapon: {
       type: Number,

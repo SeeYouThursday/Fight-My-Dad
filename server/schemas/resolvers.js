@@ -1,20 +1,19 @@
-const { User, Stats, Dad } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User } = require('../models');
+const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require('apollo-server');
 
 const resolvers = {
   Query: {
-    me: async (parent, { userId, username }) => {
-      try {
-        return User.findOne({
-          $or: [{ _id: userId }, { username: username }],
-        });
-      } catch (err) {
-        console.log(err);
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const data = await User.findOne({ _id: context.user._id }).select(
+          '-__v -password'
+        );
+
+        return data;
+      } else {
+        throw AuthenticationError;
       }
-    },
-    dad: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return Dad.find(params);
     },
   },
   Mutation: {
@@ -27,9 +26,10 @@ const resolvers = {
           password,
         });
         const token = signToken(user);
+        console.log(token);
         return { token, user };
       } catch (err) {
-        throw AuthenticationError;
+        throw new AuthenticationError(`Error Adding Signing Up ${err}`);
       }
     },
     loginUser: async (parent, { username, password }) => {
@@ -51,24 +51,33 @@ const resolvers = {
       console.log('Logged IN');
       return { token, user };
     },
-    saveDad: async (parent, { dad }, context) => {
-      if (context.user) {
-        try {
-          return User.findOneAndUpdate(
-            { _id: context.user._id },
-            {
-              $addToSet: { savedDads: { dad } },
-            },
-            { new: true, runValidators: true }
-          );
-        } catch (err) {
-          // If user attempts to execute this mutation and isn't logged in, throw an error
-          throw new AuthenticationError('User is not authenticated.');
-        }
-      }
-    },
-    removeDad: async (parent, { dad }) => {},
   },
 };
 
 module.exports = resolvers;
+
+// saveDad: async (parent, { dad }, context) => {
+//   if (context.user) {
+//     try {
+//       return User.findOneAndUpdate(
+//         { _id: context.user._id },
+//         {
+//           $addToSet: { savedDads: { dad } },
+//         },
+//         { new: true, runValidators: true }
+//       );
+//     } catch (err) {
+//       // If user attempts to execute this mutation and isn't logged in, throw an error
+//       throw new AuthenticationError('User is not authenticated.');
+//     }
+//   }
+// },
+// removeDad: async (parent, { dad }) => {},
+
+// getDad: async (parent, { userId }) => {
+//   const params = userId ? { userId } : {};
+//   return Dad.find(params);
+// },
+// getAllDads: async (parent, args) => {
+//   return Dad.find({});
+// },

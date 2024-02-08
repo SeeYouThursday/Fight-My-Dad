@@ -9,54 +9,34 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
-  const [formState, setFormState] = useState({
+  const [userFormData, setUserFormData] = useState({
     username: '',
     firstName: '',
     lastName: '',
     password: '',
   });
 
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    console.log(userFormData);
 
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
+      const response = await addUser({
+        variables: { ...userFormData },
       });
-
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+      console.log(response, 'response');
+      Auth.login(response.data.addUser.token);
+    } catch (err) {
+      console.error(err);
     }
   };
-
-  const labels = ['First Name', 'Last Name', 'Username', 'Password'];
-
-  const InputFields = labels.map((label, index) => {
-    return (
-      <TextField
-        key={index}
-        id="filled-basic"
-        label={label}
-        variant="filled"
-        margin="none"
-        name={label}
-        onChange={handleChange}
-      />
-    );
-  });
 
   return (
     <Grid>
@@ -84,7 +64,43 @@ const Signup = () => {
           width={'30%'}
           style={{ overflow: 'hidden' }}
         />
-        {InputFields}
+        {/* {InputFields} */}
+        <TextField
+          id="filled-basic"
+          label="First Name"
+          variant="filled"
+          margin="none"
+          name="firstName"
+          defaultValue={userFormData.firstName}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="filled-basic"
+          label="Last Name"
+          variant="filled"
+          margin="none"
+          name="lastName"
+          defaultValue={userFormData.lastName}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="filled-basic"
+          label="Username"
+          variant="filled"
+          margin="none"
+          name="username"
+          defaultValue={userFormData.firstName}
+          onChange={handleInputChange}
+        />
+        <TextField
+          id="filled-basic"
+          label="First Name"
+          variant="filled"
+          margin="none"
+          name="firstName"
+          defaultValue={userFormData.firstName}
+          onChange={handleInputChange}
+        />
         <Button style={{}} onClick={handleFormSubmit}>
           BET!
         </Button>
