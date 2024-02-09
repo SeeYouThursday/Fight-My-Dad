@@ -5,31 +5,28 @@ const typeDefs = `
     lastName: String
     password: String!
     username: String
-    dad: [String]
+    savedDads: [ID]
   }
 
   type Dad {
-
     _id: ID
     dadName: String
     nickname: String
-    userId: Int
+    userId: String
     entryMusic: String
     dadJoke: String
 
     weight: Int
     armLength: Int
-    weapon: Int
+    experience: Int
     winNum: Int
     lossNum: Int
   }
 
   type Stats {
-
     _id: ID
     dadId: ID
     dadName: String
-
     WinNum: Int
     LossNum: Int
   }  
@@ -40,30 +37,32 @@ const typeDefs = `
 }
 
 input dadStats {
-  _id: ID
+  userId: String
   dadName: String
   nickname: String
   entryMusic: String
   dadJoke: String
   weight: Int
   armLength: Int
-  weapon: String
-
+  experience: Int
   winNum: Int
   lossNum: Int
 }
 
   type Query {
     me: User
-
+    getAllDads: [Dad]
   }
 
   type Mutation {
-    addUser(firstName: String, lastName: String, username: String!, password: String!): Auth
+    addUser(firstName: String, lastName: String, username: String, password: String!): Auth
     loginUser(username: String, password: String!): Auth
 
+    addDad(input: dadStats) : Dad
 
   }
 `;
 
 module.exports = typeDefs;
+
+// removeDad(_id: ID) : User
