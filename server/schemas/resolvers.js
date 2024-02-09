@@ -1,3 +1,4 @@
+
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server');
@@ -15,6 +16,7 @@ const resolvers = {
         throw AuthenticationError;
       }
     },
+
   },
   Mutation: {
     addUser: async (parent, { firstName, lastName, username, password }) => {
@@ -26,10 +28,12 @@ const resolvers = {
           password,
         });
         const token = signToken(user);
+
         console.log(token);
         return { token, user };
       } catch (err) {
         throw new AuthenticationError(`Error Adding Signing Up ${err}`);
+
       }
     },
     loginUser: async (parent, { username, password }) => {
@@ -41,6 +45,7 @@ const resolvers = {
         );
       }
 
+
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
@@ -50,11 +55,14 @@ const resolvers = {
       const token = signToken(user);
       console.log('Logged IN');
       return { token, user };
+
     },
+    removeDad: async (parent, { dad }) => {},
   },
 };
 
 module.exports = resolvers;
+
 
 // saveDad: async (parent, { dad }, context) => {
 //   if (context.user) {
@@ -81,3 +89,4 @@ module.exports = resolvers;
 // getAllDads: async (parent, args) => {
 //   return Dad.find({});
 // },
+

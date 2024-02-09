@@ -9,12 +9,14 @@ const typeDefs = `
   }
 
   type Dad {
+
     _id: ID
     dadName: String
     nickname: String
     userId: Int
     entryMusic: String
     dadJoke: String
+
     weight: Int
     armLength: Int
     weapon: Int
@@ -23,9 +25,11 @@ const typeDefs = `
   }
 
   type Stats {
+
     _id: ID
     dadId: ID
     dadName: String
+
     WinNum: Int
     LossNum: Int
   }  
@@ -44,17 +48,20 @@ input dadStats {
   weight: Int
   armLength: Int
   weapon: String
+
   winNum: Int
   lossNum: Int
 }
 
   type Query {
     me: User
+
   }
 
   type Mutation {
     addUser(firstName: String, lastName: String, username: String!, password: String!): Auth
     loginUser(username: String, password: String!): Auth
+
 
   }
 `;

@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const dadSchema = require('./Dad');
 
 const userSchema = new Schema(
@@ -38,6 +39,7 @@ userSchema.pre('save', async function (next) {
 
   next();
 });
+
 
 // custom method to compare and validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {
