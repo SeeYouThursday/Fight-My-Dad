@@ -7,6 +7,7 @@ export const QUERY_ME = gql`
       username
       dads {
         _id
+
       }
     }
   }
@@ -43,3 +44,4 @@ query getAllDads{
 //   }
 // }
 // `;
+

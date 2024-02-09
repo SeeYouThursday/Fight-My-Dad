@@ -27,6 +27,7 @@ mutation addUser($username: String, $firstName: String, $lastName: String, $pass
 }`;
 
 export const SAVE_DAD = gql`
+
 mutation addDad($newDad: dadStats) {
     addDad(newDad: $newDad) {
         userId    
@@ -39,6 +40,7 @@ mutation addDad($newDad: dadStats) {
         experience
         winNum
         lossNum
+
     }
 }`;
 

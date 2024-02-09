@@ -1,4 +1,6 @@
+
 const { User, Dad } = require('../models');
+
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server');
 
@@ -10,11 +12,13 @@ const resolvers = {
           .populate('dad')
           .select('-__v -password');
 
+
         return data;
       } else {
         throw AuthenticationError;
       }
     },
+
     getAllDads: async (parent, args, context) => {
       if (context.user) {
         return Dad.find({});
@@ -36,10 +40,12 @@ const resolvers = {
           password,
         });
         const token = signToken(user);
+
         console.log(token);
         return { token, user };
       } catch (err) {
         throw new AuthenticationError(`Error Adding Signing Up ${err}`);
+
       }
     },
     loginUser: async (parent, { username, password }) => {
@@ -51,6 +57,7 @@ const resolvers = {
         );
       }
 
+
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
@@ -60,6 +67,7 @@ const resolvers = {
       const token = signToken(user);
       console.log('Logged IN');
       return { token, user };
+
     },
     addDad: async (parent, { input }, context) => {
       console.log('Eliot juggles.', input);
@@ -86,7 +94,9 @@ const resolvers = {
 
 module.exports = resolvers;
 
+
 //
+
 // removeDad: async (parent, { dad }) => {},
 
 // getDad: async (parent, { userId }) => {
