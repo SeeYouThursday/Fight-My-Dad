@@ -18,9 +18,7 @@ const userSchema = new Schema(
     username: {
       type: String,
     },
-    dad: {
-      savedDads: [dadSchema],
-    },
+    savedDads: [{ type: Schema.Types.ObjectId, ref: 'Dad' }],
   },
   {
     toJSON: {

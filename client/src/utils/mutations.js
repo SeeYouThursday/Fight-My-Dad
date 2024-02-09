@@ -27,22 +27,18 @@ mutation addUser($username: String, $firstName: String, $lastName: String, $pass
 }`;
 
 export const SAVE_DAD = gql`
-mutation saveDad($newDad: DadStats!) {
-    saveDad(newDad: $newDad) {
-        _id
-        username
-        savedDads {
-            _id
-            dadName
-            nickname
-            entryMusic
-            dadJoke
-            weight
-            armLength
-            weapon
-            winNum
-            lossNum
-        }
+mutation addDad($newDad: dadStats) {
+    addDad(newDad: $newDad) {
+        userId    
+        dadName
+        nickname
+        entryMusic
+        dadJoke
+        weight
+        armLength
+        experience
+        winNum
+        lossNum
     }
 }`;
 
