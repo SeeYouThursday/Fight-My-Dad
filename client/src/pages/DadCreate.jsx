@@ -20,25 +20,10 @@ const DadCreate = () => {
   };
 
   const handleDadChange = (event) => {
-    setDadName(event.target.value);
-  };
-  const handleNicknameChange = (event) => {
-    setNickname(event.target.value);
-  };
-  const handleEntryMusicChange = (event) => {
-    setEntryMusic(event.target.value);
-  };
-  const handleDadJokeChange = (event) => {
-    setDadJoke(event.target.value);
-  };
-  const handleWeightChange = (event) => {
-    setWeight(event.target.value);
-  };
-  const handleArmLengthChange = (event) => {
-    setArmLength(event.target.value);
-  };
-  const handleWeaponChange = (event) => {
-    setWeapon(event.target.value);
+    const{name,value} = event.target;
+    setFormData({
+      [name]:value,
+    });
   };
   //card component
   //closebtn componet - top right
@@ -79,37 +64,37 @@ const DadCreate = () => {
       <input
         type="text"
         value={nickname}
-        onChange={handleNicknameChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
         value={entryMusic}
-        onChange={handleEntryMusicChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
         value={dadJoke}
-        onChange={handleDadJokeChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
         value={weight}
-        onChange={handleWeightChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
         <input
         type="text"
         value={armLength}
-        onChange={handleArmLengthChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
       <input
         type="text"
         value={weapon}
-        onChange={handleWeaponChange}
+        onChange={handleDadChange}
         placeholder="Enter something..."
       />
 
