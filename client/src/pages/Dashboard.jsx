@@ -44,10 +44,13 @@ const Dashboard = (me) => {
   return (
     <main>
       <div style={styles.container}>
-        {/* <Nav /> */}
         <section style={styles.mainSection}>
           <Image />
-          <h1 style={styles.user}></h1>
+          <div>
+            <h1 style={styles.user}>{me.username}</h1>
+            <h3>Hey, {me.firstName} {me.lastName}!</h3>
+          </div>
+          
         </section>
       </div>
 
