@@ -55,7 +55,7 @@ const DadCreate = () => {
   <Btn />
   <Grid>
   <form
-    style={{
+        style={{
           backgroundSize: 'contain',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
