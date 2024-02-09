@@ -1,6 +1,7 @@
 import Nav from '../Components/Nav';
 import Image from '../Components/Image';
 import DadCard from '../Components/Card';
+import { QUERY_ME } from '../utils/queries'
 
 const styles = {
   //   display: 'flex',
@@ -34,8 +35,9 @@ const styles = {
 };
 
 // const drawerbar = ''
-const Dashboard = (dads) => {
+const Dashboard = (me) => {
   //Card
+  const { loading, data } = useQuery(QUERY_ME)
 
   return (
     <main>
@@ -43,7 +45,7 @@ const Dashboard = (dads) => {
         {/* <Nav /> */}
         <section style={styles.mainSection}>
           <Image />
-          <h1 style={styles.user}>{me.firstName}</h1>
+          <h1 style={styles.user}>{me.username}</h1>
         </section>
       </div>
 
