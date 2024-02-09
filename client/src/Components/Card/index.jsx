@@ -27,6 +27,15 @@ const styles = {
         fontStyle: 'italic',
         textAlign: 'center',
     },
+    half: {
+        width: '50%'
+    },
+    bottom: {
+        display: 'flex'
+    },
+    cardBtn: {
+        backgroundColor: '#0alc20'
+    }
 
 }
 
@@ -48,17 +57,34 @@ export default function DadCard() {
               Dad Joke
             </Typography>
             <Divider />
-            <div>
-                <aside>
+            <div style={styles.bottom}>
+                <aside style={styles.half}>
                     <Typography variant="body2" color="text.secondary">
-                        <i class="fas fa-dumbbell"></i>
+                        <i class="fas fa-dumbbell">Weight</i>
+                        <span> | </span>
+                        <i class="fas fa-dumbbell">Height</i>
                     </Typography>
+                    <Divider />
+                    <Typography variant="body2" color="text.secondary">
+                        <i class="fas fa-dumbbell">Experience</i>
+
+                    </Typography>
+                    <Divider />
+                    <Typography variant="body2" color="text.secondary">
+                        <i class="fas fa-dumbbell">Weight</i>
+
+                    </Typography>
+                    <Divider />
                 </aside>
+                <div>
+                    <button style={styles.cardBtn}>
+                        Theme
+                    </button>
+                    <Typography variant="body2" color="text.secondary">
+                        Wins | Losses
+                    </Typography>
+                </div>
             </div>
-            <Typography variant="body2" color="text.secondary">
-              Data input from login
-                Age, Weight, Height, Wins, Losses, Draws, walkout song, arm length, , proficencies.
-            </Typography>
           </CardContent>
           <CardActions>
             <Button size="small">Fight</Button>
