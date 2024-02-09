@@ -60,18 +60,18 @@ export default function DadCard() {
             <div style={styles.bottom}>
                 <aside style={styles.half}>
                     <Typography variant="body2" color="text.secondary">
-                        <i class="fas fa-dumbbell">Weight</i>
+                        <i className="fas fa-dumbbell">Weight</i>
                         <span> | </span>
-                        <i class="fas fa-dumbbell">Height</i>
+                        <i className="fas fa-dumbbell">Height</i>
                     </Typography>
                     <Divider />
                     <Typography variant="body2" color="text.secondary">
-                        <i class="fas fa-dumbbell">Experience</i>
+                        <i className="fas fa-dumbbell">Experience</i>
 
                     </Typography>
                     <Divider />
                     <Typography variant="body2" color="text.secondary">
-                        <i class="fas fa-dumbbell">Weight</i>
+                        <i className="fas fa-dumbbell">Weight</i>
 
                     </Typography>
                     <Divider />

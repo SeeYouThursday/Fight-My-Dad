@@ -1,6 +1,8 @@
 import Nav from '../Components/Nav';
 import Image from '../Components/Image';
 import DadCard from '../Components/Card';
+
+import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries'
 
 const styles = {
@@ -45,7 +47,7 @@ const Dashboard = (me) => {
         {/* <Nav /> */}
         <section style={styles.mainSection}>
           <Image />
-          <h1 style={styles.user}>{me.username}</h1>
+          <h1 style={styles.user}></h1>
         </section>
       </div>
 

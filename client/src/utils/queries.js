@@ -22,8 +22,8 @@ export const QUERY_ME = gql`
   }
 `;
 
-export const QUERY_DAD = gql`
-query getDad{}`;
+// export const QUERY_DAD = gql`
+// query getDad{}`;
 
-export const QUERY_DADS = gql`
-query getAllDads{}`;
+// export const QUERY_DADS = gql`
+// query getAllDads{}`;
