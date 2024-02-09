@@ -77,47 +77,56 @@ const DadCreate = () => {
           padding: 0,
         }}
       >
+
+    
     <input
         type="text"
-        value={dadName}
+        name="DadName"
+        value={formData.DadName}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Dad Name"
       />
       <input
         type="text"
-        value={nickname}
+        name="nickname"
+        value={formData.nickname}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Nickname"
       />
       <input
         type="text"
-        value={entryMusic}
+        name="entryMusic"
+        value={formData.entryMusic}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Choose some entry music!"
       />
       <input
         type="text"
-        value={dadJoke}
+        name="dadJoke"
+        value={formData.dadJoke}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Add your dad's favorite joke!"
       />
       <input
         type="text"
-        value={weight}
+        name="weight"
+        value={formData.weight}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Weight"
       />
         <input
         type="text"
-        value={armLength}
+        name="armLength"
+        value={formData.armLength}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Arm Length"
       />
       <input
         type="text"
-        value={weapon}
+        name="weapon"
+        value={formData.weapon}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Weapon Score"
       />
 
   <Button style={{}} onClick={handleFormSubmit}>
