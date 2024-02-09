@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import loginImage from '../assets/images/login-signup/login.png'; //background for form
-import loginLabel from '../assets/images/login-signup/labels/login-animated.gif'; //label for form
+// import loginLabel from '../assets/images/login-signup/labels/login-animated.gif'; //label for form
 import smallLogin from '../assets/images/login-signup/labels/login300200.gif'; //label for form
 import { Grid, TextField, Button } from '@mui/material/';
-// import Auth from '../utils/auth';
-// import { LOGIN_USER } from '../utils/mutationsStandIn';
-// import { useMutation } from '@apollo/client';
+import Auth from '../utils/auth';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  // const [login] = useMutation(LOGIN_USER);
+  const [loginUser] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -23,11 +23,11 @@ const Login = () => {
     event.preventDefault();
     console.log(formState);
     try {
-      // const { data } = await login({
-      //   variables: { ...formState },
-      // });
+      const response = await loginUser({
+        variables: { ...formState },
+      });
       //! change login based on what we have in our mutations
-      // Auth.login(data.login.token);
+      Auth.login(response.data.login.token);
     } catch (e) {
       console.error(e);
     }

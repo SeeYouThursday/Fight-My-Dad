@@ -2,32 +2,27 @@ const { Schema, model } = require('mongoose');
 
 const dadSchema = new Schema(
   {
-    DadName: {
+
+    dadName: {
       type: String,
       required: true,
     },
     nickname: {
       type: String,
-      required: true,
-      unique: true,
     },
     entryMusic: {
       type: String,
-      required: true,
     },
     dadJoke: {
       type: String,
-      required: true,
     },
     weight: {
       type: Number,
       default: 0,
-      required: true,
     },
     armLength: {
       type: Number,
       default: 0,
-      required: true,
     },
     weapon: {
       type: Number,
