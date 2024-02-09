@@ -5,6 +5,8 @@ import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import {GET_MY_DADS} from '../utils/queries';
 import {GET_ALL_DADS} from '../utils/queries';
 
+//// ADD EXPERIENCE
+
 const FightBefore = () => {
   ///// UPDATE WHEN MUTATION DONE
     const { myData } = useQuery(GET_MY_DADS);
@@ -22,7 +24,6 @@ const FightBefore = () => {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-
   };
 
 ///// NOTE:  need to hook dropdown to db
@@ -85,6 +86,7 @@ const FightBefore = () => {
           <div>Loss Num:</div>
         </Grid>
       </Grid>
+
       <Grid item xs={6}>
         <Grid xs={6}>
           <div>My Dad</div>
@@ -160,7 +162,7 @@ const FightBefore = () => {
         onChange={handleOpponentChange}
       >
         {allData.dads.map(dad => (
-                  <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
+            <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
           ))}
       </Select>
       </FormControl>

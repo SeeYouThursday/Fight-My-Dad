@@ -11,7 +11,7 @@ const DadCreate = () => {
   const [dadJoke, setDadJoke] = useState('');
   const [weight, setWeight] = useState('');
   const [armLength, setArmLength] = useState('');
-  const [weapon, setWeapon] = useState('');
+  const [experience, setWeapon] = useState('');
 
   const [saveDad] = useMutation(SAVE_DAD);
 
@@ -35,7 +35,7 @@ const DadCreate = () => {
       dadJoke: 'JavaScript',
       weight: 'JavaScript',
       armLength: 'JavaScript',
-      weapon: 'JavaScript',
+      experience: 'JavaScript',
       winNum: 'JavaScript',
       lossNum: 'JavaScript',
     });
@@ -124,9 +124,9 @@ const DadCreate = () => {
       <input
         type="text"
         name="weapon"
-        value={formData.weapon}
+        value={formData.experience}
         onChange={handleDadChange}
-        placeholder="Weapon Score"
+        placeholder="Experience Score"
       />
 
   <Button style={{}} onClick={handleFormSubmit}>
