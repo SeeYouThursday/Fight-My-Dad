@@ -43,7 +43,7 @@ const Dashboard = (dads) => {
         {/* <Nav /> */}
         <section style={styles.mainSection}>
           <Image />
-          <h1 style={styles.user}>Put Username Here</h1>
+          <h1 style={styles.user}>{me.firstName}</h1>
         </section>
       </div>
 
