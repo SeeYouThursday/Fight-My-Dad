@@ -205,6 +205,11 @@ const FightBefore = () => {
       </Grid>
 
       <Button onClick={handleFormSubmit}>YEET!</Button>
+
+      <div>WINNER</div>
+      <div id="winner-name"></div>
+      <div>Score</div>
+      <div id="final-score"></div>
     </>
   );
 };
