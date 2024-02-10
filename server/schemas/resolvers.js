@@ -29,6 +29,18 @@ const resolvers = {
         );
       }
     },
+
+    getDad: async (parent, args, context) => {
+      if (context.user) {
+        return Dad.find({_id: context.dad_id});
+        // return data;
+      } else {
+        throw new AuthenticationError(
+          `There was a problem getting your dad, maybe he's out for milk.`
+        );
+      }
+    },
+
   },
   Mutation: {
     addUser: async (parent, { firstName, lastName, username, password }) => {
