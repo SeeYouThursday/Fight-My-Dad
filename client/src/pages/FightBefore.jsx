@@ -1,14 +1,15 @@
+
 import React, { useState } from 'react';
-import Btn from '../Components/Btn'
-import { Button, FormControl, InputLabel, MenuItem, Select} from '@mui/material/';
-import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import Btn from '../Components/Btn';
+import { useQuery } from '@apollo/client';
+import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material/';
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
 
 //// ADD EXPERIENCE
 
 //// FIGHT EQUATION FUNCTION
-const Fight = () => {
+/*const Fight = () => {
   //setTimeout
   //Cards
   //Form - inputs are btns or Options
@@ -29,13 +30,13 @@ const Fight = () => {
   )
 };
 
-
+*/
 
 
 const FightBefore = () => {
   ///// UPDATE WHEN MUTATION DONE
-    const { myData } =  useQuery(QUERY_ME);
-    const { allData } = useQuery(QUERY_DADS);
+    const { data: myData } = useQuery(QUERY_ME);
+    const { data: allData } = useQuery(QUERY_DADS);
 
     const [myDad, setMyDad] = useState('');
     const [opponent, setMyOpponent] = useState('');
@@ -55,7 +56,6 @@ const FightBefore = () => {
 ///// NOTE: currently hard coded with vaules
   return (
     <>
-      <Btn />
 
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
@@ -71,9 +71,9 @@ const FightBefore = () => {
           label="Dad"
           onChange={handleMyDadChange}
         >
-          {myData.dads.map(dad => (
-                  <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
-          ))}
+          {allData?.getAllDads.map(dad => (
+                <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
+              ))}
         </Select>
 
         </FormControl>
@@ -186,17 +186,19 @@ const FightBefore = () => {
         label="Dad"
         onChange={handleOpponentChange}
       >
-        {allData.dads.map(dad => (
-            <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
+        {allData?.getAllDads.map(dad => (
+                <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
           ))}
       </Select>
       </FormControl>
-    </Grid>
+      </Grid>
 
-    </Grid>
-    <Button onSubmit={handleFormSubmit}>YEET!</Button>
+      </Grid>
+
+      <Button onClick={handleFormSubmit}>YEET!</Button>
     </>
-  )
+  );
 };
 
 export default FightBefore;
+
