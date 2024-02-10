@@ -8,8 +8,8 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
 const Login = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [loginUser] = useMutation(LOGIN_USER);
+  const [formState, setFormState] = useState({ username: '', password: '' });
+  const [login] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,20 +21,20 @@ const Login = () => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+    console.log('hi', formState);
     try {
-      const response = await loginUser({
+      const { data } = await login({
         variables: { ...formState },
       });
       //! change login based on what we have in our mutations
-      Auth.login(response.data.login.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
 
     // clear form values
     setFormState({
-      email: '',
+      username: '',
       password: '',
     });
   };
@@ -49,7 +49,7 @@ const Login = () => {
           height: '100vh', // This sets the height to the full height of the viewport
         }}
       >
-        <form
+        <form onSubmit={handleFormSubmit}
           style={{
             backgroundImage: `url(${loginImage})`,
             backgroundSize: 'contain',
@@ -87,22 +87,26 @@ const Login = () => {
           <TextField
             shrink="true"
             spacing={2}
-            id="filled-basic"
+            className="filled-basic"
             label="Username"
             variant="filled"
+            name='username'
+            type='username'
             autoFocus={true}
-            // defaultValue={username}
+            value={formState.username}
             onChange={handleChange}
           />
           <TextField
             shrink="true"
-            id="filled-basic"
+            className="filled-basic"
             label="Password"
             variant="filled"
-            // defaultValue={password}
+            name='password'
+            type='password'
+            value={formState.password}
             onChange={handleChange}
           />
-          <Button onSubmit={handleFormSubmit}>BET!</Button>
+          <Button type='submit'>BET!</Button>
           {/* <Link to={'/signup'}>Sign Up!</Link> //! Does not work */}
         </form>
       </div>
