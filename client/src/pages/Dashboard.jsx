@@ -55,7 +55,7 @@ const Dashboard = (me) => {
       </div>
 
       <div style={styles.divider}></div>
-
+      <Stat />
       {/* PUT DAD COLLECTION HERE */}
 
 
