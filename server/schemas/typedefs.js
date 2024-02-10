@@ -1,63 +1,68 @@
 const typeDefs = `
   type User {
-    _id: ID!
-    FirstName: String!
-    LastName: String!
-    Password: String!
-    Username: String!
+    _id: ID
+    firstName: String
+    lastName: String
+    password: String!
+    username: String
+    savedDads: [ID]
   }
 
   type Dad {
-    _id: ID!
-    dadName: String!
-    nickname: String!
-    userId: Int!
-    entryMusic: String!
-    dadJoke: String!
+    _id: ID
+    dadName: String
+    nickname: String
+    userId: String
+    entryMusic: String
+    dadJoke: String
+
     weight: Int
     armLength: Int
-    weapon: Int
+    experience: Int
     winNum: Int
     lossNum: Int
   }
 
   type Stats {
-    _id: ID!
-    dadId: ID!
-    dadName: String!
+    _id: ID
+    dadId: ID
+    dadName: String
     WinNum: Int
     LossNum: Int
   }  
 
   type Auth {
-    token: ID!
+    token: ID
     user: User
 }
 
-input DadStats {
-  dadName: String!
-  nickname: String!
-  entryMusic: String!
-  dadJoke: String!
-  weight: Int!
-  armLength: Int!
+input dadStats {
+  userId: String
+  dadName: String
+  nickname: String
+  entryMusic: String
+  dadJoke: String
+  weight: Int
+  armLength: Int
+  experience: Int
   winNum: Int
   lossNum: Int
 }
 
   type Query {
     me: User
-    dad: User #Dad returns a user obj? 
+    getAllDads: [Dad]
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!): Auth
-    loginUser(email: String!, password: String!): Auth
+    addUser(firstName: String, lastName: String, username: String, password: String!): Auth
+    loginUser(username: String, password: String!): Auth
 
-    saveDad(input: DadStats): User
-    removeDad(_id: ID!): User
-    #/////consider adding a dadId to Dad schema to reference above
+    addDad(input: dadStats) : Dad
+
   }
 `;
 
 module.exports = typeDefs;
+
+// removeDad(_id: ID) : User

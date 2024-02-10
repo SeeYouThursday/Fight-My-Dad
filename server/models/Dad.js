@@ -2,36 +2,33 @@ const { Schema, model } = require('mongoose');
 
 const dadSchema = new Schema(
   {
-    DadName: {
+
+    dadName: {
       type: String,
-      required: true,
     },
     nickname: {
       type: String,
-      required: true,
-      unique: true,
     },
     entryMusic: {
       type: String,
-      required: true,
     },
     dadJoke: {
       type: String,
-      required: true,
     },
     weight: {
       type: Number,
       default: 0,
-      required: true,
     },
     armLength: {
       type: Number,
       default: 0,
-      required: true,
     },
-    weapon: {
+    experience: {
       type: Number,
       default: 0,
+    },
+    userId: {
+      type: String,
     },
     winNum: {
       type: Number,
@@ -40,9 +37,6 @@ const dadSchema = new Schema(
     lossNum: {
       type: Number,
       default: 0,
-      Icon: {
-        type: String,
-      },
     },
   },
   {
@@ -58,6 +52,6 @@ const dadSchema = new Schema(
 
 //Should the type be changed to Number?
 
-// const Dad = model('Dad', dadSchema); //! Changed to just a schema instead of a model to use in reference
+const Dad = model('Dad', dadSchema);
 
-module.exports = dadSchema;
+module.exports = Dad;

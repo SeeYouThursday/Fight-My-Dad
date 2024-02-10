@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from 'react';
 import Btn from '../Components/Btn';
 import { Grid, TextField, Button } from '@mui/material/';
-
+import {SAVE_DAD} from '../utils/mutations';
 
 const DadCreate = () => {
   const [dadName, setDadName] = useState('');
@@ -11,34 +11,41 @@ const DadCreate = () => {
   const [dadJoke, setDadJoke] = useState('');
   const [weight, setWeight] = useState('');
   const [armLength, setArmLength] = useState('');
-  const [weapon, setWeapon] = useState('');
+  const [experience, setWeapon] = useState('');
+
+  const [saveDad] = useMutation(SAVE_DAD);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-  
+    try {
+      const { data } = await saveDad({
+        variables: { ...formData },
+      });
+
+      navigate(`/saveDad/${data.saveDad._id}`);
+    } catch (err) {
+      console.error(err);
+    }
+
+    setFormData({
+      DadName: 'JavaScript',
+      nickname: 'JavaScript',
+      entryMusic: 'JavaScript',
+      dadJoke: 'JavaScript',
+      weight: 'JavaScript',
+      armLength: 'JavaScript',
+      experience: 'JavaScript',
+      winNum: 'JavaScript',
+      lossNum: 'JavaScript',
+    });
   };
 
   const handleDadChange = (event) => {
-    setDadName(event.target.value);
-  };
-  const handleNicknameChange = (event) => {
-    setNickname(event.target.value);
-  };
-  const handleEntryMusicChange = (event) => {
-    setEntryMusic(event.target.value);
-  };
-  const handleDadJokeChange = (event) => {
-    setDadJoke(event.target.value);
-  };
-  const handleWeightChange = (event) => {
-    setWeight(event.target.value);
-  };
-  const handleArmLengthChange = (event) => {
-    setArmLength(event.target.value);
-  };
-  const handleWeaponChange = (event) => {
-    setWeapon(event.target.value);
+    const{name,value} = event.target;
+    setFormData({
+      [name]:value,
+    });
   };
   //card component
   //closebtn componet - top right
@@ -70,47 +77,56 @@ const DadCreate = () => {
           padding: 0,
         }}
       >
+
+    
     <input
         type="text"
-        value={dadName}
+        name="DadName"
+        value={formData.DadName}
         onChange={handleDadChange}
-        placeholder="Enter something..."
+        placeholder="Dad Name"
       />
       <input
         type="text"
-        value={nickname}
-        onChange={handleNicknameChange}
-        placeholder="Enter something..."
+        name="nickname"
+        value={formData.nickname}
+        onChange={handleDadChange}
+        placeholder="Nickname"
       />
       <input
         type="text"
-        value={entryMusic}
-        onChange={handleEntryMusicChange}
-        placeholder="Enter something..."
+        name="entryMusic"
+        value={formData.entryMusic}
+        onChange={handleDadChange}
+        placeholder="Choose some entry music!"
       />
       <input
         type="text"
-        value={dadJoke}
-        onChange={handleDadJokeChange}
-        placeholder="Enter something..."
+        name="dadJoke"
+        value={formData.dadJoke}
+        onChange={handleDadChange}
+        placeholder="Add your dad's favorite joke!"
       />
       <input
         type="text"
-        value={weight}
-        onChange={handleWeightChange}
-        placeholder="Enter something..."
+        name="weight"
+        value={formData.weight}
+        onChange={handleDadChange}
+        placeholder="Weight"
       />
         <input
         type="text"
-        value={armLength}
-        onChange={handleArmLengthChange}
-        placeholder="Enter something..."
+        name="armLength"
+        value={formData.armLength}
+        onChange={handleDadChange}
+        placeholder="Arm Length"
       />
       <input
         type="text"
-        value={weapon}
-        onChange={handleWeaponChange}
-        placeholder="Enter something..."
+        name="weapon"
+        value={formData.experience}
+        onChange={handleDadChange}
+        placeholder="Experience Score"
       />
 
   <Button style={{}} onClick={handleFormSubmit}>
