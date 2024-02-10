@@ -34,23 +34,32 @@ import {QUERY_DADS} from '../utils/queries';
 
 
 const FightBefore = () => {
-  ///// UPDATE WHEN MUTATION DONE
+  ///// Change mydata when auth is working
     const { data: myData } = useQuery(QUERY_ME);
     const { data: allData } = useQuery(QUERY_DADS);
 
     const [myDad, setMyDad] = useState('');
     const [opponent, setMyOpponent] = useState('');
+    const [selectedMyDad, setSelectedMyDad] = useState(null);
+    const [selectedOpponent, setSelectedOpponent] = useState(null); // State to hold selected dad's info
+
+
 
     const handleMyDadChange = (event) => {
       setMyDad(event.target.value);
+      const selectedDad = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      setSelectedMyDad(selectedDad);
     };
     const handleOpponentChange = (event) => {
       setMyOpponent(event.target.value);
+      const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      setSelectedOpponent(selectedOpponent);
     };
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
   };
+  console.log('All Dads Data:', allData);
 
 ///// NOTE:  need to hook dropdown to db
 ///// NOTE: currently hard coded with vaules
@@ -63,7 +72,7 @@ const FightBefore = () => {
         <FormControl fullWidth>
 
         <InputLabel id="select-dad">Select Your Dad!</InputLabel>
-
+        
         <Select
           labelId="select-dad"
           id="select-dad-dropdown"
@@ -117,28 +126,28 @@ const FightBefore = () => {
           <div>My Dad</div>
         </Grid>
         <Grid id="my-dad-name" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.dadName}</div>}
         </Grid>
         <Grid id="my-dad-nickname" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
         <Grid id="my-dad-entry-music" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.entryMusic}</div>}
         </Grid>
         <Grid id="my-dad-dad-joke"xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.dadJoke}</div>}
         </Grid>
         <Grid id="my-dad-weight" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.weight}</div>}
         </Grid>
         <Grid id="my-dad-arm-length" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.armLength}</div>}
         </Grid>
         <Grid id="my-dad-win-num" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.winNum}</div>}
         </Grid>
         <Grid id="my-dad-loss-num" xs={6}>
-          <div>1</div>
+          {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
 
       </Grid>
@@ -148,28 +157,28 @@ const FightBefore = () => {
           <div>Opponent</div>
         </Grid>
         <Grid id="opponent-name" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
         <Grid id="opponent-nickname" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
         <Grid id="opponent-entry-music" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.entryMusic}</div>}
         </Grid>
         <Grid id="opponent-dad-joke" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.dadJoke}</div>}
         </Grid>
         <Grid id="opponent-weight" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.weight}</div>}
         </Grid>
         <Grid id="opponent-arm-length" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.armLength}</div>}
         </Grid>
         <Grid id="opponent-win-num" xs={6}>
-          <div>2</div>
+          {selectedOpponent && <div>{selectedOpponent.winNum}</div>}
         </Grid>
         <Grid id="opponent-loss-num" xs={6}>
-          <div>1</div>
+          {selectedOpponent && <div>{selectedOpponent.lossNum}</div>}
         </Grid>
 
       </Grid>
@@ -187,7 +196,7 @@ const FightBefore = () => {
         onChange={handleOpponentChange}
       >
         {allData?.getAllDads.map(dad => (
-                <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
+            <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
           ))}
       </Select>
       </FormControl>
