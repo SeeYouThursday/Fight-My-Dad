@@ -59,6 +59,42 @@ const FightBefore = () => {
     const handleFormSubmit = async (event) => {
       event.preventDefault();
   };
+
+  const handleDadFight = async (event) => {
+    //values for testing
+    /*
+    const selectedMyDad = {
+      weight: 100,
+      armLength: 80,
+      experience: 70,
+    };
+  
+    const selectedOpponent = {
+        weight: 120,
+        armLength: 90,
+        experience: 80,
+    };
+    */
+
+    // random dad number
+    const randomDadNumber = Math.floor(Math.random() * 500) + 1;
+    const randomOpponentNumber = Math.floor(Math.random() * 500) + 1;
+        
+    // dad score
+    const totalScoreMyDad = selectedMyDad.weight + selectedMyDad.armLength + selectedMyDad.experience + randomDadNumber;
+
+    // opponent score
+    const totalScoreOpponent = selectedOpponent.weight + selectedOpponent.armLength + selectedOpponent.experience + randomOpponentNumber;
+    
+    // find winner!!
+    if (totalScoreMyDad > totalScoreOpponent) {
+     console.log('You win!' + totalScoreMyDad);
+    } else {
+      console.log('You lose!' + totalScoreOpponent);
+    }
+};
+  
+
   console.log('All Dads Data:', allData);
 
 ///// NOTE:  need to hook dropdown to db
@@ -143,6 +179,9 @@ const FightBefore = () => {
         <Grid id="my-dad-arm-length" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.armLength}</div>}
         </Grid>
+        <Grid id="my-dad-experience" xs={6}>
+          {selectedMyDad && <div>{selectedMyDad.experience}</div>}
+        </Grid>
         <Grid id="my-dad-win-num" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.winNum}</div>}
         </Grid>
@@ -173,6 +212,9 @@ const FightBefore = () => {
         </Grid>
         <Grid id="opponent-arm-length" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.armLength}</div>}
+        </Grid>
+        <Grid id="opponent-experience" xs={6}>
+          {selectedOpponent && <div>{selectedOpponent.experience}</div>}
         </Grid>
         <Grid id="opponent-win-num" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.winNum}</div>}
@@ -210,6 +252,9 @@ const FightBefore = () => {
       <div id="winner-name"></div>
       <div>Score</div>
       <div id="final-score"></div>
+
+      <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
+
     </>
   );
 };
