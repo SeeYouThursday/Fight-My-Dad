@@ -57,7 +57,7 @@ input dadStats {
 
   type Mutation {
     addUser(firstName: String, lastName: String, username: String, password: String!): Auth
-    loginUser(username: String, password: String!): Auth
+    login(username: String, password: String!): Auth
 
     addDad(input: dadStats) : Dad
 

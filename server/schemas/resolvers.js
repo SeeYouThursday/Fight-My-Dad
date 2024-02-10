@@ -60,7 +60,7 @@ const resolvers = {
 
       }
     },
-    loginUser: async (parent, { username, password }) => {
+    login: async (parent, { username, password }) => {
       const user = await User.findOne({ username });
 
       if (!user) {
