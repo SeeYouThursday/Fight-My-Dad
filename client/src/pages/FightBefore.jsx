@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import Btn from '../Components/Btn'
 import { Button, FormControl, InputLabel, MenuItem, Select} from '@mui/material/';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import {GET_MY_DADS} from '../utils/queries';
+import {GET_ALL_DADS} from '../utils/queries';
+
+//// ADD EXPERIENCE
 
 const FightBefore = () => {
-  // Select Dad to use and opponent to fight against
-  // Form Component Loop through Dad data
-  // Use GlobalContext to save Dad selection?
+  ///// UPDATE WHEN MUTATION DONE
+    const { myData } = useQuery(GET_MY_DADS);
+    const { allData } = useQuery(GET_ALL_DADS);
 
     const [myDad, setMyDad] = useState('');
     const [opponent, setMyOpponent] = useState('');
@@ -20,30 +24,35 @@ const FightBefore = () => {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
-
-    };
+  };
 
 ///// NOTE:  need to hook dropdown to db
 ///// NOTE: currently hard coded with vaules
   return (
     <>
       <Btn />
+
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+
       <Grid item xs={2}>
-      <FormControl fullWidth>
-      <InputLabel id="select-dad">Select Your Dad!</InputLabel>
-      <Select
-        labelId="select-dad"
-        id="select-dad-dropdown"
-        value={myDad}
-        label="Dad"
-        onChange={handleMyDadChange}
-      >
-        <MenuItem value={10}>Mike</MenuItem>
-        <MenuItem value={20}>Bob</MenuItem>
-        <MenuItem value={30}>Joel</MenuItem>
-      </Select>
-      </FormControl>
+        <FormControl fullWidth>
+
+        <InputLabel id="select-dad">Select Your Dad!</InputLabel>
+
+        <Select
+          labelId="select-dad"
+          id="select-dad-dropdown"
+          value={myDad}
+          label="Dad"
+          onChange={handleMyDadChange}
+        >
+          {myData.dads.map(dad => (
+                  <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
+          ))}
+        </Select>
+
+        </FormControl>
+
       </Grid>
 
       <Grid item xs={8}>
@@ -77,6 +86,7 @@ const FightBefore = () => {
           <div>Loss Num:</div>
         </Grid>
       </Grid>
+
       <Grid item xs={6}>
         <Grid xs={6}>
           <div>My Dad</div>
@@ -151,9 +161,9 @@ const FightBefore = () => {
         label="Dad"
         onChange={handleOpponentChange}
       >
-        <MenuItem value={10}>Mike</MenuItem>
-        <MenuItem value={20}>Bob</MenuItem>
-        <MenuItem value={30}>Joel</MenuItem>
+        {allData.dads.map(dad => (
+            <MenuItem key={dad._id} value={dad._id}>{dad.DadName}</MenuItem>
+          ))}
       </Select>
       </FormControl>
     </Grid>
