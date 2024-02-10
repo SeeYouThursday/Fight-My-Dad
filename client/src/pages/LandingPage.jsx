@@ -13,7 +13,7 @@ const LandingPage = () => {
   return (
     <div
       style={{
-        backgroundImage: `url(${FMDLanding}),linear-gradient(to right, #41a6de, #123456)`,
+        // backgroundImage: `url(${FMDLanding}),linear-gradient(to right, #41a6de, #123456)`,
         backgroundSize: 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -43,7 +43,7 @@ const LandingPage = () => {
             {/* <img src={Logo} alt="fightmydad logo" /> */}
           </Button>
         </Grid>
-        <ButtonBase variant="contained">Bet!</ButtonBase>
+        <ButtonBase variant="contained" href="/login">Bet!</ButtonBase>
       </Container>
     </div>
   );

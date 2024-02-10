@@ -1,7 +1,7 @@
 import Nav from '../Components/Nav';
 import Image from '../Components/Image';
 import DadCard from '../Components/Card';
-
+import Auth from "../utils/auth.js"
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries'
 
@@ -42,6 +42,7 @@ const Dashboard = (me) => {
   const { loading, data } = useQuery(QUERY_ME)
 
   return (
+    {Auth.loggedIn() ? (
     <main>
       <div style={styles.container}>
         <section style={styles.mainSection}>
@@ -66,6 +67,9 @@ const Dashboard = (me) => {
 
 
     </main>
+    ) : (
+      <p>hey! Log in loser!</p>
+    )
   );
 };
 
