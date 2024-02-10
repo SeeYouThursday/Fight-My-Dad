@@ -81,7 +81,8 @@ const resolvers = {
       return { token, user };
 
     },
-    addDad: async (parent, { input }, context) => {
+    
+/*    addDad: async (parent, { input }, context) => {
       console.log('Eliot juggles.', input);
       if (context.user) {
         try {
@@ -101,6 +102,24 @@ const resolvers = {
         }
       }
     },
+
+*/
+
+addDad: async (parent, { input }, context) => {
+  console.log('Eliot juggles.', input);
+  try {
+    const newDad = await Dad.create(input);
+    console.log('Brian doesnt juggle', newDad);
+
+    return newDad;
+
+  } catch (err) {
+
+    console.error('Error adding dad:', err);
+    throw err;
+  }
+},
+
   },
 };
 
