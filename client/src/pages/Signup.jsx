@@ -89,16 +89,16 @@ const Signup = () => {
           variant="filled"
           margin="none"
           name="username"
-          defaultValue={userFormData.firstName}
+          defaultValue={userFormData.username}
           onChange={handleInputChange}
         />
         <TextField
           id="filled-basic"
-          label="First Name"
+          label="Password"
           variant="filled"
           margin="none"
-          name="firstName"
-          defaultValue={userFormData.firstName}
+          name="password"
+          defaultValue={userFormData.password}
           onChange={handleInputChange}
         />
         <Button style={{}} onClick={handleFormSubmit}>

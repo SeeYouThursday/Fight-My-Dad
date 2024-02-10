@@ -3,6 +3,8 @@ import { useMutation } from 'react';
 import Btn from '../Components/Btn';
 import { Grid, TextField, Button } from '@mui/material/';
 import {SAVE_DAD} from '../utils/mutations';
+import Auth from '../utils/auth.js'
+import { Link } from 'react-router-dom';
 
 const DadCreate = () => {
   const [dadName, setDadName] = useState('');
@@ -13,7 +15,8 @@ const DadCreate = () => {
   const [armLength, setArmLength] = useState('');
   const [experience, setWeapon] = useState('');
 
-  const [saveDad] = useMutation(SAVE_DAD);
+  // const [saveDad] = useMutation(SAVE_DAD);
+  
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -52,90 +55,174 @@ const DadCreate = () => {
   //btn component - submit
   //submit logic - need to complete
   const handleDadSubmit = () => {
-    const [createDad] = useMutation(CREATE_DAD);
+    const [saveDad] = useMutation(SAVE_DAD);
   };
 
   
 
   return (
-  <>
-  <Btn />
-  <Grid>
-  <form
-        style={{
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundColor: '#41a6de',
-          height: '100vh', // 100% of the viewport height
-          display: 'flex',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          flexWrap: 'nowrap',
-          flexDirection: 'column',
-          margin: 0,
-          padding: 0,
-        }}
-      >
+    <>
+      <Btn />
+      {/* Conditionally render CreateDad page based on Logged In */}
+      {Auth.loggedIn() ? (
+        <Grid>
+          <form
+            style={{
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundColor: '#41a6de',
+              height: '100vh', // 100% of the viewport height
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              flexWrap: 'nowrap',
+              flexDirection: 'column',
+              margin: 0,
+              padding: 0,
+            }}>
+            
+            {/* Form Inputs */}
 
-    
-    <input
-        type="text"
-        name="DadName"
-        value={formData.DadName}
-        onChange={handleDadChange}
-        placeholder="Dad Name"
-      />
-      <input
-        type="text"
-        name="nickname"
-        value={formData.nickname}
-        onChange={handleDadChange}
-        placeholder="Nickname"
-      />
-      <input
-        type="text"
-        name="entryMusic"
-        value={formData.entryMusic}
-        onChange={handleDadChange}
-        placeholder="Choose some entry music!"
-      />
-      <input
-        type="text"
-        name="dadJoke"
-        value={formData.dadJoke}
-        onChange={handleDadChange}
-        placeholder="Add your dad's favorite joke!"
-      />
-      <input
-        type="text"
-        name="weight"
-        value={formData.weight}
-        onChange={handleDadChange}
-        placeholder="Weight"
-      />
-        <input
-        type="text"
-        name="armLength"
-        value={formData.armLength}
-        onChange={handleDadChange}
-        placeholder="Arm Length"
-      />
-      <input
-        type="text"
-        name="weapon"
-        value={formData.experience}
-        onChange={handleDadChange}
-        placeholder="Experience Score"
-      />
+            <input
+              type="text"
+              name="DadName"
+              value={formData.DadName}
+              onChange={handleDadChange}
+              placeholder="Dad Name"
+            />
+            <input
+              type="text"
+              name="nickname"
+              value={formData.nickname}
+              onChange={handleDadChange}
+              placeholder="Nickname"
+            />
+            <input
+              type="text"
+              name="entryMusic"
+              value={formData.entryMusic}
+              onChange={handleDadChange}
+              placeholder="Choose some entry music!"
+            />
+            <input
+              type="text"
+              name="dadJoke"
+              value={formData.dadJoke}
+              onChange={handleDadChange}
+              placeholder="Add your dad's favorite joke!"
+            />
+            <input
+              type="text"
+              name="weight"
+              value={formData.weight}
+              onChange={handleDadChange}
+              placeholder="Weight"
+            />
+            <input
+              type="text"
+              name="armLength"
+              value={formData.armLength}
+              onChange={handleDadChange}
+              placeholder="Arm Length"
+            />
+            <input
+              type="text"
+              name="weapon"
+              value={formData.experience}
+              onChange={handleDadChange}
+              placeholder="Experience Score"
+            />
 
-  <Button style={{}} onClick={handleFormSubmit}>
-          BET!#2
-  </Button>
-  </form>
-  </Grid>
-  </>
+            <Button style={{}} onClick={handleFormSubmit}>
+                    BET!#2
+            </Button>
+          </form>
+        </Grid>
+      ) : (
+        <p>
+          You must be logged in to create your dad!
+          <Link to="/login">Login</Link> or <Link to="/signup">Sign up!</Link>
+        </p>
+      )}
+     
+    </>
   );
 };
 
 export default DadCreate;
+
+// <Grid>
+// <form
+//   style={{
+//     backgroundSize: 'contain',
+//     backgroundRepeat: 'no-repeat',
+//     backgroundPosition: 'center',
+//     backgroundColor: '#41a6de',
+//     height: '100vh', // 100% of the viewport height
+//     display: 'flex',
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     flexWrap: 'nowrap',
+//     flexDirection: 'column',
+//     margin: 0,
+//     padding: 0,
+//   }}>
+  
+//   {/* Form Inputs */}
+
+//   <input
+//     type="text"
+//     name="DadName"
+//     value={formData.DadName}
+//     onChange={handleDadChange}
+//     placeholder="Dad Name"
+//   />
+//   <input
+//     type="text"
+//     name="nickname"
+//     value={formData.nickname}
+//     onChange={handleDadChange}
+//     placeholder="Nickname"
+//   />
+//   <input
+//     type="text"
+//     name="entryMusic"
+//     value={formData.entryMusic}
+//     onChange={handleDadChange}
+//     placeholder="Choose some entry music!"
+//   />
+//   <input
+//     type="text"
+//     name="dadJoke"
+//     value={formData.dadJoke}
+//     onChange={handleDadChange}
+//     placeholder="Add your dad's favorite joke!"
+//   />
+//   <input
+//     type="text"
+//     name="weight"
+//     value={formData.weight}
+//     onChange={handleDadChange}
+//     placeholder="Weight"
+//   />
+//   <input
+//     type="text"
+//     name="armLength"
+//     value={formData.armLength}
+//     onChange={handleDadChange}
+//     placeholder="Arm Length"
+//   />
+//   <input
+//     type="text"
+//     name="weapon"
+//     value={formData.experience}
+//     onChange={handleDadChange}
+//     placeholder="Experience Score"
+//   />
+
+//   <Button style={{}} onClick={handleFormSubmit}>
+//           BET!#2
+//   </Button>
+// </form>
+// </Grid>

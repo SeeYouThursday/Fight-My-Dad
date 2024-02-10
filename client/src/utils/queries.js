@@ -13,8 +13,23 @@ export const QUERY_ME = gql`
   }
 `;
 
-// export const QUERY_DAD = gql`
-// query getDad{}`;
+export const QUERY_DAD = gql`
+query getDad{
+  getDad {
+    _id
+    dadName
+    nickname
+    userId
+    entryMusic
+    dadJoke
+    weight
+    armLength
+    experience
+    winNum
+    lossNum
+  }
+}
+`;
 
 export const QUERY_DADS = gql`
 query getAllDads{
@@ -31,17 +46,6 @@ query getAllDads{
     winNum
     lossNum
   }
-}`;
-
-// query me {
-//   me {
-//     _id
-//     username
-//     dads {
-//       _id
-
-//     }
-//   }
-// }
-// `;
+}
+`;
 

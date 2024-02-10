@@ -2,15 +2,40 @@ import React, { useState } from 'react';
 import Btn from '../Components/Btn'
 import { Button, FormControl, InputLabel, MenuItem, Select} from '@mui/material/';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
-import {GET_MY_DADS} from '../utils/queries';
-import {GET_ALL_DADS} from '../utils/queries';
+import {QUERY_ME} from '../utils/queries';
+import {QUERY_DADS} from '../utils/queries';
 
 //// ADD EXPERIENCE
 
+//// FIGHT EQUATION FUNCTION
+const Fight = () => {
+  //setTimeout
+  //Cards
+  //Form - inputs are btns or Options
+  const fightAnimationText = () => {
+    //use setTimeout/setInterval to show each Pow/Bam/Bang/etc. -> then conditionally load results on completion?
+  };
+  const handleFightStart = () => {
+    //onClick={runFightAnimation}
+  };
+  const handleFight = () => {
+    //Create code for Fight Page
+    //Add Dad1's Weight + 
+  };
+
+  return (
+    <>
+    </>
+  )
+};
+
+
+
+
 const FightBefore = () => {
   ///// UPDATE WHEN MUTATION DONE
-    const { myData } = useQuery(GET_MY_DADS);
-    const { allData } = useQuery(GET_ALL_DADS);
+    const { myData } =  useQuery(QUERY_ME);
+    const { allData } = useQuery(QUERY_DADS);
 
     const [myDad, setMyDad] = useState('');
     const [opponent, setMyOpponent] = useState('');

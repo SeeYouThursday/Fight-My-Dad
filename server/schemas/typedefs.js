@@ -52,6 +52,7 @@ input dadStats {
   type Query {
     me: User
     getAllDads: [Dad]
+    getDad: Dad
   }
 
   type Mutation {
