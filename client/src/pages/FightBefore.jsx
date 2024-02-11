@@ -1,13 +1,13 @@
 
 import React, { useState } from 'react';
 import Btn from '../Components/Btn';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material/';
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
-import Auth from '../utils/auth'
-import LoginErr from '../Components/LoginErr'
-
+import Auth from '../utils/auth';
+import LoginErr from '../Components/LoginErr';
+import {REMOVE_DAD} from '../utils/mutations';
 
 //// ADD EXPERIENCE
 
@@ -40,31 +40,46 @@ const FightBefore = () => {
   ///// Change mydata when auth is working
     const { data: myData } = useQuery(QUERY_ME);
     const { data: allData } = useQuery(QUERY_DADS);
-
-    const [myDad, setMyDad] = useState('');
-    const [opponent, setMyOpponent] = useState('');
-    const [selectedMyDad, setSelectedMyDad] = useState(null);
-    const [selectedOpponent, setSelectedOpponent] = useState(null); // State to hold selected dad's info
-
+    const [totalScoreMyDad, setTotalScoreMyDad] = useState(null);
+    const [myDad, setMyDad] = useState("");
+    const [opponent, setMyOpponent] = useState("");
+    const [selectedMyDad, setSelectedMyDad] = useState("");
+    const [selectedOpponent, setSelectedOpponent] = useState("");
+    const [selectedDelete, setSelectedDelete] = useState("");
+    var [winner, setWinner] = useState("");
+    const [deleteDad] = useMutation(REMOVE_DAD);
 
 
     const handleMyDadChange = (event) => {
-      setMyDad(event.target.value);
-      const selectedDad = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      console.log("Selected dad ID:", event.target.value);
+      const selectedDadId = event.target.value;
+      const selectedDad = allData?.getAllDads.find(dad => dad._id === selectedDadId);
+      console.log("Selected dad:", selectedDad);
+      setMyDad(selectedDadId); 
       setSelectedMyDad(selectedDad);
+      setWinner("");
     };
-    const handleOpponentChange = (event) => {
-      setMyOpponent(event.target.value);
-      const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
-      setSelectedOpponent(selectedOpponent);
-    };
+    
 
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-  };
+    const handleOpponentChange = (event) => {
+      const selectedOpponentId = event.target.value;
+      const selectedOpponent = allData?.getAllDads.find(dad => dad._id === selectedOpponentId);
+      setMyOpponent(selectedOpponentId);
+      setSelectedOpponent(selectedOpponent); 
+      setWinner("");
+    };
+    
+    
+
+    const handleDeleteChange = (event) => {
+      setSelectedDelete(event.target.value);
+      const selectedDelete = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      setSelectedOpponent(selectedDelete);
+      setSelectedOpponent("")
+    };
 
   const handleDadFight = async (event) => {
-    //values for testing
+    event.preventDefault();
     /*
     const selectedMyDad = {
       weight: 100,
@@ -76,8 +91,8 @@ const FightBefore = () => {
         weight: 120,
         armLength: 90,
         experience: 80,
-    };
-    */
+    };*/
+    
 
     // random dad number
     const randomDadNumber = Math.floor(Math.random() * 500) + 1;
@@ -88,11 +103,15 @@ const FightBefore = () => {
 
     // opponent score
     const totalScoreOpponent = selectedOpponent.weight + selectedOpponent.armLength + selectedOpponent.experience + randomOpponentNumber;
+
+    setTotalScoreMyDad(totalScoreMyDad);
     
     // find winner!!
     if (totalScoreMyDad > totalScoreOpponent) {
-     console.log('You win!' + totalScoreMyDad);
+      setWinner("You win :D");
+      console.log('You win!' + totalScoreMyDad);
     } else {
+      setWinner("You lost :(");
       console.log('You lose!' + totalScoreOpponent);
     }
 };
@@ -103,10 +122,26 @@ const FightBefore = () => {
 ///// NOTE:  need to hook dropdown to db
 ///// NOTE: currently hard coded with vaules
   return (
-  <>
+    <>
     {Auth.loggedIn() ? (
       <>
-
+      <form
+            style={{
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundColor: '#41a6de',
+              height: '100vh',
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              flexWrap: 'nowrap',
+              flexDirection: 'column',
+              margin: 0,
+              padding: 0,
+            }}
+            
+      >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
       <Grid item xs={2}>
@@ -130,101 +165,101 @@ const FightBefore = () => {
 
       </Grid>
 
-      <Grid item xs={8}>
+      <Grid item xs={4}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div> - </div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Name:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Nickname:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Entry Music:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Dad Joke:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Weight:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Arm Length:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Win Num:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Loss Num:</div>
         </Grid>
       </Grid>
 
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>My Dad</div>
         </Grid>
-        <Grid id="my-dad-name" xs={6}>
+        <Grid item id="my-dad-name" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.dadName}</div>}
         </Grid>
-        <Grid id="my-dad-nickname" xs={6}>
+        <Grid item id="my-dad-nickname" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
-        <Grid id="my-dad-entry-music" xs={6}>
+        <Grid item id="my-dad-entry-music" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.entryMusic}</div>}
         </Grid>
-        <Grid id="my-dad-dad-joke"xs={6}>
+        <Grid item id="my-dad-dad-joke"xs={6}>
           {selectedMyDad && <div>{selectedMyDad.dadJoke}</div>}
         </Grid>
-        <Grid id="my-dad-weight" xs={6}>
+        <Grid item id="my-dad-weight" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.weight}</div>}
         </Grid>
-        <Grid id="my-dad-arm-length" xs={6}>
+        <Grid item id="my-dad-arm-length" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.armLength}</div>}
         </Grid>
-        <Grid id="my-dad-experience" xs={6}>
+        <Grid item id="my-dad-experience" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.experience}</div>}
         </Grid>
-        <Grid id="my-dad-win-num" xs={6}>
+        <Grid item id="my-dad-win-num" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.winNum}</div>}
         </Grid>
-        <Grid id="my-dad-loss-num" xs={6}>
+        <Grid item id="my-dad-loss-num" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
 
       </Grid>
 
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Opponent</div>
         </Grid>
-        <Grid id="opponent-name" xs={6}>
+        <Grid item id="opponent-name" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
-        <Grid id="opponent-nickname" xs={6}>
+        <Grid item id="opponent-nickname" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
-        <Grid id="opponent-entry-music" xs={6}>
+        <Grid item id="opponent-entry-music" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.entryMusic}</div>}
         </Grid>
-        <Grid id="opponent-dad-joke" xs={6}>
+        <Grid item id="opponent-dad-joke" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadJoke}</div>}
         </Grid>
-        <Grid id="opponent-weight" xs={6}>
+        <Grid item id="opponent-weight" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.weight}</div>}
         </Grid>
-        <Grid id="opponent-arm-length" xs={6}>
+        <Grid item id="opponent-arm-length" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.armLength}</div>}
         </Grid>
-        <Grid id="opponent-experience" xs={6}>
+        <Grid item id="opponent-experience" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.experience}</div>}
         </Grid>
-        <Grid id="opponent-win-num" xs={6}>
+        <Grid item id="opponent-win-num" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.winNum}</div>}
         </Grid>
-        <Grid id="opponent-loss-num" xs={6}>
+        <Grid item id="opponent-loss-num" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.lossNum}</div>}
         </Grid>
 
@@ -251,22 +286,65 @@ const FightBefore = () => {
 
       </Grid>
 
-      <Button onClick={handleFormSubmit}>YEET!</Button>
+      <div>Results</div>
+      <Grid item xs={12}>
+        <TextField
+          id="final-winner"
+          value={winner}
+          variant="outlined"
+          fullWidth
+          InputProps={{
+            readOnly: true,
+          }}
+        />
+      </Grid>
 
-      <div>WINNER</div>
-      <div id="winner-name"></div>
-      <div>Score</div>
-      <div id="final-score"></div>
+      <Button onClick={() => 
+        {
+          console.log("Button clicked"); handleDadFight();
+        }
+      }
+      >Make Them Fight!</Button>
 
-      <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
+      <FormControl fullWidth>
+      <InputLabel id="select-oppoent">Select dad to delete!</InputLabel>
+      <Select
+        labelId="select-delete"
+        id="select-delete-dropdown"
+        value={selectedDelete}
+        label="Dad"
+        onChange={handleDeleteChange}
+      >
+        {allData?.getAllDads.map(dad => (
+            <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
+          ))}
+      </Select>
+      </FormControl>
+    <Button
 
+    
+    onClick={() => {
+      deleteDad({
+        variables: {
+          dadId: selectedDelete
+        }
+      })
+        .then((res) => {
+          console.log("The dad has been deleted:", res);
+        })
+        .catch((err) => {
+          console.error("Error deleting dad:", err);
+        });
+    }}
+  >
+    Delete Dad
+  </Button>
+    </form>
+     </>
+      ) : (
+        <LoginErr />
+      )}
     </>
-    ) : (
-      <LoginErr />
-    )}
-  </>
-    
-    
   );
 };
 
