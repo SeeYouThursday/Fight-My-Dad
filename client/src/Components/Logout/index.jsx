@@ -7,9 +7,9 @@ export default function Logout() {
   const client = useApolloClient();
 
   useEffect(() => {
-    async function resetStoreAndNavigate() {
+    function resetStoreAndNavigate() {
       localStorage.setItem("id_token", "");
-      await client.resetStore();
+      client.resetStore();
       navigate('/');
     }
 
