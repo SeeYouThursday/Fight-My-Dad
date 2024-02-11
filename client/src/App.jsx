@@ -1,4 +1,4 @@
-// import './assets/css/app.css';
+//Import Necessary Files
 import { Outlet } from 'react-router-dom';
 import {
   ApolloClient,
@@ -8,11 +8,18 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import Nav from './Components/Nav';
 //Importing Components...
+import Nav from './Components/Nav';
+
+import './App.css'
+
+
+//Making GraphQL Link
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
+
+
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {

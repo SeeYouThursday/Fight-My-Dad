@@ -17,7 +17,7 @@ import Logout from '../Logout'
 
 const styles = {
   navBG: {
-    background: '#142f36',
+    background: 'var(--dark)',
     color: '#fedb0e',
     height: '100vh',
   },

@@ -1,0 +1,31 @@
+/* Global Styles */
+
+:root {
+    --darkest: #1A1919;
+    --dark: #332E2D;
+    --primary: #E8B717;
+    --secondary: #B32424;
+    --light: #F2EDCE;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, var(--darkest), var(--dark))
+}
+
+/* Landing Page Styles */
+.landingBtn {
+    font-size: 50px;
+    font-family: 'Permanent Marker';
+    background-color: var(--primary);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 300px;
+}
+
+/* Login and Sign Up Styles */
+
+/* DashBoard Styles */
+
+/* DadCreate Styles */
+
+/* Fight Styles */
