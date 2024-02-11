@@ -81,7 +81,7 @@ const resolvers = {
         console.log('Logged IN');
         return { token, user };
       } catch (err) {
-        console.log(err, "YOU SUCK!!!!")
+        console.log(err)
       }
       
 
