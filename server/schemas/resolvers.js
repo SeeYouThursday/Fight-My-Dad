@@ -87,7 +87,7 @@ const resolvers = {
 
     },
     
-/*    addDad: async (parent, { input }, context) => {
+   addDad: async (parent, { input }, context) => {
       console.log('Eliot juggles.', input);
       if (context.user) {
         try {
@@ -108,8 +108,8 @@ const resolvers = {
       }
     },
 
-*/
 
+/*
     addDad: async (parent, { userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, }, context) => {
       console.log('Eliot juggles.',  userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, );
       try {
@@ -135,24 +135,31 @@ const resolvers = {
         throw err;
       }
     },
-    removeDad: async (parent, { dadID }, context) => {
-      try {
-        console.log('Removing dad with ID:', dadID);
-        const removedDad = await Dad.findByIdAndDelete(dadID);
-        
-        if (!removedDad) {
-          throw new Error(`Dad with ID ${dadID} not found.`);
-        }
-        
-        console.log(`Dad with ID ${dadID} removed successfully.`);
-        
-        return removedDad;
-    
-      } catch (err) {
-        console.error('Error removing dad:', err);
-        throw err;
+*/
+  
+  removeDad: async (parent, { dadId }, context) => {
+    try {
+      console.log('Removing dad with ID:', dadId);
+      if (!context.user) {
+        throw new AuthenticationError('User is not authenticated.');
       }
-    },
+      const removedDad = await Dad.findByIdAndDelete(dadId);
+
+      if (!removedDad) {
+        throw new Error(`Dad with ID ${dadId} not found.`);
+      }
+
+      console.log(`Dad with ID ${dadId} removed successfully.`);
+
+      return removedDad;
+
+    } catch (err) {
+      console.error('Error removing dad:', err);
+      throw err;
+    }
+  }
+
+
     
     
 
