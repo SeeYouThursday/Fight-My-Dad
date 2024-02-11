@@ -1,12 +1,13 @@
 
 import React, { useState } from 'react';
 import Btn from '../Components/Btn';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material/';
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
 import Auth from '../utils/auth';
 import LoginErr from '../Components/LoginErr';
+import {REMOVE_DAD} from '../utils/mutations';
 
 //// ADD EXPERIENCE
 
@@ -40,12 +41,12 @@ const FightBefore = () => {
     const { data: myData } = useQuery(QUERY_ME);
     const { data: allData } = useQuery(QUERY_DADS);
     const [totalScoreMyDad, setTotalScoreMyDad] = useState(null);
-    const [myDad, setMyDad] = useState('');
-    const [opponent, setMyOpponent] = useState('');
-    const [selectedMyDad, setSelectedMyDad] = useState(null);
-    const [selectedOpponent, setSelectedOpponent] = useState(null);
-    var [winner, setWinner] = useState(null);
-
+    const [myDad, setMyDad] = useState("");
+    const [opponent, setMyOpponent] = useState("");
+    const [selectedMyDad, setSelectedMyDad] = useState("");
+    const [selectedOpponent, setSelectedOpponent] = useState("");
+    var [winner, setWinner] = useState("");
+    const [deleteDad] = useMutation(REMOVE_DAD);
 
 
     const handleMyDadChange = (event) => {
@@ -289,7 +290,23 @@ const FightBefore = () => {
         }
       }
       >Make Them Fight!</Button>
-
+    <Button
+    onClick={() => {
+      deleteDad({
+        variables: {
+          dadId: "65c785427be98d98b414d3ff"
+        }
+      })
+        .then((res) => {
+          console.log("The dad has been deleted:", res);
+        })
+        .catch((err) => {
+          console.error("Error deleting dad:", err);
+        });
+    }}
+  >
+    Delete Dad
+  </Button>
     </form>
      </>
       ) : (
