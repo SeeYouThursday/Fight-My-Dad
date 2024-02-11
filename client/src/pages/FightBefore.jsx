@@ -53,6 +53,7 @@ const FightBefore = () => {
       const selectedDad = allData?.getAllDads.find(dad => dad._id === event.target.value);
       setSelectedMyDad(selectedDad);
     };
+
     const handleOpponentChange = (event) => {
       setMyOpponent(event.target.value);
       const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
@@ -64,7 +65,7 @@ const FightBefore = () => {
   };
 
   const handleDadFight = async (event) => {
-    //values for testing
+    
     /*
     const selectedMyDad = {
       weight: 100,
@@ -76,8 +77,8 @@ const FightBefore = () => {
         weight: 120,
         armLength: 90,
         experience: 80,
-    };
-    */
+    };*/
+    
 
     // random dad number
     const randomDadNumber = Math.floor(Math.random() * 500) + 1;
@@ -103,10 +104,9 @@ const FightBefore = () => {
 ///// NOTE:  need to hook dropdown to db
 ///// NOTE: currently hard coded with vaules
   return (
-  <>
+    <>
     {Auth.loggedIn() ? (
       <>
-
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
       <Grid item xs={2}>
@@ -259,14 +259,11 @@ const FightBefore = () => {
       <div id="final-score"></div>
 
       <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
-
+     </>
+      ) : (
+        <LoginErr />
+      )}
     </>
-    ) : (
-      <LoginErr />
-    )}
-  </>
-    
-    
   );
 };
 
