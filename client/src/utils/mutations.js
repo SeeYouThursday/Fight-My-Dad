@@ -48,7 +48,6 @@ export const REMOVE_DAD = gql`
 mutation removeDad($dadId: ID!) {
     removeDad(dadId: $dadId) {
         _id
-        username
     }
 }`;
 

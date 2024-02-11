@@ -182,6 +182,8 @@ const handleFormSubmit = async (event) => {
     <p id="result-modal-description">
       FAIL! Error: {error.message}. Dad Name: 
       {formData.dadName}
+      Dad Joke: 
+      {formData.dadJoke}
     </p>
     )}
       <Button onClick={handleCloseModal}>Close</Button>
@@ -194,7 +196,7 @@ const handleFormSubmit = async (event) => {
     </>
 );
 
-{/* <Grid>
+/*{ <Grid>
     <form
       style={{
         backgroundSize: 'contain',
@@ -303,7 +305,7 @@ aria-describedby="result-modal-description"
 )}
   <Button onClick={handleCloseModal}>Close</Button>
 </Box>
-</Modal> */}
+</Modal>}*/
 
 
 };
