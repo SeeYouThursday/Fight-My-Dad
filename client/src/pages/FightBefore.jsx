@@ -319,7 +319,7 @@ const FightBefore = () => {
     onClick={() => {
       deleteDad({
         variables: {
-          dadId: "65c785427be98d98b414d3ff"
+          dadId: selectedDelete
         }
       })
         .then((res) => {
