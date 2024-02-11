@@ -51,18 +51,25 @@ const FightBefore = () => {
 
 
     const handleMyDadChange = (event) => {
-      setMyDad(event.target.value);
-      const selectedDad = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      console.log("Selected dad ID:", event.target.value);
+      const selectedDadId = event.target.value;
+      const selectedDad = allData?.getAllDads.find(dad => dad._id === selectedDadId);
+      console.log("Selected dad:", selectedDad);
+      setMyDad(selectedDadId); 
       setSelectedMyDad(selectedDad);
       setWinner("");
     };
+    
 
     const handleOpponentChange = (event) => {
-      setMyOpponent(event.target.value);
-      const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
-      setSelectedOpponent(selectedOpponent);
+      const selectedOpponentId = event.target.value;
+      const selectedOpponent = allData?.getAllDads.find(dad => dad._id === selectedOpponentId);
+      setMyOpponent(selectedOpponentId);
+      setSelectedOpponent(selectedOpponent); 
       setWinner("");
     };
+    
+    
 
     const handleDeleteChange = (event) => {
       setSelectedDelete(event.target.value);
@@ -266,7 +273,7 @@ const FightBefore = () => {
       <Select
         labelId="select-opponent"
         id="select-opponent-dropdown"
-        value={selectedOpponent}
+        value={opponent}
         label="Dad"
         onChange={handleOpponentChange}
       >
