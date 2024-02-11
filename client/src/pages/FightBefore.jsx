@@ -62,13 +62,8 @@ const FightBefore = () => {
       setWinner("");
     };
 
-    const handleFormSubmit = async (event) => {
-      event.preventDefault();
-
-  };
-
   const handleDadFight = async (event) => {
-    
+    event.preventDefault();
     /*
     const selectedMyDad = {
       weight: 100,
@@ -154,7 +149,7 @@ const FightBefore = () => {
 
       </Grid>
 
-      <Grid item xs={8}>
+      <Grid item xs={4}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
         <Grid xs={6}>
@@ -274,8 +269,6 @@ const FightBefore = () => {
       </Grid>
 
       </Grid>
-
-      <Button onClick={handleFormSubmit}>YEET!</Button>
 
       <div>Results</div>
       <Grid item xs={12}>
