@@ -26,9 +26,8 @@ mutation addUser($username: String, $firstName: String, $lastName: String, $pass
 
 export const SAVE_DAD = gql`
 
- mutation addDad($dadName: String, $nickname: String,  $entryMusic: String, $dadJoke: String, $weight: INT, $armLength: Int, $experience: Int, $winNum: Int, $lossNum: Int, $userId: String) {
-    addDad(dadName: $dadName, nickname: $nickname, entryMusic: $entryMusic, dadJoke: $dadJoke, weight: $weight, armLength: $armLength, experience: $experience, winNum: $winNum, lossNum: $lossNum, userId: $userId) {
-        dadStats{   
+ mutation addDad($input: dadStats) {
+    addDad(input: $input) {  
             dadName
             nickname
             entryMusic
@@ -40,7 +39,6 @@ export const SAVE_DAD = gql`
             lossNum
             userId
         }
-        
     }
 }`;
 
@@ -53,7 +51,7 @@ mutation removeDad($dadId: ID!) {
 
 // mutation addDad($dadName: String, $nickname: String, $userId: Int!, $entryMusic: String, $dadJoke: String, $weight: INT, $armLength: Int, $experience: Int, $winNum: Int, $lossNum: Int) {
 //     addDad(dadName: $dadName, nickname: $nickname, userId: $userId, entryMusic: $entryMusic, dadJoke: $dadJoke, weight: $weight, armLength: $armLength, experience: $experience, winNum: $winNum, lossNum: $lossNum) {
-//         userId    
+//         userId
 //         dadName
 //         nickname
 //         entryMusic
