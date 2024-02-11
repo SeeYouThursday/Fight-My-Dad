@@ -52,12 +52,14 @@ const FightBefore = () => {
       setMyDad(event.target.value);
       const selectedDad = allData?.getAllDads.find(dad => dad._id === event.target.value);
       setSelectedMyDad(selectedDad);
+      setWinner("");
     };
 
     const handleOpponentChange = (event) => {
       setMyOpponent(event.target.value);
       const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
       setSelectedOpponent(selectedOpponent);
+      setWinner("");
     };
 
     const handleFormSubmit = async (event) => {
