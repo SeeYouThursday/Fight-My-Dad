@@ -9,7 +9,7 @@ import { LOGIN_USER } from '../utils/mutations';
 
 const Login = () => {
   const [formState, setFormState] = useState({ username: '', password: '' });
-  const [login] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -27,6 +27,7 @@ const Login = () => {
         variables: { ...formState },
       });
       //! change login based on what we have in our mutations
+      console.log(data, 'response')
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
@@ -49,7 +50,7 @@ const Login = () => {
           height: '100vh', // This sets the height to the full height of the viewport
         }}
       >
-        <form onSubmit={handleFormSubmit}
+        <form 
           style={{
             backgroundImage: `url(${loginImage})`,
             backgroundSize: 'contain',
@@ -106,7 +107,7 @@ const Login = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <Button type='submit'>BET!</Button>
+          <Button onClick={handleFormSubmit}>BET!</Button>
           {/* <Link to={'/signup'}>Sign Up!</Link> //! Does not work */}
         </form>
       </div>

@@ -61,24 +61,29 @@ const resolvers = {
       }
     },
     login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
+      try {
+        const user = await User.findOne({ username });
 
-      if (!user) {
-        throw new AuthenticationError(
-          'User not found. Do you have an account?'
-        );
+        if (!user) {
+          throw new AuthenticationError(
+            'User not found. Do you have an account?'
+          );
+        }
+
+
+        const correctPw = await user.isCorrectPassword(password);
+
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials!');
+        }
+
+        const token = signToken(user);
+        console.log('Logged IN');
+        return { token, user };
+      } catch (err) {
+        console.log(err)
       }
-
-
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials!');
-      }
-
-      const token = signToken(user);
-      console.log('Logged IN');
-      return { token, user };
+      
 
     },
     

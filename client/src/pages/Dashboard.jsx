@@ -5,6 +5,7 @@ import Stat from "../Components/Stat";
 import Auth from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME } from "../utils/queries";
+import LoginErr from '../Components/LoginErr'
 
 const styles = {
   //   display: 'flex',
@@ -45,30 +46,24 @@ const Dashboard = (me) => {
   return (
     // moved main so site can handle viewing Stat page without being logged in
     <>
-      <main>
-        {Auth.loggedIn() ? (
-          <>
-            <div style={styles.container}>
-              <section style={styles.mainSection}>
-                <Image />
-                <div>
-                  <h1 style={styles.user}>{me.username}</h1>
-                  <h3>
-                    Hey, {me.firstName} {me.lastName}!
-                  </h3>
-                </div>
-              </section>
-            </div>
-            <div style={styles.divider}></div>
-            <DadCard />
-            <Stat />
-          </>
-        ) : (
-          <section style={styles.mainSection}>
-            <Stat />
-          </section>
-        )}
-      </main>
+      {Auth.loggedIn() ? (
+        <main>
+          <div style={styles.container}>
+            <section style={styles.mainSection}>
+              <Image />
+              <div>
+                <h1 style={styles.user}>{me.username}</h1>
+                <h3>Hey, {me.firstName} {me.lastName}!</h3>
+              </div>
+            </section>
+          </div>
+          <div style={styles.divider}></div>
+          <DadCard />
+          <Stat />
+        </main>
+       ) : (
+        <LoginErr />
+      )}
     </>
   );
 };

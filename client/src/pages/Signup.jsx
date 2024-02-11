@@ -98,6 +98,7 @@ const Signup = () => {
           variant="filled"
           margin="none"
           name="password"
+          type='password'
           defaultValue={userFormData.password}
           onChange={handleInputChange}
         />

@@ -3,6 +3,8 @@ const styles = {
     width: '20vw'
 }
 
+//USE IMAGE FOR EACH PICTURE
+
 export default function Image() {
     return(
         <div className='image'>
