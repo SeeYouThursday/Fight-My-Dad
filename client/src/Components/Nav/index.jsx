@@ -87,7 +87,6 @@ export default function Nav() {
             // disablePadding
           >
             <ListItemButton component={Link} to={link.link}>
-              <ListItemIcon></ListItemIcon>
               <ListItemText primary={link.name} />
             </ListItemButton>
           </ListItem>
@@ -103,8 +102,8 @@ export default function Nav() {
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           {/* When the button is clicked, open the drawer */}
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <IconButton
+            <IconButton 
+              onClick={toggleDrawer(anchor, true)}
               size="large"
               edge="start"
               color="inherit"
@@ -113,7 +112,6 @@ export default function Nav() {
             >
               <MenuIcon />
             </IconButton>
-          </Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}

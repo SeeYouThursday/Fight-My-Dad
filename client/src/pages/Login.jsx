@@ -29,6 +29,7 @@ const Login = () => {
       //! change login based on what we have in our mutations
       console.log(data, 'response')
       Auth.login(data.login.token);
+
     } catch (e) {
       console.error(e);
     }
@@ -40,6 +41,7 @@ const Login = () => {
     });
   };
 
+
   return (
     <Grid>
       <div
@@ -50,7 +52,7 @@ const Login = () => {
           height: '100vh', // This sets the height to the full height of the viewport
         }}
       >
-        <form 
+        <form onSubmit={handleFormSubmit}
           style={{
             backgroundImage: `url(${loginImage})`,
             backgroundSize: 'contain',
@@ -107,7 +109,7 @@ const Login = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <Button onClick={handleFormSubmit}>BET!</Button>
+          <Button type="submit">BET!</Button>
           {/* <Link to={'/signup'}>Sign Up!</Link> //! Does not work */}
         </form>
       </div>
