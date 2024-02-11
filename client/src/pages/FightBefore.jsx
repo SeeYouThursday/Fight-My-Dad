@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material/';
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
+import Auth from '../utils/auth'
 
 //// ADD EXPERIENCE
 
@@ -100,7 +101,9 @@ const FightBefore = () => {
 ///// NOTE:  need to hook dropdown to db
 ///// NOTE: currently hard coded with vaules
   return (
-    <>
+  <>
+    {Auth.loggedIn() ? (
+      <>
 
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
@@ -256,6 +259,14 @@ const FightBefore = () => {
       <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
 
     </>
+    ) : (
+      <p>
+        Hi
+      </p>
+    )}
+  </>
+    
+    
   );
 };
 

@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import Btn from '../Components/Btn';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
 import {SAVE_DAD} from '../utils/mutations';
-//import Auth from '../utils/auth.js'
+import Auth from '../utils/auth.js'
 import { Link } from 'react-router-dom';
 
 const DadCreate = () => {
@@ -67,127 +67,8 @@ const handleFormSubmit = async (event) => {
 
   return (
     <>
-      <Grid>
-        <form
-          style={{
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundColor: '#41a6de',
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            alignItems: 'center',
-            flexWrap: 'nowrap',
-            flexDirection: 'column',
-            margin: 0,
-            padding: 0,
-          }}
-          
-        >
-          
-          <TextField
-            type="text"
-            name="dadName"
-            value={formData.dadName}
-            onChange={handleDadChange}
-            placeholder="Dad Name"
-          />
-          <TextField
-            type="text"
-            name="nickname"
-            value={formData.nickname}
-            onChange={handleDadChange}
-            placeholder="Nickname"
-          />
-          <TextField
-            type="text"
-            name="entryMusic"
-            value={formData.entryMusic}
-            onChange={handleDadChange}
-            placeholder="Choose some entry music!"
-          />
-          <TextField
-            type="text"
-            name="dadJoke"
-            value={formData.dadJoke}
-            onChange={handleDadChange}
-            placeholder="Add your dad's favorite joke!"
-          />
-          <TextField
-            type="text"
-            name="weight"
-            value={formData.weight}
-            onChange={handleDadChange}
-            placeholder="Weight"
-          />
-          <TextField
-            type="text"
-            name="armLength"
-            value={formData.armLength}
-            onChange={handleDadChange}
-            placeholder="Arm Length"
-          />
-          <TextField
-            type="text"
-            name="experience"
-            value={formData.experience}
-            onChange={handleDadChange}
-            placeholder="Experience Score"
-          />
-
-          <Button onClick={handleFormSubmit} style={{}}>
-            Submit
-          </Button>
-        </form>
-      </Grid>
-      
-      <Modal
-      open={showModal}
-      onClose={handleCloseModal}
-      aria-labelledby="result-modal"
-      aria-describedby="result-modal-description"
-    >
-      <Box
-        sx={{
-          position: 'absolute',
-          width: 400,
-          bgcolor: 'background.paper',
-          border: '2px solid #000',
-          boxShadow: 24,
-          p: 4,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        <h2 id="result-modal">Result</h2>
-        {data && (
-          <p id="result-modal-description">
-            Success! Data: 
-            {formData}
-          </p>
-        )}
-        {error && (
-      <p id="result-modal-description">
-        FAIL! Error: {error.message}. Dad Name: 
-        {formData.dadName}
-      </p>
-    )}
-        <Button onClick={handleCloseModal}>Close</Button>
-      </Box>
-    </Modal>
-  
-  </>
-);
-
-/*
-
-  return (
-    <>
-      <Btn />
-      //{ Conditionally render CreateDad page based on Logged In }
       {Auth.loggedIn() ? (
+        <>
         <Grid>
           <form
             style={{
@@ -195,7 +76,7 @@ const handleFormSubmit = async (event) => {
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
               backgroundColor: '#41a6de',
-              height: '100vh', // 100% of the viewport height
+              height: '100vh',
               display: 'flex',
               justifyContent: 'flex-start',
               alignItems: 'center',
@@ -203,76 +84,220 @@ const handleFormSubmit = async (event) => {
               flexDirection: 'column',
               margin: 0,
               padding: 0,
-            }}>
+            }}
             
-            //{ Form Inputs }
-
-            <input
+          >
+          
+            <TextField
               type="text"
-              name="DadName"
-              value={formData.DadName}
+              name="dadName"
+              value={formData.dadName}
               onChange={handleDadChange}
               placeholder="Dad Name"
             />
-            <input
+            <TextField
               type="text"
               name="nickname"
               value={formData.nickname}
               onChange={handleDadChange}
               placeholder="Nickname"
             />
-            <input
+            <TextField
               type="text"
               name="entryMusic"
               value={formData.entryMusic}
               onChange={handleDadChange}
               placeholder="Choose some entry music!"
             />
-            <input
+            <TextField
               type="text"
               name="dadJoke"
               value={formData.dadJoke}
               onChange={handleDadChange}
               placeholder="Add your dad's favorite joke!"
             />
-            <input
+            <TextField
               type="text"
               name="weight"
               value={formData.weight}
               onChange={handleDadChange}
               placeholder="Weight"
             />
-            <input
+            <TextField
               type="text"
               name="armLength"
               value={formData.armLength}
               onChange={handleDadChange}
               placeholder="Arm Length"
             />
-            <input
+            <TextField
               type="text"
-              name="weapon"
+              name="experience"
               value={formData.experience}
               onChange={handleDadChange}
               placeholder="Experience Score"
             />
-
-            <Button style={{}} onClick={handleFormSubmit}>
-                    BET!#2
+    
+            <Button onClick={handleFormSubmit} style={{}}>
+              Submit
             </Button>
           </form>
         </Grid>
-      ) : (
-        <p>
-          You must be logged in to create your dad!
-          <Link to="/login">Login</Link> or <Link to="/signup">Sign up!</Link>
+    
+    <Modal
+    open={showModal}
+    onClose={handleCloseModal}
+    aria-labelledby="result-modal"
+    aria-describedby="result-modal-description"
+    >
+    <Box
+      sx={{
+        position: 'absolute',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      }}
+    >
+      <h2 id="result-modal">Result</h2>
+      {data && (
+        <p id="result-modal-description">
+          Success! Data: 
+          {formData}
         </p>
       )}
-     
+      {error && (
+    <p id="result-modal-description">
+      FAIL! Error: {error.message}. Dad Name: 
+      {formData.dadName}
+    </p>
+    )}
+      <Button onClick={handleCloseModal}>Close</Button>
+    </Box>
+    </Modal>
     </>
-  );
+      ) : (
+        <p>
+          hi
+        </p>
+      )}
+    </>
+);
 
-*/
+{/* <Grid>
+    <form
+      style={{
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundColor: '#41a6de',
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        flexWrap: 'nowrap',
+        flexDirection: 'column',
+        margin: 0,
+        padding: 0,
+      }}
+      
+    >
+      
+      <TextField
+        type="text"
+        name="dadName"
+        value={formData.dadName}
+        onChange={handleDadChange}
+        placeholder="Dad Name"
+      />
+      <TextField
+        type="text"
+        name="nickname"
+        value={formData.nickname}
+        onChange={handleDadChange}
+        placeholder="Nickname"
+      />
+      <TextField
+        type="text"
+        name="entryMusic"
+        value={formData.entryMusic}
+        onChange={handleDadChange}
+        placeholder="Choose some entry music!"
+      />
+      <TextField
+        type="text"
+        name="dadJoke"
+        value={formData.dadJoke}
+        onChange={handleDadChange}
+        placeholder="Add your dad's favorite joke!"
+      />
+      <TextField
+        type="text"
+        name="weight"
+        value={formData.weight}
+        onChange={handleDadChange}
+        placeholder="Weight"
+      />
+      <TextField
+        type="text"
+        name="armLength"
+        value={formData.armLength}
+        onChange={handleDadChange}
+        placeholder="Arm Length"
+      />
+      <TextField
+        type="text"
+        name="experience"
+        value={formData.experience}
+        onChange={handleDadChange}
+        placeholder="Experience Score"
+      />
+
+      <Button onClick={handleFormSubmit} style={{}}>
+        Submit
+      </Button>
+    </form>
+  </Grid>
+
+<Modal
+open={showModal}
+onClose={handleCloseModal}
+aria-labelledby="result-modal"
+aria-describedby="result-modal-description"
+>
+<Box
+  sx={{
+    position: 'absolute',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  }}
+>
+  <h2 id="result-modal">Result</h2>
+  {data && (
+    <p id="result-modal-description">
+      Success! Data: 
+      {formData}
+    </p>
+  )}
+  {error && (
+<p id="result-modal-description">
+  FAIL! Error: {error.message}. Dad Name: 
+  {formData.dadName}
+</p>
+)}
+  <Button onClick={handleCloseModal}>Close</Button>
+</Box>
+</Modal> */}
 
 
 };
