@@ -5,9 +5,8 @@ import { useQuery } from '@apollo/client';
 import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material/';
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
-import Auth from '../utils/auth'
-import LoginErr from '../Components/LoginErr'
-
+import Auth from '../utils/auth';
+import LoginErr from '../Components/LoginErr';
 
 //// ADD EXPERIENCE
 
@@ -40,11 +39,11 @@ const FightBefore = () => {
   ///// Change mydata when auth is working
     const { data: myData } = useQuery(QUERY_ME);
     const { data: allData } = useQuery(QUERY_DADS);
-
+    const [totalScoreMyDad, setTotalScoreMyDad] = useState(null);
     const [myDad, setMyDad] = useState('');
     const [opponent, setMyOpponent] = useState('');
     const [selectedMyDad, setSelectedMyDad] = useState(null);
-    const [selectedOpponent, setSelectedOpponent] = useState(null); // State to hold selected dad's info
+    const [selectedOpponent, setSelectedOpponent] = useState(null);
 
 
 
@@ -62,6 +61,7 @@ const FightBefore = () => {
 
     const handleFormSubmit = async (event) => {
       event.preventDefault();
+
   };
 
   const handleDadFight = async (event) => {
@@ -89,11 +89,14 @@ const FightBefore = () => {
 
     // opponent score
     const totalScoreOpponent = selectedOpponent.weight + selectedOpponent.armLength + selectedOpponent.experience + randomOpponentNumber;
+
+    setTotalScoreMyDad(totalScoreMyDad);
     
     // find winner!!
     if (totalScoreMyDad > totalScoreOpponent) {
-     console.log('You win!' + totalScoreMyDad);
+      console.log('You win!' + totalScoreMyDad);
     } else {
+
       console.log('You lose!' + totalScoreOpponent);
     }
 };
@@ -256,7 +259,18 @@ const FightBefore = () => {
       <div>WINNER</div>
       <div id="winner-name"></div>
       <div>Score</div>
-      <div id="final-score"></div>
+      <Grid item xs={12}>
+        <TextField
+            id="total-score-my-dad"
+            label="Total Score My Dad"
+            value={totalScoreMyDad}
+            variant="outlined"
+            fullWidth
+            InputProps={{
+            readOnly: true,
+          }}
+        />
+      </Grid>
 
       <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
      </>
