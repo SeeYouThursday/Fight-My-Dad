@@ -5,6 +5,7 @@ import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
 import {SAVE_DAD} from '../utils/mutations';
 //import Auth from '../utils/auth.js'
 import { Link } from 'react-router-dom';
+import dadIcons from '../utils/dadIcons.js';
 
 const DadCreate = () => {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const DadCreate = () => {
     armLength: '',
     experience: '',
     userId: 'LOLFAKE', 
+    icon: 'selectIcon',
   });
 
   const [saveDad, { data, error }] = useMutation(SAVE_DAD);
@@ -134,6 +136,8 @@ const handleFormSubmit = async (event) => {
             onChange={handleDadChange}
             placeholder="Experience Score"
           />
+          {/* Icon select at this time? */}
+          {/* <SelectIcon type="object" name="icon" value={formData.icon} onChange={handleDadChange} /> */}
 
           <Button type="submit" style={{}}>
             Submit
