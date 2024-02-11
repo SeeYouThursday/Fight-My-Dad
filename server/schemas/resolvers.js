@@ -110,10 +110,21 @@ const resolvers = {
 
 */
 
-    addDad: async (parent, { input }, context) => {
-      console.log('Eliot juggles.', input);
+    addDad: async (parent, { userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, }, context) => {
+      console.log('Eliot juggles.',  userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, );
       try {
-        const newDad = await Dad.create(input);
+        const newDad = await Dad.create({
+          userId,    
+          dadName,
+          nickname,
+          entryMusic,
+          dadJoke,
+          weight,
+          armLength,
+          experience,
+          winNum,
+          lossNum,
+        });
         console.log('Brian doesnt juggle', newDad);
 
         return newDad;

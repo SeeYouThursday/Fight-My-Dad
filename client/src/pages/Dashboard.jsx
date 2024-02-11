@@ -58,8 +58,8 @@ const Dashboard = (me) => {
             </section>
           </div>
           <div style={styles.divider}></div>
-          <DadCard />
-          <Stat />
+          {/* <DadCard /> */}
+          {/* <Stat /> */}
         </main>
        ) : (
         <LoginErr />

@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import Logout from '../Logout'
 //styles
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
 const links = [
   {
     name: 'Logout',
-    link: '/',
+    link: '/logout',
   },
   {
     name: 'Create Dad',
@@ -87,7 +87,6 @@ export default function Nav() {
             // disablePadding
           >
             <ListItemButton component={Link} to={link.link}>
-              <ListItemIcon></ListItemIcon>
               <ListItemText primary={link.name} />
             </ListItemButton>
           </ListItem>
@@ -103,8 +102,8 @@ export default function Nav() {
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           {/* When the button is clicked, open the drawer */}
-          <Button onClick={toggleDrawer(anchor, true)}>
-            <IconButton
+            <IconButton 
+              onClick={toggleDrawer(anchor, true)}
               size="large"
               edge="start"
               color="inherit"
@@ -113,7 +112,6 @@ export default function Nav() {
             >
               <MenuIcon />
             </IconButton>
-          </Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}

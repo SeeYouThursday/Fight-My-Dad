@@ -29,6 +29,7 @@ const Login = () => {
       //! change login based on what we have in our mutations
       console.log(data, 'response')
       Auth.login(data.login.token);
+
     } catch (e) {
       console.error(e);
     }
@@ -39,6 +40,7 @@ const Login = () => {
       password: '',
     });
   };
+
 
   return (
     <Grid>

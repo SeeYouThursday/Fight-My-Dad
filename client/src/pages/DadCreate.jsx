@@ -19,6 +19,8 @@ const DadCreate = () => {
     experience: '',
     userId: 'LOLFAKE', 
     icon: 'selectIcon',
+    winNum: 0,
+    lossNum: 0
   });
 
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
@@ -28,17 +30,17 @@ const handleFormSubmit = async (event) => {
   event.preventDefault();
 
   // Convert form fields to the correct data types
-  // const convertedFormData = {
-  //   ...formData,
-  //   weight: parseInt(formData.weight),
-  //   armLength: parseInt(formData.armLength),
-  //   experience: parseInt(formData.experience)
-  // };
+  const convertedFormData = {
+    ...formData,
+    weight: parseInt(formData.weight),
+    armLength: parseInt(formData.armLength),
+    experience: parseInt(formData.experience)
+  };
 
   try {
     console.log('Form data:', formData); 
     const { data } = await addDad({
-      variables: { ...formData },
+      variables: { ...convertedFormData },
     });
     setShowModal(true);
     console.log(data)

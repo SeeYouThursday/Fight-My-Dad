@@ -27,9 +27,6 @@ const dadSchema = new Schema(
       type: Number,
       default: 0,
     },
-    userId: {
-      type: String,
-    },
     winNum: {
       type: Number,
       default: 0,
@@ -37,6 +34,9 @@ const dadSchema = new Schema(
     lossNum: {
       type: Number,
       default: 0,
+    },
+    userId: {
+      type: String,
     },
   },
   {
