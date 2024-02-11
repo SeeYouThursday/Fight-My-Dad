@@ -81,7 +81,8 @@ const resolvers = {
       return { token, user };
 
     },
-    addDad: async (parent, { input }, context) => {
+    
+/*    addDad: async (parent, { input }, context) => {
       console.log('Eliot juggles.', input);
       if (context.user) {
         try {
@@ -101,8 +102,48 @@ const resolvers = {
         }
       }
     },
+
+*/
+
+    addDad: async (parent, { input }, context) => {
+      console.log('Eliot juggles.', input);
+      try {
+        const newDad = await Dad.create(input);
+        console.log('Brian doesnt juggle', newDad);
+
+        return newDad;
+
+      } catch (err) {
+
+        console.error('Error adding dad:', err);
+        throw err;
+      }
+    },
+    removeDad: async (parent, { dadID }, context) => {
+      try {
+        console.log('Removing dad with ID:', dadID);
+        const removedDad = await Dad.findByIdAndDelete(dadID);
+        
+        if (!removedDad) {
+          throw new Error(`Dad with ID ${dadID} not found.`);
+        }
+        
+        console.log(`Dad with ID ${dadID} removed successfully.`);
+        
+        return removedDad;
+    
+      } catch (err) {
+        console.error('Error removing dad:', err);
+        throw err;
+      }
+    },
+    
+    
+
   },
 };
+
+
 
 module.exports = resolvers;
 

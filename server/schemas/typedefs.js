@@ -15,7 +15,6 @@ const typeDefs = `
     userId: String
     entryMusic: String
     dadJoke: String
-
     weight: Int
     armLength: Int
     experience: Int
@@ -60,7 +59,7 @@ input dadStats {
     login(username: String, password: String!): Auth
 
     addDad(input: dadStats) : Dad
-
+    removeDad(dadId: ID!): Dad
   }
 `;
 
