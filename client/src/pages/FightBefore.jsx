@@ -161,98 +161,98 @@ const FightBefore = () => {
       <Grid item xs={4}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div> - </div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Name:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Nickname:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Entry Music:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Dad Joke:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Weight:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Arm Length:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Win Num:</div>
         </Grid>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Loss Num:</div>
         </Grid>
       </Grid>
 
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>My Dad</div>
         </Grid>
-        <Grid id="my-dad-name" xs={6}>
+        <Grid item id="my-dad-name" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.dadName}</div>}
         </Grid>
-        <Grid id="my-dad-nickname" xs={6}>
+        <Grid item id="my-dad-nickname" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
-        <Grid id="my-dad-entry-music" xs={6}>
+        <Grid item id="my-dad-entry-music" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.entryMusic}</div>}
         </Grid>
-        <Grid id="my-dad-dad-joke"xs={6}>
+        <Grid item id="my-dad-dad-joke"xs={6}>
           {selectedMyDad && <div>{selectedMyDad.dadJoke}</div>}
         </Grid>
-        <Grid id="my-dad-weight" xs={6}>
+        <Grid item id="my-dad-weight" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.weight}</div>}
         </Grid>
-        <Grid id="my-dad-arm-length" xs={6}>
+        <Grid item id="my-dad-arm-length" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.armLength}</div>}
         </Grid>
-        <Grid id="my-dad-experience" xs={6}>
+        <Grid item id="my-dad-experience" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.experience}</div>}
         </Grid>
-        <Grid id="my-dad-win-num" xs={6}>
+        <Grid item id="my-dad-win-num" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.winNum}</div>}
         </Grid>
-        <Grid id="my-dad-loss-num" xs={6}>
+        <Grid item id="my-dad-loss-num" xs={6}>
           {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
         </Grid>
 
       </Grid>
 
       <Grid item xs={6}>
-        <Grid xs={6}>
+        <Grid item xs={6}>
           <div>Opponent</div>
         </Grid>
-        <Grid id="opponent-name" xs={6}>
+        <Grid item id="opponent-name" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
-        <Grid id="opponent-nickname" xs={6}>
+        <Grid item id="opponent-nickname" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
         </Grid>
-        <Grid id="opponent-entry-music" xs={6}>
+        <Grid item id="opponent-entry-music" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.entryMusic}</div>}
         </Grid>
-        <Grid id="opponent-dad-joke" xs={6}>
+        <Grid item id="opponent-dad-joke" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.dadJoke}</div>}
         </Grid>
-        <Grid id="opponent-weight" xs={6}>
+        <Grid item id="opponent-weight" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.weight}</div>}
         </Grid>
-        <Grid id="opponent-arm-length" xs={6}>
+        <Grid item id="opponent-arm-length" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.armLength}</div>}
         </Grid>
-        <Grid id="opponent-experience" xs={6}>
+        <Grid item id="opponent-experience" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.experience}</div>}
         </Grid>
-        <Grid id="opponent-win-num" xs={6}>
+        <Grid item id="opponent-win-num" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.winNum}</div>}
         </Grid>
-        <Grid id="opponent-loss-num" xs={6}>
+        <Grid item id="opponent-loss-num" xs={6}>
           {selectedOpponent && <div>{selectedOpponent.lossNum}</div>}
         </Grid>
 
