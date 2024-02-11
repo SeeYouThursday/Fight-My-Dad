@@ -44,6 +44,7 @@ const FightBefore = () => {
     const [opponent, setMyOpponent] = useState('');
     const [selectedMyDad, setSelectedMyDad] = useState(null);
     const [selectedOpponent, setSelectedOpponent] = useState(null);
+    var [winner, setWinner] = useState(null);
 
 
 
@@ -94,9 +95,10 @@ const FightBefore = () => {
     
     // find winner!!
     if (totalScoreMyDad > totalScoreOpponent) {
+      setWinner("You win :D");
       console.log('You win!' + totalScoreMyDad);
     } else {
-
+      setWinner("You lost :(");
       console.log('You lose!' + totalScoreOpponent);
     }
 };
@@ -256,23 +258,26 @@ const FightBefore = () => {
 
       <Button onClick={handleFormSubmit}>YEET!</Button>
 
-      <div>WINNER</div>
-      <div id="winner-name"></div>
-      <div>Score</div>
+      <div>Results</div>
       <Grid item xs={12}>
         <TextField
-            id="total-score-my-dad"
-            label="Total Score My Dad"
-            value={totalScoreMyDad}
-            variant="outlined"
-            fullWidth
-            InputProps={{
+          id="final-winner"
+          value={winner}
+          variant="outlined"
+          fullWidth
+          InputProps={{
             readOnly: true,
           }}
         />
       </Grid>
 
-      <Button onClick={() => {console.log("Button clicked"); handleDadFight();}}>Make Them Fight!</Button>
+      <Button onClick={() => 
+        {
+          console.log("Button clicked"); handleDadFight();
+        }
+      }
+      >Make Them Fight!</Button>
+
      </>
       ) : (
         <LoginErr />
