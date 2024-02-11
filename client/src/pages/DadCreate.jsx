@@ -6,7 +6,7 @@ import {SAVE_DAD} from '../utils/mutations';
 import Auth from '../utils/auth.js'
 import { Link } from 'react-router-dom';
 import LoginErr from '../Components/LoginErr'
-
+import dadIcons from '../utils/dadIcons.js';
 
 const DadCreate = () => {
   const [formData, setFormData] = useState({
@@ -14,10 +14,11 @@ const DadCreate = () => {
     nickname: '',
     entryMusic: '',
     dadJoke: '',
-    weight: 0,
-    armLength: 0,
-    experience: 0,
-    userId: 'ObjectId(65c704d836bf027a1f500ccf)', 
+    weight: '',
+    armLength: '',
+    experience: '',
+    userId: 'LOLFAKE', 
+    icon: 'selectIcon',
   });
 
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
@@ -139,7 +140,10 @@ const handleFormSubmit = async (event) => {
               onChange={handleDadChange}
               placeholder="Experience Score"
             />
-    
+
+            {/* Icon select at this time? */}
+            {/* <SelectIcon type="object" name="icon" value={formData.icon} onChange={handleDadChange} /> */}
+
             <Button onClick={handleFormSubmit} style={{}}>
               Submit
             </Button>
