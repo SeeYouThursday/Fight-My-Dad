@@ -39,8 +39,7 @@ export const SAVE_DAD = gql`
             lossNum
             userId
         }
-    }
-}`;
+    }`;
 
 export const REMOVE_DAD = gql`
 mutation removeDad($dadId: ID!) {
