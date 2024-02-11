@@ -68,7 +68,7 @@ const FightBefore = () => {
       setSelectedDelete(event.target.value);
       const selectedDelete = allData?.getAllDads.find(dad => dad._id === event.target.value);
       setSelectedOpponent(selectedDelete);
-
+      setSelectedOpponent("")
     };
 
   const handleDadFight = async (event) => {
