@@ -59,7 +59,7 @@ input dadStats {
     login(username: String, password: String!): Auth
 
     addDad(input: dadStats) : Dad
-
+    removeDad(dadId: ID!): Dad
   }
 `;
 

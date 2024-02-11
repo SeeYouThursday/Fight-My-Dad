@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client';
 import Btn from '../Components/Btn';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
 import {SAVE_DAD} from '../utils/mutations';
-import Auth from '../utils/auth.js'
+//import Auth from '../utils/auth.js'
 import { Link } from 'react-router-dom';
 
 const DadCreate = () => {
@@ -21,18 +21,28 @@ const DadCreate = () => {
   const [saveDad, { data, error }] = useMutation(SAVE_DAD);
   const [showModal, setShowModal] = useState(false);
 
- const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await saveDad({
-        variables: { newDad: formData },
-      });
-      setShowModal(true);
-    } catch (err) {
-      console.error(err);
-      setShowModal(true);
-    }
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+
+  // Convert form fields to the correct data types
+  const convertedFormData = {
+    ...formData,
+    weight: parseInt(formData.weight),
+    armLength: parseInt(formData.armLength),
+    experience: parseInt(formData.experience)
   };
+
+  try {
+    console.log('Form data:', convertedFormData); 
+    await saveDad({
+      variables: { newDad: convertedFormData },
+    });
+    setShowModal(true);
+  } catch (err) {
+    console.error('Error submitting form:', err); 
+    setShowModal(true);
+  }
+};
 
 
   const handleDadChange = (event) => {
@@ -153,20 +163,21 @@ const DadCreate = () => {
         <h2 id="result-modal">Result</h2>
         {data && (
           <p id="result-modal-description">
-            Success! Data: {JSON.stringify(data)}
+            Success! Data: {convertedFormData}
           </p>
         )}
         {error && (
-          <p id="result-modal-description">
-          Success! Data: {JSON.stringify(data)}
-        </p>
-        )}
+      <p id="result-modal-description">
+        FAIL! Error: {error.message}. Dad Name: {convertedFormData.dadName}
+      </p>
+    )}
         <Button onClick={handleCloseModal}>Close</Button>
       </Box>
     </Modal>
   
   </>
 );
+
 /*
 
   return (
