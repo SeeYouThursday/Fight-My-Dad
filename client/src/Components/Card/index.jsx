@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 
 //Font Awesome
 
+//USE THIS CARD FOR EVERY DISPLAY OF DADS
+
 
 //Styling The Card
 const styles = {

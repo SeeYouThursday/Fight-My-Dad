@@ -6,6 +6,8 @@ import { Grid, TextField, Button, FormControl, InputLabel, Select, MenuItem } fr
 import {QUERY_ME} from '../utils/queries';
 import {QUERY_DADS} from '../utils/queries';
 import Auth from '../utils/auth'
+import LoginErr from '../Components/LoginErr'
+
 
 //// ADD EXPERIENCE
 
@@ -260,9 +262,7 @@ const FightBefore = () => {
 
     </>
     ) : (
-      <p>
-        Hi
-      </p>
+      <LoginErr />
     )}
   </>
     

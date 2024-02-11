@@ -14,6 +14,8 @@ const styles = {
     }
 }
 
+//USE THIS BTN FOR EVERY PAGE THAT MUST RETURN TO DASHBOARD!
+
 export default function Btn() {
     return(
 

@@ -4,6 +4,7 @@ import DadCard from '../Components/Card';
 import Auth from '../utils/auth.js'
 import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries'
+import LoginErr from '../Components/LoginErr'
 
 const styles = {
   //   display: 'flex',
@@ -58,7 +59,7 @@ const Dashboard = (me) => {
           <DadCard />
         </main>
        ) : (
-      <p>hi</p>
+        <LoginErr />
       )}
     </>
     
