@@ -45,6 +45,7 @@ const FightBefore = () => {
     const [opponent, setMyOpponent] = useState("");
     const [selectedMyDad, setSelectedMyDad] = useState("");
     const [selectedOpponent, setSelectedOpponent] = useState("");
+    const [selectedDelete, setSelectedDelete] = useState("");
     var [winner, setWinner] = useState("");
     const [deleteDad] = useMutation(REMOVE_DAD);
 
@@ -61,6 +62,13 @@ const FightBefore = () => {
       const selectedOpponent = allData?.getAllDads.find(dad => dad._id === event.target.value);
       setSelectedOpponent(selectedOpponent);
       setWinner("");
+    };
+
+    const handleDeleteChange = (event) => {
+      setSelectedDelete(event.target.value);
+      const selectedDelete = allData?.getAllDads.find(dad => dad._id === event.target.value);
+      setSelectedOpponent(selectedDelete);
+
     };
 
   const handleDadFight = async (event) => {
@@ -258,7 +266,7 @@ const FightBefore = () => {
       <Select
         labelId="select-opponent"
         id="select-opponent-dropdown"
-        value={opponent}
+        value={selectedOpponent}
         label="Dad"
         onChange={handleOpponentChange}
       >
@@ -290,7 +298,24 @@ const FightBefore = () => {
         }
       }
       >Make Them Fight!</Button>
+
+      <FormControl fullWidth>
+      <InputLabel id="select-oppoent">Select dad to delete!</InputLabel>
+      <Select
+        labelId="select-delete"
+        id="select-delete-dropdown"
+        value={selectedDelete}
+        label="Dad"
+        onChange={handleDeleteChange}
+      >
+        {allData?.getAllDads.map(dad => (
+            <MenuItem key={dad._id} value={dad._id}>{dad.dadName}</MenuItem>
+          ))}
+      </Select>
+      </FormControl>
     <Button
+
+    
     onClick={() => {
       deleteDad({
         variables: {
