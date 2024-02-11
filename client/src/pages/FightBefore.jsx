@@ -112,6 +112,23 @@ const FightBefore = () => {
     <>
     {Auth.loggedIn() ? (
       <>
+      <form
+            style={{
+              backgroundSize: 'contain',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              backgroundColor: '#41a6de',
+              height: '100vh',
+              display: 'flex',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              flexWrap: 'nowrap',
+              flexDirection: 'column',
+              margin: 0,
+              padding: 0,
+            }}
+            
+      >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
       <Grid item xs={2}>
@@ -278,6 +295,7 @@ const FightBefore = () => {
       }
       >Make Them Fight!</Button>
 
+    </form>
      </>
       ) : (
         <LoginErr />
