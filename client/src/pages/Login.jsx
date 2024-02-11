@@ -52,7 +52,7 @@ const Login = () => {
           height: '100vh', // This sets the height to the full height of the viewport
         }}
       >
-        <form onSubmit={handleFormSubmit}
+        <form 
           style={{
             backgroundImage: `url(${loginImage})`,
             backgroundSize: 'contain',
@@ -109,7 +109,7 @@ const Login = () => {
             value={formState.password}
             onChange={handleChange}
           />
-          <Button type="submit">BET!</Button>
+          <Button onClick={handleFormSubmit}>BET!</Button>
           {/* <Link to={'/signup'}>Sign Up!</Link> //! Does not work */}
         </form>
       </div>

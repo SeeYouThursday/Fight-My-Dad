@@ -14,6 +14,7 @@ import FightBefore from './pages/FightBefore.jsx';
 import Results from './pages/Results.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
+import Logout from './Components/Logout'
 
 //Set Up Page Routes Here
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />,
       },
+      {
+        path: '/logout',
+        element: <Logout />
+      }
     ],
   },
 ]);

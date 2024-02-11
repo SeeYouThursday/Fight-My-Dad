@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import Logout from '../Logout'
 //styles
 
 const styles = {
@@ -32,7 +32,7 @@ const styles = {
 const links = [
   {
     name: 'Logout',
-    link: '/',
+    link: '/logout',
   },
   {
     name: 'Create Dad',
