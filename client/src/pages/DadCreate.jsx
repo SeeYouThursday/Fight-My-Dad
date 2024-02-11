@@ -12,32 +12,33 @@ const DadCreate = () => {
     nickname: '',
     entryMusic: '',
     dadJoke: '',
-    weight: '',
-    armLength: '',
-    experience: '',
-    userId: 'LOLFAKE', 
+    weight: 0,
+    armLength: 0,
+    experience: 0,
+    userId: 'ObjectId(65c704d836bf027a1f500ccf)', 
   });
 
-  const [saveDad, { data, error }] = useMutation(SAVE_DAD);
+  const [addDad, { data, error }] = useMutation(SAVE_DAD);
   const [showModal, setShowModal] = useState(false);
 
 const handleFormSubmit = async (event) => {
   event.preventDefault();
 
   // Convert form fields to the correct data types
-  const convertedFormData = {
-    ...formData,
-    weight: parseInt(formData.weight),
-    armLength: parseInt(formData.armLength),
-    experience: parseInt(formData.experience)
-  };
+  // const convertedFormData = {
+  //   ...formData,
+  //   weight: parseInt(formData.weight),
+  //   armLength: parseInt(formData.armLength),
+  //   experience: parseInt(formData.experience)
+  // };
 
   try {
-    console.log('Form data:', convertedFormData); 
-    await saveDad({
-      variables: { newDad: convertedFormData },
+    console.log('Form data:', formData); 
+    const { data } = await addDad({
+      variables: { ...formData },
     });
     setShowModal(true);
+    console.log(data)
   } catch (err) {
     console.error('Error submitting form:', err); 
     setShowModal(true);
@@ -58,10 +59,10 @@ const handleFormSubmit = async (event) => {
   //closebtn componet - top right
   //btn component - submit
   //submit logic - need to complete
-  const handleDadSubmit = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
+  // const handleDadSubmit = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData({ ...formData, [name]: value });
+  // };
 
 
   return (
@@ -82,7 +83,7 @@ const handleFormSubmit = async (event) => {
             margin: 0,
             padding: 0,
           }}
-          onSubmit={handleFormSubmit}
+          
         >
           
           <TextField
@@ -135,7 +136,7 @@ const handleFormSubmit = async (event) => {
             placeholder="Experience Score"
           />
 
-          <Button type="submit" style={{}}>
+          <Button onClick={handleFormSubmit} style={{}}>
             Submit
           </Button>
         </form>
@@ -163,12 +164,14 @@ const handleFormSubmit = async (event) => {
         <h2 id="result-modal">Result</h2>
         {data && (
           <p id="result-modal-description">
-            Success! Data: {convertedFormData}
+            Success! Data: 
+            {formData}
           </p>
         )}
         {error && (
       <p id="result-modal-description">
-        FAIL! Error: {error.message}. Dad Name: {convertedFormData.dadName}
+        FAIL! Error: {error.message}. Dad Name: 
+        {formData.dadName}
       </p>
     )}
         <Button onClick={handleCloseModal}>Close</Button>
