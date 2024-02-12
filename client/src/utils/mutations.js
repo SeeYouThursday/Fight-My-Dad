@@ -26,18 +26,16 @@ mutation addUser($username: String, $firstName: String, $lastName: String, $pass
 
 export const SAVE_DAD = gql`
 
- mutation addDad($input: dadStats) {
-    addDad(input: $input) {  
-            dadName
-            nickname
-            entryMusic
-            dadJoke
-            weight
+ mutation addDad($newDad: dadStats) {
+    addDad(input: $newDad) {  
             armLength
+            dadJoke
+            dadName
+            entryMusic
             experience
-            winNum
-            lossNum
+            nickname
             userId
+            weight
         }
     }`;
 

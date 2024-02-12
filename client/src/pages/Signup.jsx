@@ -57,13 +57,15 @@ const Signup = () => {
           padding: 0,
         }}
       >
-        <img
+        {/* <img
           src={signUpImage}
           alt="Sign Up"
           height={'30%'}
           width={'30%'}
           style={{ overflow: 'hidden' }}
-        />
+        /> */}
+        <img className='loginLogo' src='https://cdn.discordapp.com/attachments/551452864615153665/1206632850254860288/fmdasset7.png?ex=65dcb769&is=65ca4269&hm=4d3bfd646144909d23e19bf3b2271ffd3125eb8e4b9ab55bb04e14358ec16c39&' alt='Sign Up'/>
+        
         {/* {InputFields} */}
         <TextField
           className='loginInput'

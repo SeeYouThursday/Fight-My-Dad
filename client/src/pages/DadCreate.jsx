@@ -10,17 +10,26 @@ import dadIcons from '../utils/dadIcons.js';
 
 const DadCreate = () => {
   const [formData, setFormData] = useState({
-    dadName: '',
-    nickname: '',
-    entryMusic: '',
-    dadJoke: '',
-    weight: '',
     armLength: '',
+    dadJoke: '',
+    dadName: '',
+    entryMusic: '',
     experience: '',
-    userId: 'LOLFAKE',
-    icon: 'selectIcon',
-    winNum: 0,
-    lossNum: 0,
+    nickname: '',
+    userId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoid2Vld2VlIiwiX2lkIjoiNjVjNzA0ZDgzNmJmMDI3YTFmNTAwY2NmIn0sImlhdCI6MTcwNzc2MTczMywiZXhwIjoxNzA3NzY4OTMzfQ.8luQY0CIfEu6mV6jNLob60yd2KgVFs3l9zcKWiXnDlw',
+    weight: '',
+
+    // dadName: '',
+    // nickname: '',
+    // entryMusic: '',
+    // dadJoke: '',
+    // weight: '',
+    // armLength: '',
+    // experience: '',
+    // userId: 'LOLFAKE',
+    // icon: 'selectIcon',
+    // winNum: 0,
+    // lossNum: 0,
   });
 
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
@@ -28,7 +37,17 @@ const DadCreate = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    // Test Variable:
+    // const testData = {
+    //   armLength: 3,
+    //   dadJoke: 'Hu?',
+    //   dadName: 'Tony',
+    //   entryMusic: 'The eye of the Tiger',
+    //   experience: 40,
+    //   nickname: 'Daddio',
+    //   userId: 'LOL FAKE',
+    //   weight: 4,
+    // }
     // Convert form fields to the correct data types
     const convertedFormData = {
       ...formData,
@@ -39,11 +58,27 @@ const DadCreate = () => {
 
     try {
       console.log('Form data:', formData);
-      const { data } = await addDad({
-        variables: { ...convertedFormData },
+      console.log('Form data:', convertedFormData);
+
+      const  {data}  = await addDad({
+        variables: { newDad: convertedFormData },
       });
+      console.log('Data Taken to Server:', data);
+
       setShowModal(true);
-      console.log(data);
+      // setFormData({
+      //   dadName: '',
+      //   nickname: '',
+      //   entryMusic: '',
+      //   dadJoke: '',
+      //   weight: '',
+      //   armLength: '',
+      //   experience: '',
+      //   userId: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoid2Vld2VlIiwiX2lkIjoiNjVjNzA0ZDgzNmJmMDI3YTFmNTAwY2NmIn0sImlhdCI6MTcwNzc2MTczMywiZXhwIjoxNzA3NzY4OTMzfQ.8luQY0CIfEu6mV6jNLob60yd2KgVFs3l9zcKWiXnDlw',
+      //   // icon: 'selectIcon',
+      //   winNum: 0,
+      //   lossNum: 0,
+      // })
     } catch (err) {
       console.error('Error submitting form:', err);
       setShowModal(true);
@@ -53,6 +88,7 @@ const DadCreate = () => {
   const handleDadChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    console.log('Updated form data:', formData);
   };
 
   const handleCloseModal = () => {
@@ -75,11 +111,11 @@ const DadCreate = () => {
           <Grid>
             <form
               style={{
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                backgroundColor: '#41a6de',
-                height: '100vh',
+                // backgroundSize: 'contain',
+                // backgroundRepeat: 'no-repeat',
+                // backgroundPosition: 'center',
+                // backgroundColor: '#41a6de',
+                height: '60vh',
                 display: 'flex',
                 justifyContent: 'flex-start',
                 alignItems: 'center',
@@ -171,7 +207,7 @@ const DadCreate = () => {
               {data && (
                 <p id="result-modal-description">
                   Success! Data:
-                  {/* {formData} */}
+                  {formData.dadName}
                 </p>
               )}
               {error && (

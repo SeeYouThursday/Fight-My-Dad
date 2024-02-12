@@ -37,6 +37,9 @@ const styles = {
     borderRadius: "10px",
     margin: "20px",
   },
+  container: {
+    height: '50vh'
+  }
 };
 
 // const drawerbar = ''
@@ -49,8 +52,9 @@ const Dashboard = () => {
     <>
       {Auth.loggedIn() ? (
         <main>
-          <img className="asset4" src='https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&' />
+          
           <div style={styles.container}>
+          <img className="asset4" src='https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&' />
             <section style={styles.mainSection}>
               <img src='https://cdn.discordapp.com/attachments/551452864615153665/1206443566445101096/fmdasset5.png?ex=65dc0720&is=65c99220&hm=be1e216e3b553b561acec0fbd5d4f6259e4fae240cd90da486d928dcb8813b21&' />
               <div>
@@ -60,7 +64,8 @@ const Dashboard = () => {
             </section>
           </div>
           {/* <div style={styles.divider}></div> */}
-          {/* <DadCard /> */}
+          <DadCard /> <DadCard />
+
           {/* <Stat /> */}
         </main>
        ) : (

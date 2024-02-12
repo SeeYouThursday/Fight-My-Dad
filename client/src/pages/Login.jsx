@@ -41,20 +41,13 @@ const Login = () => {
 
   return (
     <Grid>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh', // This sets the height to the full height of the viewport
-        }}
-      >
+      <div>
         <form 
           style={{
             // backgroundImage: `url(${loginImage})`,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
+            // backgroundSize: 'contain',
+            // backgroundRepeat: 'no-repeat',
+            // backgroundPosition: 'center',
             // backgroundColor: 'var(--darkest)',
             height: '60vh', // 100% of the viewport height
             display: 'flex',
@@ -66,17 +59,8 @@ const Login = () => {
             padding: 0,
           }}
         >
-          {/* <img
-            src={smallLogin}
-            alt="Login label"
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-              margin: '0 auto',
-              padding: '0 auto',
-            }}
-          />{' '} */}
-          <h2 className='loginLogo loginLogoText'>Login!</h2>
+
+          <img className='loginLogo' src='https://cdn.discordapp.com/attachments/551452864615153665/1206631191319543878/fmdasset6.png?ex=65dcb5de&is=65ca40de&hm=5774d5aa5822b7476f01e8de7f42329424139b4066c63b496bd3bc7d63201128&' alt='Login'/>
 
           {/* //! Refactor using map method! */}
           <TextField
