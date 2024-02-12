@@ -1,6 +1,6 @@
 import Nav from "../Components/Nav";
 import Image from "../Components/Image";
-import DadCard from "../Components/Card";
+// import DadCard from "../Components/Card";
 import Stat from "../Components/Stat";
 import Auth from "../utils/auth.js";
 import { useQuery } from "@apollo/client";
@@ -64,7 +64,7 @@ const Dashboard = () => {
             </section>
           </div>
           {/* <div style={styles.divider}></div> */}
-          <DadCard /> <DadCard />
+          {/* <DadCard /> <DadCard /> */}
 
           {/* <Stat /> */}
         </main>
