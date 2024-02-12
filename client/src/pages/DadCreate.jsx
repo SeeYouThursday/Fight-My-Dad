@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import Btn from '../Components/Btn';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
 import { SAVE_DAD } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth.js';
 import { Link } from 'react-router-dom';
 import LoginErr from '../Components/LoginErr';
@@ -21,31 +22,37 @@ const DadCreate = () => {
     weight: '',
   });
 
+  const { data: myData } = useQuery(QUERY_ME);
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
   const [showModal, setShowModal] = useState(false);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
-    // Convert form fields to the correct data types
-    const convertedFormData = {
-      ...formData,
-      weight: parseInt(formData.weight),
-      armLength: parseInt(formData.armLength),
-      experience: parseInt(formData.experience),
-    };
+    if (Auth.loggedIn()) {
 
-    try {
+      const userId = Auth.getProfile().data._id;
+      // Convert form fields to the correct data types
+      const convertedFormData = {
+        ...formData,
+        weight: parseInt(formData.weight),
+        armLength: parseInt(formData.armLength),
+        experience: parseInt(formData.experience),
+        userId: userId,
+      };
 
-      const  {data}  = await addDad({
-        variables: { newDad: convertedFormData },
-      });
-      
+      try {
 
-      setShowModal(true);
-    } catch (err) {
-      console.error('Error submitting form:', err);
-      setShowModal(true);
+        const  {data}  = await addDad({
+          variables: { newDad: convertedFormData },
+        });
+        
+
+        setShowModal(true);
+      } catch (err) {
+        console.error('Error submitting form:', err);
+        setShowModal(true);
+      }
     }
   };
 
