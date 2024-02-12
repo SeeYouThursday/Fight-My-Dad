@@ -56,14 +56,14 @@ const Login = () => {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             // backgroundColor: 'var(--darkest)',
-            height: '100vh', // 100% of the viewport height
+            height: '60vh', // 100% of the viewport height
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'center',
             flexWrap: 'nowrap',
             flexDirection: 'column',
-            // margin: 0,
-            // padding: 0,
+            margin: 0,
+            padding: 0,
           }}
         >
           {/* <img

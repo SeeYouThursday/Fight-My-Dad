@@ -76,19 +76,19 @@ body {
 
 
 /* Login and Sign Up Styles */
-/* .loginLogo {
+.loginLogo {
     width: 20vw;
     background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-} */
+}
 
 .loginLogoText {
     font-family: 'Permanent Marker';
-    /* height: 40vh; */
+    /* height: 20vh; */
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     vertical-align: middle;
     color: var(--light);
 

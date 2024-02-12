@@ -42,12 +42,12 @@ const Signup = () => {
     <Grid>
       <form
         style={{
-          backgroundImage: `url(${loginImage})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundColor: '#41a6de',
-          height: '100vh', // 100% of the viewport height
+          // backgroundImage: `url(${loginImage})`,
+          // backgroundSize: 'contain',
+          // backgroundRepeat: 'no-repeat',
+          // backgroundPosition: 'center',
+          // backgroundColor: '#41a6de',
+          height: '60vh', // 100% of the viewport height
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
@@ -66,6 +66,7 @@ const Signup = () => {
         />
         {/* {InputFields} */}
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="First Name"
           variant="filled"
@@ -75,6 +76,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Last Name"
           variant="filled"
@@ -84,6 +86,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Username"
           variant="filled"
@@ -93,6 +96,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Password"
           variant="filled"
