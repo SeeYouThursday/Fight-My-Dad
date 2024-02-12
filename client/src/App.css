@@ -13,24 +13,7 @@ body {
     background-image: url('https://www.filterforge.com/filters/13622.jpg') opacity(0.8)
 }
 
-/* Assets */
 
-.asset1 {
-    /* background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&'); */
-    position: absolute;
-    z-index: -1;
-    bottom: 0;
-    right: 0;
-    width: 30vw;
-}
-
-.asset2 {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 30vw;
-}
 
 /* Animation Keyframes DO NOT TOUCH!!!! */
 
@@ -39,15 +22,48 @@ body {
     to {opacity: 1}
 }
 
-@keyframes picslide{
+@keyframes picslideleft{
     from {
-        margin-left: 800px;
+        margin-left: 50px;
         opacity: 0;
     }
     to {
-        margin-left: 40px;
+        margin-left: 0px;
         opacity: 1;
     }
+}
+
+@keyframes picslideright{
+    from {
+        margin-right: 50px;
+        opacity: 0;
+    }
+    to {
+        margin-right: 0px;
+        opacity: 1;
+    }
+}
+
+/* Assets */
+
+.asset1 {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 30vw;
+    animation-name: picslideright;
+    animation-duration: 1s;
+}
+
+.asset2 {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 30vw;
+    animation-name: picslideleft;
+    animation-duration: 1s;
 }
 
 /* Landing Page Styles */
@@ -55,12 +71,40 @@ body {
 .landingimg {
     width: 30vw;
     animation-name: fadein;
-    animation-duration: 3s;
+    animation-duration: 1s;
 }
 
 
 /* Login and Sign Up Styles */
+/* .loginLogo {
+    width: 20vw;
+    background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
 
+.loginLogoText {
+    font-family: 'Permanent Marker';
+    /* height: 40vh; */
+    text-align: center;
+    font-size: 40px;
+    vertical-align: middle;
+    color: var(--light);
+
+}
+
+.loginInput {
+    background-color: var(--primary);
+    color: var(--light);
+    width: 20vw;
+    
+}
+
+.loginsubmit {
+    background-color: var(--secondary);
+    color: var(--light)
+}
 /* DashBoard Styles */
 
 /* DadCreate Styles */

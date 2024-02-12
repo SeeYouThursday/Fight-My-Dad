@@ -17,7 +17,8 @@ const styles = {
     padding: '20px',
     borderRadius: '10px',
     minWidth: '300px',
-    margin: '5vw'
+    margin: '5vw',
+    flexWrap: 'wrap'
   },
   container: {
     display: 'flex',
@@ -34,7 +35,7 @@ const LandingPage = () => {
   // Giant Fight My Dad img in the middle of page
   return (
     <div style={styles.bigContainer}>
-    <img className='landingimg' src='https://cdn.discordapp.com/attachments/551452864615153665/1206400887510147152/fightmydadlogo.png?ex=65dbdf61&is=65c96a61&hm=b91348473b6c3b94e679d383e1da1405bd339f25cfb959e709170da21a03588a&' />
+    <img className='landingimg' src='https://cdn.discordapp.com/attachments/551452864615153665/1206400887510147152/fightmydadlogo.png?ex=65dbdf61&is=65c96a61&hm=b91348473b6c3b94e679d383e1da1405bd339f25cfb959e709170da21a03588a&' alt='Fight My Dad!'/>
     <div>
 
       <Container style={styles.container}>
@@ -43,7 +44,7 @@ const LandingPage = () => {
       </Container>
     </div>
     <img className='asset1' src='https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&' />
-    <img className='asset2' src='https://cdn.discordapp.com/attachments/551452864615153665/1206413717764571206/fmdasset2.png?ex=65dbeb54&is=65c97654&hm=40377d595fee97048decd6a3ef66796090f5a93656bed85adb70935263d317ba&' />
+    <img className='asset2' src='https://cdn.discordapp.com/attachments/551452864615153665/1206416165975621672/fmdasset2.png?ex=65dbed9c&is=65c9789c&hm=59ce95656da56ac45e0aa191816313ee34bc13596dea0145836ac91a920e067d&' />
     </div>
     
   );
