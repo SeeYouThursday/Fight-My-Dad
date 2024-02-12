@@ -14,19 +14,20 @@ const styles = {
   mainSection: {
     display: "flex",
     margin: "20px",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
   },
   user: {
-    background: "#142f36",
+    // background: "#142f36",
     height: "10vh",
     padding: "20px",
     borderRadius: "10px",
-    color: "#fedb0e",
+    fontFamily: "Permanent Marker",
+    color: "var(--secondary)",
     fontSize: "40px",
     alignSelf: "baseline",
   },
   divider: {
-    background: "#142f36",
+    background: "var(--dark)",
     padding: "10px",
     borderRadius: "10px",
   },
@@ -39,7 +40,7 @@ const styles = {
 };
 
 // const drawerbar = ''
-const Dashboard = (me) => {
+const Dashboard = () => {
   //Card
   const { loading, data } = useQuery(QUERY_ME);
 
@@ -48,16 +49,17 @@ const Dashboard = (me) => {
     <>
       {Auth.loggedIn() ? (
         <main>
+          <img className="asset4" src='https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&' />
           <div style={styles.container}>
             <section style={styles.mainSection}>
-              <Image />
+              <img src='https://cdn.discordapp.com/attachments/551452864615153665/1206443566445101096/fmdasset5.png?ex=65dc0720&is=65c99220&hm=be1e216e3b553b561acec0fbd5d4f6259e4fae240cd90da486d928dcb8813b21&' />
               <div>
-                <h1 style={styles.user}>{me.username}</h1>
-                <h3>Hey, {me.firstName} {me.lastName}!</h3>
+                <h1 style={styles.user}>Hey, Weewee!</h1>
+                {/* <h3>Hey, {data.me.firstName} {data.me.lastName}!</h3> */}
               </div>
             </section>
           </div>
-          <div style={styles.divider}></div>
+          {/* <div style={styles.divider}></div> */}
           {/* <DadCard /> */}
           {/* <Stat /> */}
         </main>

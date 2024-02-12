@@ -66,6 +66,20 @@ body {
     animation-duration: 1s;
 }
 
+.asset4{
+    /* background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    animation-name: picslideleft;
+    animation-duration: 1s;
+}
+
 /* Landing Page Styles */
 
 .landingimg {
@@ -86,7 +100,7 @@ body {
 
 .loginLogoText {
     font-family: 'Permanent Marker';
-    /* height: 20vh; */
+    height: 20vh;
     text-align: center;
     font-size: 50px;
     vertical-align: middle;
@@ -110,6 +124,37 @@ body {
 /* DadCreate Styles */
 
 /* Fight Styles */
+
+.fightimg {
+    width: 30vw;
+    animation-name: fadein;
+    animation-duration: 1s;
+}
+
+.fightDiv{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fightbtn {
+    background-color: var(--secondary) !important;
+    color: var(--light) !important;
+    margin: 10px !important;
+}
+
+.fightdrop {
+    background-color: var(--primary)
+}
+
+#select-dad {
+    color: var(--dark);
+}
+
+.results {
+    background-color: var(--primary);
+    font-family: 'Permanent Marker' !important;
+    margin: 3px;
+}
 
 /* .paper {
     position: relative;
