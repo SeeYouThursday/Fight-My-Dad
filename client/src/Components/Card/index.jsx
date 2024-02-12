@@ -44,7 +44,7 @@ const styles = {
 
 }
 
-export default function DadCard() {
+export default function DadCard({ formData}) {
 
     return (
         <Card sx={{ maxWidth: 350 }} style={styles.card}>
@@ -55,28 +55,23 @@ export default function DadCard() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
-                Placeholder Name
+                {formData.dadName}
             </Typography>
             <Divider />
             <Typography variant="body2" color="text.secondary" style={styles.joke}>
-              Dad Joke
+              Dad Joke: {formData.dadJoke}
             </Typography>
             <Divider />
             <div style={styles.bottom}>
                 <aside style={styles.half}>
                     <Typography variant="body2" color="text.secondary">
-                        <i className="fas fa-dumbbell">Weight</i>
+                        <i className="fas fa-dumbbell">Weight: {formData.weight}</i>
                         <span> | </span>
-                        <i className="fas fa-dumbbell">Height</i>
+                        <i className="fas fa-dumbbell">Height: {formData.armLength}</i>
                     </Typography>
                     <Divider />
                     <Typography variant="body2" color="text.secondary">
-                        <i className="fas fa-dumbbell">Experience</i>
-
-                    </Typography>
-                    <Divider />
-                    <Typography variant="body2" color="text.secondary">
-                        <i className="fas fa-dumbbell">Weight</i>
+                        <i className="fas fa-dumbbell">Experience: {formData.experience}</i>
 
                     </Typography>
                     <Divider />

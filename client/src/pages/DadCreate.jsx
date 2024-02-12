@@ -148,7 +148,7 @@ const DadCreate = () => {
               </Button>
             </form>
             {/* FOR MVP: Make formData appear on Card as a Preview */}
-            <Card />
+            <Card formData={formData}/>
           </Grid>
 
           <Modal
