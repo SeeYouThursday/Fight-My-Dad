@@ -1,9 +1,9 @@
 
 const styles = {
     x: {
-        background: "#d01e00",
+        background: "var(--secondary)",
         border: "none",
-        color: "#fff",
+        color: "var(--light)",
         fontWeight: "bold",
         width: "50px",
         height: "50px",
@@ -11,6 +11,10 @@ const styles = {
         textDecoration: "none",
         fontFamily: "Permanent Marker",
         margin: "10px"
+    },
+    container: {
+        display: 'flex',
+        justifyContent: 'flex-end'
     }
 }
 
@@ -19,7 +23,7 @@ const styles = {
 export default function Btn() {
     return(
 
-        <a href="/dashboard">
+        <a style={styles.container} href="/dashboard">
             <button style={styles.x} >
             {/* TO DO: CREATE BUTTON HERE */}
             X

@@ -42,12 +42,12 @@ const Signup = () => {
     <Grid>
       <form
         style={{
-          backgroundImage: `url(${loginImage})`,
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          backgroundColor: '#41a6de',
-          height: '100vh', // 100% of the viewport height
+          // backgroundImage: `url(${loginImage})`,
+          // backgroundSize: 'contain',
+          // backgroundRepeat: 'no-repeat',
+          // backgroundPosition: 'center',
+          // backgroundColor: '#41a6de',
+          height: '60vh', // 100% of the viewport height
           display: 'flex',
           justifyContent: 'flex-start',
           alignItems: 'center',
@@ -57,15 +57,18 @@ const Signup = () => {
           padding: 0,
         }}
       >
-        <img
+        {/* <img
           src={signUpImage}
           alt="Sign Up"
           height={'30%'}
           width={'30%'}
           style={{ overflow: 'hidden' }}
-        />
+        /> */}
+        <img className='loginLogo' src='https://cdn.discordapp.com/attachments/551452864615153665/1206632850254860288/fmdasset7.png?ex=65dcb769&is=65ca4269&hm=4d3bfd646144909d23e19bf3b2271ffd3125eb8e4b9ab55bb04e14358ec16c39&' alt='Sign Up'/>
+        
         {/* {InputFields} */}
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="First Name"
           variant="filled"
@@ -75,6 +78,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Last Name"
           variant="filled"
@@ -84,6 +88,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Username"
           variant="filled"
@@ -93,6 +98,7 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          className='loginInput'
           id="filled-basic"
           label="Password"
           variant="filled"
@@ -106,6 +112,8 @@ const Signup = () => {
           BET!
         </Button>
       </form>
+      <img className='asset1' src='https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&' />
+      <img className='asset2' src='https://cdn.discordapp.com/attachments/551452864615153665/1206416165975621672/fmdasset2.png?ex=65dbed9c&is=65c9789c&hm=59ce95656da56ac45e0aa191816313ee34bc13596dea0145836ac91a920e067d&' />
     </Grid>
   );
 };

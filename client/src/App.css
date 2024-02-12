@@ -1,0 +1,204 @@
+/* Global Styles */
+
+:root {
+    --darkest: #101114;
+    --dark: #25252c;
+    --primary: #E8B717;
+    --secondary: #B32424;
+    --light: #F2EDCE;
+}
+
+body {
+    background-color: var(--darkest);
+    background-image: url('https://www.filterforge.com/filters/13622.jpg') opacity(0.8)
+}
+
+
+
+/* Animation Keyframes DO NOT TOUCH!!!! */
+
+@keyframes fadein {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes picslideleft{
+    from {
+        margin-left: 50px;
+        opacity: 0;
+    }
+    to {
+        margin-left: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes picslideright{
+    from {
+        margin-right: 50px;
+        opacity: 0;
+    }
+    to {
+        margin-right: 0px;
+        opacity: 1;
+    }
+}
+
+/* Assets */
+
+.asset1 {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 30vw;
+    animation-name: picslideright;
+    animation-duration: 1s;
+}
+
+.asset2 {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 30vw;
+    animation-name: picslideleft;
+    animation-duration: 1s;
+}
+
+.asset4{
+    /* background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    animation-name: picslideleft;
+    animation-duration: 1s;
+}
+
+/* Landing Page Styles */
+
+.landingimg {
+    width: 30vw;
+    animation-name: fadein;
+    animation-duration: 1s;
+}
+
+
+/* Login and Sign Up Styles */
+.loginLogo {
+    width: 20vw;
+    margin:5vw;
+}
+
+.loginLogoText {
+    font-family: 'Permanent Marker';
+    height: 20vh;
+    text-align: center;
+    font-size: 50px;
+    vertical-align: middle;
+    color: var(--light);
+
+}
+
+.loginInput {
+    background-color: var(--primary);
+    color: var(--light);
+    width: 20vw;
+    
+}
+
+.loginsubmit {
+    background-color: var(--secondary);
+    color: var(--light)
+}
+/* DashBoard Styles */
+
+/* DadCreate Styles */
+
+/* Fight Styles */
+
+.fightimg {
+    width: 30vw;
+    animation-name: fadein;
+    animation-duration: 1s;
+}
+
+.fightDiv{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fightbtn {
+    background-color: var(--secondary) !important;
+    color: var(--light) !important;
+    margin: 10px !important;
+}
+
+.fightdrop {
+    background-color: var(--primary);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#select-dad {
+    color: var(--dark);
+}
+
+.results {
+    background-color: var(--primary);
+    font-family: 'Permanent Marker' !important;
+    margin: 3px;
+}
+
+/* .paper {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    min-width: 400px;
+    height: 480px;
+    margin: 0 auto;
+    background: var(--primary);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    overflow: hidden;
+}
+.paper:before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 60px;
+    background: radial-gradient(var(--dark) 6px, transparent 7px) repeat-y;
+    background-size: 30px 30px;
+    border-right: 3px solid var(--secondary);
+    box-sizing: border-box;
+}
+
+.paper-content {
+    position: absolute;
+    top: 30px; right: 0; bottom: 30px; left: 60px;
+    background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+    background-size: 30px 30px;
+}
+
+.paper-content textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    line-height: 30px;
+    padding: 0 10px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: mediumblue;
+    font-family: 'Handlee', cursive;
+    font-weight: bold;
+    font-size: 18px;
+    box-sizing: border-box;
+    z-index: 1;
+} */

@@ -17,14 +17,21 @@ import Logout from '../Logout'
 
 const styles = {
   navBG: {
-    background: '#142f36',
-    color: '#fedb0e',
+    background: 'var(--dark)',
+    color: 'var(--primary)',
     height: '100vh',
   },
   navItems: {
     display: 'flex',
     alignItems: 'space-evenly',
   },
+  navBtnContainer: {
+    width: '10vw',
+    display: 'flex',
+    justifyContent: 'center',
+    color: 'var(--light)',
+  },
+
 };
 
 //Links for the navbar
@@ -96,7 +103,7 @@ export default function Nav() {
   );
 
   return (
-    <div style={{ backgroundColor: '#41a6de' }}>
+    <div style={styles.navBtnContainer}>
       {/* Map over an array of anchors and create a button and a drawer for each one */}
       <Divider />
       {['left'].map((anchor) => (
@@ -109,6 +116,7 @@ export default function Nav() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
+              
             >
               <MenuIcon />
             </IconButton>

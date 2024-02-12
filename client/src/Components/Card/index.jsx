@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 const styles = {
     card: {
         margin: '10px',
-        background: '#41a6de'
+        background: 'var(--secondary)'
     },
     pic: {
         height: '250px',
@@ -88,10 +88,10 @@ export default function DadCard() {
                 </div>
             </div>
           </CardContent>
-          <CardActions>
+          {/* <CardActions>
             <Button size="small">Fight</Button>
             <Button size="small">Bet</Button>
-          </CardActions>
+          </CardActions> */}
         </Card>
       );
 }

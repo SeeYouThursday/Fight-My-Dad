@@ -6,7 +6,7 @@ export default function LoginErr() {
     
     const styles = {
         loginerr: {
-            background: '#fedb0e',
+            background: 'var(--primary)',
             width: '30vw',
             fontFamily: 'Permanent Marker',
             padding: '10px',
