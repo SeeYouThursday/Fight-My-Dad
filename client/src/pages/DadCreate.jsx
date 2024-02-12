@@ -8,7 +8,7 @@ import Auth from '../utils/auth.js';
 import { Link } from 'react-router-dom';
 import LoginErr from '../Components/LoginErr';
 import dadIcons from '../utils/dadIcons.js';
-import Card from '../Components/Card'
+import { CreateCard } from '../Components/Card'
 
 const DadCreate = () => {
   const [formData, setFormData] = useState({
@@ -148,7 +148,7 @@ const DadCreate = () => {
               </Button>
             </form>
             {/* FOR MVP: Make formData appear on Card as a Preview */}
-            <Card formData={formData}/>
+            <CreateCard formData={formData}/>
           </Grid>
 
           <Modal
