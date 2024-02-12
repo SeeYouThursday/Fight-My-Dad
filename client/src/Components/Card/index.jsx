@@ -16,7 +16,10 @@ import Typography from '@mui/material/Typography';
 const styles = {
     card: {
         margin: '10px',
-        background: 'var(--secondary)'
+        background: 'var(--secondary)',
+        // width: '40vw',
+        // height: '90vh',
+
     },
     pic: {
         height: '250px',
@@ -47,7 +50,7 @@ export default function DadCard() {
         <Card sx={{ maxWidth: 350 }} style={styles.card}>
           <CardMedia
             style={styles.pic}
-            image="https://f2.toyhou.se/file/f2-toyhou-se/images/58919609_8VbzGiYepkRyQD3.gif"
+            image="https://cdn.discordapp.com/attachments/551452864615153665/1205332455389925406/dadicon6.png?ex=65d7fc53&is=65c58753&hm=54e66318eadba3da199fa7f676cf1332a5bc31402957905298a0d7b671a3e43f&"
             title="Dad img"
           />
           <CardContent>
