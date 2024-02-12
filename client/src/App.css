@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: var(--darkest);
+    background-color: var(--dark);
     background-image: url('https://www.filterforge.com/filters/13622.jpg') opacity(0.8)
 }
 
@@ -120,6 +120,10 @@ body {
 
 /* DadCreate Styles */
 
+.createContainer {
+    display: flex;
+    justify-content: space-around;
+}
 /* Fight Styles */
 
 .fightimg {
