@@ -21,13 +21,10 @@ const Login = () => {
   };
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log('hi', formState);
     try {
       const { data } = await login({
         variables: { ...formState },
       });
-      //! change login based on what we have in our mutations
-      console.log(data, 'response')
       Auth.login(data.login.token);
 
     } catch (e) {
@@ -54,11 +51,11 @@ const Login = () => {
       >
         <form 
           style={{
-            backgroundImage: `url(${loginImage})`,
+            // backgroundImage: `url(${loginImage})`,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
-            backgroundColor: '#41a6de',
+            backgroundColor: 'var(--darkest)',
             height: '100vh', // 100% of the viewport height
             display: 'flex',
             justifyContent: 'flex-start',

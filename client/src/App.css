@@ -1,26 +1,63 @@
 /* Global Styles */
 
 :root {
-    --darkest: #1A1919;
-    --dark: #332E2D;
+    --darkest: #101114;
+    --dark: #25252c;
     --primary: #E8B717;
     --secondary: #B32424;
     --light: #F2EDCE;
 }
 
 body {
-    background-image: linear-gradient(to bottom right, var(--darkest), var(--dark))
+    background-color: var(--darkest);
+    background-image: url('https://www.filterforge.com/filters/13622.jpg') opacity(0.8)
+}
+
+/* Assets */
+
+.asset1 {
+    /* background-image: url('https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&'); */
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+    width: 30vw;
+}
+
+.asset2 {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 30vw;
+}
+
+/* Animation Keyframes DO NOT TOUCH!!!! */
+
+@keyframes fadein {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes picslide{
+    from {
+        margin-left: 800px;
+        opacity: 0;
+    }
+    to {
+        margin-left: 40px;
+        opacity: 1;
+    }
 }
 
 /* Landing Page Styles */
-.landingBtn {
-    font-size: 50px;
-    font-family: 'Permanent Marker';
-    background-color: var(--primary);
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 300px;
+
+.landingimg {
+    width: 30vw;
+    animation-name: fadein;
+    animation-duration: 3s;
 }
+
 
 /* Login and Sign Up Styles */
 
@@ -29,3 +66,51 @@ body {
 /* DadCreate Styles */
 
 /* Fight Styles */
+
+/* .paper {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    min-width: 400px;
+    height: 480px;
+    margin: 0 auto;
+    background: var(--primary);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    overflow: hidden;
+}
+.paper:before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0;
+    width: 60px;
+    background: radial-gradient(var(--dark) 6px, transparent 7px) repeat-y;
+    background-size: 30px 30px;
+    border-right: 3px solid var(--secondary);
+    box-sizing: border-box;
+}
+
+.paper-content {
+    position: absolute;
+    top: 30px; right: 0; bottom: 30px; left: 60px;
+    background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
+    background-size: 30px 30px;
+}
+
+.paper-content textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    line-height: 30px;
+    padding: 0 10px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: mediumblue;
+    font-family: 'Handlee', cursive;
+    font-weight: bold;
+    font-size: 18px;
+    box-sizing: border-box;
+    z-index: 1;
+} */

@@ -7,41 +7,45 @@ import Logo from '../assets/images/FIGHTMYDAD.gif';
 // import StillLogo from '../assets/images/FMDBounce.png';
 import FMDLanding from '../assets/images/FMDLanding.png';
 
+import Image from '../Components/Image'
+
 const styles = {
   btn: {
     fontSize: '50px',
     fontFamily: 'Permanent Marker',
-    backgroundColor: '#fedb0e',
+    backgroundColor: 'var(--primary)',
     padding: '20px',
     borderRadius: '10px',
-    minWidth: '300px'
+    minWidth: '300px',
+    margin: '5vw'
   },
   container: {
     display: 'flex',
     justifyContent: 'space-evenly'
+  },
+  bigContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   }
 }
 const LandingPage = () => {
   // import into App to show on load '/'
   // Giant Fight My Dad img in the middle of page
   return (
-    <div
-      style={{
-        backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        // backgroundColor: '#41a6de',
-        height: '100vh', // 100% of the viewport height
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <div style={styles.bigContainer}>
+    <img className='landingimg' src='https://cdn.discordapp.com/attachments/551452864615153665/1206400887510147152/fightmydadlogo.png?ex=65dbdf61&is=65c96a61&hm=b91348473b6c3b94e679d383e1da1405bd339f25cfb959e709170da21a03588a&' />
+    <div>
+
       <Container style={styles.container}>
         <ButtonBase variant="contained" style={styles.btn} href="/login">Login!</ButtonBase>
         <ButtonBase variant="contained" style={styles.btn} href="/signup">Sign Up!</ButtonBase>
       </Container>
     </div>
+    <img className='asset1' src='https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&' />
+    <img className='asset2' src='https://cdn.discordapp.com/attachments/551452864615153665/1206413717764571206/fmdasset2.png?ex=65dbeb54&is=65c97654&hm=40377d595fee97048decd6a3ef66796090f5a93656bed85adb70935263d317ba&' />
+    </div>
+    
   );
 };
 
