@@ -5,9 +5,9 @@ export const QUERY_ME = gql`
     me {
       _id
       username
-      dads {
-        _id
-      }
+      firstName
+      lastName
+      savedDads 
     }
   }
 `;
@@ -47,4 +47,3 @@ query getAllDads{
   }
 }
 `;
-
