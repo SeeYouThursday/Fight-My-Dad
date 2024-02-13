@@ -2,10 +2,7 @@
 import '../assets/css/landing.css';
 import { ButtonBase, Container, Grid } from '@mui/material/';
 import Button from '@mui/material-next/Button';
-import Logo from '../assets/images/FIGHTMYDAD.gif';
-// import AltLogo from '../assets/images/output-onlinegiftools.gif';
-// import StillLogo from '../assets/images/FMDBounce.png';
-import FMDLanding from '../assets/images/FMDLanding.png';
+// import FMDLanding from '../assets/images/FMDLanding.png';
 
 import Image from '../Components/Image'
 
@@ -34,7 +31,7 @@ const LandingPage = () => {
   // Giant Fight My Dad img in the middle of page
   return (
     <div style={styles.bigContainer}>
-    <img className='landingimg' src='https://cdn.discordapp.com/attachments/551452864615153665/1206400887510147152/fightmydadlogo.png?ex=65dbdf61&is=65c96a61&hm=b91348473b6c3b94e679d383e1da1405bd339f25cfb959e709170da21a03588a&' alt='Fight My Dad!'/>
+    <img className='landingimg' src='https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&' alt='Fight My Dad!'/>
     <div>
 
       <Container className='landingContainer'>
