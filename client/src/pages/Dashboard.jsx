@@ -66,7 +66,7 @@ const Dashboard = () => {
           {/* <div style={styles.divider}></div> */}
           {/* <DadCard /> <DadCard /> */}
 
-          {/* <Stat /> */}
+          <Stat />
         </main>
        ) : (
         <LoginErr />

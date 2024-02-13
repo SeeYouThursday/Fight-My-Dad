@@ -121,10 +121,12 @@ export function FightCard(props) {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
-            Name: {props.selectedMyDad.dadName}
+
+            {props.selectedMyDad.dadName}
+
             </Typography>
             <Typography gutterBottom variant="body1" color='text.secondary' component="div" style={styles.name}>
-                
+                {props.selectedMyDad.nickname}
             </Typography>
             <Divider />
             <Typography variant="body2" color="text.secondary" style={styles.joke}>
@@ -178,10 +180,10 @@ export function FightCard2(props) {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
-            Name: {props.selectedOpponent.dadName}
+            {props.selectedOpponent.dadName}
             </Typography>
             <Typography gutterBottom variant="body1" color='text.secondary' component="div" style={styles.name}>
-                
+              {props.selectedOpponent.nickname}
             </Typography>
             <Divider />
             <Typography variant="body2" color="text.secondary" style={styles.joke}>
