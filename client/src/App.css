@@ -44,6 +44,10 @@ body {
     }
 }
 
+@keyframes picgrow{
+
+}
+
 /* Assets */
 
 /* Ripped Papers */
@@ -67,7 +71,7 @@ body {
     animation-duration: 1s;
 }
 
-/* Clean Papers */
+/* Clean Papers
 .asset4{
     position: absolute;
     z-index: -1;
@@ -83,7 +87,7 @@ body {
     right: 0;
     animation-name: picslideright;
     animation-duration: 1s;
-}
+} */
 
 .navContainer {
     display: flex;
@@ -151,10 +155,21 @@ body {
 .createInput{
     background-color: var(--primary)
 }
+
+.createDad{
+    width: 350px;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+
+}
 /* Fight Styles */
 
 .fightimg {
-    width: 30vw;
+    /* width: 30vw; */
+    height: 50vh;
     animation-name: fadein;
     animation-duration: 1s;
 }
@@ -165,6 +180,12 @@ body {
     flex-wrap: wrap;
 
 }
+
+/* .fightside{
+    justify-content: center;
+    /* display: flex;
+    flex-direction: column; */
+
 
 .fightbtn {
     background-color: var(--secondary) !important;

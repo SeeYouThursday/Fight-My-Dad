@@ -20,6 +20,7 @@ const typeDefs = `
     experience: Int
     winNum: Int
     lossNum: Int
+    icon: String
   }
 
   type Stats {
@@ -46,6 +47,7 @@ input dadStats {
   experience: Int
   winNum: Int
   lossNum: Int
+  icon: String
 }
 
   type Query {

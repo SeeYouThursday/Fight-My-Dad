@@ -26,6 +26,7 @@ query getDad{
     experience
     winNum
     lossNum
+    icon
   }
 }
 `;
@@ -44,6 +45,7 @@ query getAllDads{
     experience
     winNum
     lossNum
+    icon
   }
 }
 `;

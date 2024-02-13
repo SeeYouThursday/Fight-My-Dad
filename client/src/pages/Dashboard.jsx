@@ -107,11 +107,11 @@ const Dashboard = () => {
         <main>
           <div style={styles.container}>
             <section style={styles.mainSection}>
-              <img
+              {/* <img
                 className="asset4"
                 src="https://cdn.discordapp.com/attachments/551452864615153665/1206788132087799878/fmdasset4.png?ex=65dd4807&is=65cad307&hm=c84bf7f0bab21c36af8737aea3075898995caba24fe97d6f9727c05616e5fab4&"
                 alt='A Stick Figure which says "My dad can beat up your dad!"'
-              />
+              /> */}
               <div>
                 <div style={styles.userContainer}>
                   <h1 style={styles.user}>Welcome to Fight My Dad!</h1>
@@ -169,11 +169,11 @@ const Dashboard = () => {
           {/* <DadCard /> <DadCard /> */}
 
           {/* <DashStat /> */}
-          <img
+          {/* <img
             className="asset5"
             src="https://cdn.discordapp.com/attachments/551452864615153665/1206833789406421022/fmdasset4.png?ex=65dd728d&is=65cafd8d&hm=c1022d2f0c87172a58cf08dd14adf95942f56524284a935ea0582b6cdca72ec4&"
             alt='A Stick Figure which says "My dad can beat up your dad!"'
-          />
+          /> */}
         </main>
       ) : (
         <LoginErr />

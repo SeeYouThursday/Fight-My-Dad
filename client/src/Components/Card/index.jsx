@@ -17,13 +17,14 @@ const styles = {
     card: {
         margin: '10px',
         background: 'var(--secondary)',
-        // width: '40vw',
-        // height: '90vh',
+        display: 'flex',
+        flexDirection: 'column',
 
     },
     pic: {
-        height: '250px',
-        margin: '10px'
+        height: '300px',
+        margin: '10px',
+
     },
     name: {
         textAlign: 'center',
@@ -37,9 +38,6 @@ const styles = {
     },
     bottom: {
         display: 'flex'
-    },
-    cardBtn: {
-        backgroundColor: '#0alc20'
     },
     rightContainer: {
         display: 'flex',
@@ -57,11 +55,12 @@ export function CreateCard({ formData }) {
 
     return (
         <Card sx={{ width: 350 }} style={styles.card}>
-          <CardMedia
+          {/* <CardMedia
             style={styles.pic}
-            image="https://cdn.discordapp.com/attachments/551452864615153665/1205332455389925406/dadicon6.png?ex=65d7fc53&is=65c58753&hm=54e66318eadba3da199fa7f676cf1332a5bc31402957905298a0d7b671a3e43f&"
+            image={formData.icon}
             title="Dad img"
-          />
+          /> */}
+          <img src={formData.icon} style={styles.pic}/>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
                 {formData.dadName}
@@ -107,12 +106,8 @@ export function CreateCard({ formData }) {
 export function FightCard(props) {
 
     return (
-        <Card sx={{ maxWidth: 350 }} style={styles.card}>
-          <CardMedia
-            style={styles.pic}
-            image="https://cdn.discordapp.com/attachments/551452864615153665/1205332455389925406/dadicon6.png?ex=65d7fc53&is=65c58753&hm=54e66318eadba3da199fa7f676cf1332a5bc31402957905298a0d7b671a3e43f&"
-            title="Dad img"
-          />
+        <Card sx={{ width: 350 }} style={styles.card}>
+          <img src={props.selectedMyDad.icon} style={styles.pic}/>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
 
@@ -166,12 +161,8 @@ export function FightCard(props) {
 export function FightCard2(props) {
 
     return (
-        <Card sx={{ maxWidth: 350 }} style={styles.card}>
-          <CardMedia
-            style={styles.pic}
-            image="https://cdn.discordapp.com/attachments/551452864615153665/1205332455389925406/dadicon6.png?ex=65d7fc53&is=65c58753&hm=54e66318eadba3da199fa7f676cf1332a5bc31402957905298a0d7b671a3e43f&"
-            title="Dad img"
-          />
+        <Card sx={{ width: 350 }} style={styles.card}>
+          <img src={props.selectedOpponent.icon} style={styles.pic}/>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
             {props.selectedOpponent.dadName}
