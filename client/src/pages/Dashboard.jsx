@@ -96,8 +96,6 @@ const Dashboard = () => {
     const selectedDelete = allData?.getAllDads.find(
       (dad) => dad._id === event.target.value
     );
-    setSelectedOpponent(selectedDelete);
-    setSelectedOpponent('');
   };
 
   return (

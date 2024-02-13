@@ -94,14 +94,14 @@ export default function Stat() {
 
 export function DashStat() {
   // added useQuery to get data from the server to display
-  const { data: allData } = useQuery(QUERY_DADS, {variables: {dadName: "dadName", dadJoke: "dadJoke", winNum: "winNum", lossNum: "lossNum"}});
+  const { data: allData } = useQuery(QUERY_DADS, {variables: {icon: "icon", dadName: "dadName", dadJoke: "dadJoke", winNum: "winNum", lossNum: "lossNum"}});
   console.log("allData", allData);
   const rows = [
-    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[0], allData && allData.getAllDads.map((dad) => dad.dadJoke)[0], allData && allData.getAllDads.map((dad) => dad.winNum)[0], allData && allData.getAllDads.map((dad) => dad.lossNum)[0]),
-    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[1], allData && allData.getAllDads.map((dad) => dad.dadJoke)[1], allData && allData.getAllDads.map((dad) => dad.winNum)[1], allData && allData.getAllDads.map((dad) => dad.lossNum)[1]),
-    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[2], allData && allData.getAllDads.map((dad) => dad.dadJoke)[2], allData && allData.getAllDads.map((dad) => dad.winNum)[2], allData && allData.getAllDads.map((dad) => dad.lossNum)[2]),
-    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[3], allData && allData.getAllDads.map((dad) => dad.dadJoke)[3], allData && allData.getAllDads.map((dad) => dad.winNum)[3], allData && allData.getAllDads.map((dad) => dad.lossNum)[3]),
-    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[4], allData && allData.getAllDads.map((dad) => dad.dadJoke)[4], allData && allData.getAllDads.map((dad) => dad.winNum)[4], allData && allData.getAllDads.map((dad) => dad.lossNum)[4]),
+    createData(allData && allData.getAllDads.map((dad) => dad.icon)[3], allData && allData.getAllDads.map((dad) => dad.dadName)[0], allData && allData.getAllDads.map((dad) => dad.dadJoke)[0], allData && allData.getAllDads.map((dad) => dad.winNum)[0], allData && allData.getAllDads.map((dad) => dad.lossNum)[0]),
+    createData(allData && allData.getAllDads.map((dad) => dad.icon)[3], allData && allData.getAllDads.map((dad) => dad.dadName)[1], allData && allData.getAllDads.map((dad) => dad.dadJoke)[1], allData && allData.getAllDads.map((dad) => dad.winNum)[1], allData && allData.getAllDads.map((dad) => dad.lossNum)[1]),
+    createData(allData && allData.getAllDads.map((dad) => dad.icon)[3], allData && allData.getAllDads.map((dad) => dad.dadName)[2], allData && allData.getAllDads.map((dad) => dad.dadJoke)[2], allData && allData.getAllDads.map((dad) => dad.winNum)[2], allData && allData.getAllDads.map((dad) => dad.lossNum)[2]),
+    createData(allData && allData.getAllDads.map((dad) => dad.icon)[3], allData && allData.getAllDads.map((dad) => dad.dadName)[3], allData && allData.getAllDads.map((dad) => dad.dadJoke)[3], allData && allData.getAllDads.map((dad) => dad.winNum)[3], allData && allData.getAllDads.map((dad) => dad.lossNum)[3]),
+    createData(allData && allData.getAllDads.map((dad) => dad.icon)[3], allData && allData.getAllDads.map((dad) => dad.dadName)[4], allData && allData.getAllDads.map((dad) => dad.dadJoke)[4], allData && allData.getAllDads.map((dad) => dad.winNum)[4], allData && allData.getAllDads.map((dad) => dad.lossNum)[4]),
   ];
   return (
     <TableContainer component={Paper}>
@@ -123,7 +123,7 @@ export function DashStat() {
                 <StyledTableRow></StyledTableRow>
                 <Avatar
                   alt="John Doe"
-                  src={avatarImg}
+                  src={row.icon}
                   // sx={{ bgcolor: cyan[500] }}
                 />
               </StyledTableCell>

@@ -10,7 +10,7 @@ import { setContext } from '@apollo/client/link/context';
 
 //Importing Components...
 import Nav from './Components/Nav';
-
+import Auth from './utils/auth'
 import './App.css'
 
 
@@ -42,7 +42,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Nav />
+      {Auth.loggedIn() ? (<Nav />) : (<></>)}
       <Outlet />
     </ApolloProvider>
   );

@@ -107,6 +107,7 @@ body {
     width: 30vw;
     animation-name: fadein;
     animation-duration: 1s;
+    margin-top: 5vh
 }
 
 .landingContainer{

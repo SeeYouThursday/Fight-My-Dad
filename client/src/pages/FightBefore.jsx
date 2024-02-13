@@ -94,8 +94,8 @@ const FightBefore = () => {
 
     // find winner!!
     if (totalScoreMyDad > totalScoreOpponent) {
-      setWinner("You win :D" + selectedMyDad._id);
-      console.log("You win!" + totalScoreMyDad);
+      setWinner("You win :D");
+      console.log("You win!");
       await updateWin({
         variables: {
           dadId: selectedMyDad._id,
@@ -109,8 +109,8 @@ const FightBefore = () => {
         },
       });
     } else {
-      setWinner("You lost :(" + selectedOpponent._id);
-      console.log("You lose!" + totalScoreOpponent);
+      setWinner("You lost :(");
+      console.log("You lose!");
       await updateWin({
         variables: {
           dadId: selectedOpponent._id,
