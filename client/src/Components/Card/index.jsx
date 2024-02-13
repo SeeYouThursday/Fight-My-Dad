@@ -128,21 +128,21 @@ export function FightCard(props) {
             </Typography>
             <Divider />
             <Typography variant="body2" color="text.secondary" style={styles.joke}>
-              Dad Joke:
+              Dad Joke: {props.selectedMyDad.dadJoke}
             </Typography>
             <Divider />
             <div style={styles.bottom}>
                 <aside style={styles.half}>
                     <Typography variant="body2" color="text.secondary">
-                        <i className="fas fa-dumbbell">Weight: </i>
+                        <i className="fas fa-dumbbell">Weight: {props.selectedMyDad.weight}</i>
                     </Typography>
                     <Divider />
                     <Typography variant="body2" color="text.secondary">
-                        <i className="fas fa-dumbbell">Experience: </i>
+                        <i className="fas fa-dumbbell">Experience: {props.selectedMyDad.experience}</i>
                     </Typography>
                     <Divider />
                     <Typography variant="body2" color="text.secondary">
-                    <i className="fas fa-dumbbell">Arm Length: </i>
+                    <i className="fas fa-dumbbell">Arm Length: {props.selectedMyDad.armLength}</i>
                     </Typography>
                     <Divider />
                 </aside>
