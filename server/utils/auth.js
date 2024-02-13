@@ -2,6 +2,9 @@ const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 // set token secret and expiration date
 require('dotenv').config();
+// const secret = 'poopypants';
+// const expiration = '2h'; !Keep for Brian's testing!
+
 const secret = process.env.secret;
 const expiration = process.env.expiration;
 

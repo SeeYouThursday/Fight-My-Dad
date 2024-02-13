@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logout from '../Logout'
+import Logout from '../Logout';
 //styles
 
 const styles = {
@@ -30,9 +30,8 @@ const styles = {
     display: 'flex',
     // justifyContent: 'center',
     color: 'var(--light)',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
-
 };
 
 //Links for the navbar
@@ -108,20 +107,21 @@ export default function Nav() {
       {/* Map over an array of anchors and create a button and a drawer for each one */}
       {/* <Divider /> */}
       {['right'].map((anchor) => (
-        <React.Fragment key={anchor} className='navContainer'>
+        <div key={anchor} className="navContainer">
           {/* When the button is clicked, open the drawer */}
-            <a
-              onClick={toggleDrawer(anchor, true)}
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              
-            >
-              <img className='navicon' src='https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&'/>
-
-            </a>
+          <a
+            onClick={toggleDrawer(anchor, true)}
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <img
+              className="navicon"
+              src="https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&"
+            />
+          </a>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -131,7 +131,7 @@ export default function Nav() {
             {/* Render the list of items in the drawer */}
             {list(anchor)}
           </Drawer>
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );
@@ -140,7 +140,6 @@ export default function Nav() {
 // export function nav2() {
 
 // }
-
 
 // import { styled, useTheme } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
@@ -311,7 +310,7 @@ export default function Nav() {
 //           ))}
 //         </List>
 //       </Drawer>
-      
+
 //     </Box>
 //   );
 // }

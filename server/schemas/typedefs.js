@@ -64,5 +64,3 @@ input dadStats {
 `;
 
 module.exports = typeDefs;
-
-// removeDad(_id: ID) : User
