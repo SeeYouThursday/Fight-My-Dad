@@ -129,17 +129,35 @@ const FightBefore = () => {
     if (totalScoreMyDad > totalScoreOpponent) {
       setWinner("You win :D" + selectedMyDad._id);
       console.log("You win!" + totalScoreMyDad);
+      await updateWin({
+        variables: {
+          dadId: selectedMyDad._id,
+          isWin: true,
+        },
+      });
+      await updateWin({
+        variables: {
+          dadId: selectedMyDad._id,
+          isWin: false,
+        },
+      });
     } else {
       setWinner("You lost :(" + selectedOpponent._id);
       console.log("You lose!" + totalScoreOpponent);
+      await updateWin({
+        variables: {
+          dadId: selectedOpponent._id,
+          isWin: true,
+        },
+      });
+      await updateWin({
+        variables: {
+          dadId: selectedOpponent._id,
+          isWin: false,
+        },
+      });
     }
 
-    await updateWin({
-      variables: {
-        dadId: selectedMyDad._id,
-        isWin: true,
-      },
-    });
   };
 
   console.log("All Dads Data:", allData);
