@@ -120,7 +120,7 @@ export default function Nav() {
               
             >
               <img className='navicon' src='https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&'/>
-              {/* <MenuIcon /> */}
+
             </a>
           <Drawer
             anchor={anchor}
