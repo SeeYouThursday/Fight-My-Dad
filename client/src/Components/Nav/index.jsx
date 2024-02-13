@@ -26,10 +26,11 @@ const styles = {
     alignItems: 'space-evenly',
   },
   navBtnContainer: {
-    width: '10vw',
+    width: '100vw',
     display: 'flex',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     color: 'var(--light)',
+    justifyContent: 'flex-end'
   },
 
 };
@@ -105,11 +106,11 @@ export default function Nav() {
   return (
     <div style={styles.navBtnContainer}>
       {/* Map over an array of anchors and create a button and a drawer for each one */}
-      <Divider />
+      {/* <Divider /> */}
       {['right'].map((anchor) => (
-        <React.Fragment key={anchor}>
+        <React.Fragment key={anchor} className='navContainer'>
           {/* When the button is clicked, open the drawer */}
-            <IconButton 
+            <a
               onClick={toggleDrawer(anchor, true)}
               size="large"
               edge="start"
@@ -118,8 +119,9 @@ export default function Nav() {
               sx={{ mr: 2 }}
               
             >
-              <MenuIcon />
-            </IconButton>
+              <img className='navicon' src='https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&'/>
+              {/* <MenuIcon /> */}
+            </a>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -135,9 +137,9 @@ export default function Nav() {
   );
 }
 
-export function nav2() {
+// export function nav2() {
 
-}
+// }
 
 
 // import { styled, useTheme } from '@mui/material/styles';

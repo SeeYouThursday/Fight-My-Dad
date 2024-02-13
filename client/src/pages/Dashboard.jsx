@@ -33,11 +33,23 @@ const styles = {
   user: {
     // background: "var(--darkest)",
     height: 'auto',
-    padding: '20px',
+    padding: '10px',
     borderRadius: '10px',
     fontFamily: 'Permanent Marker',
     color: 'var(--light)',
     fontSize: '40px',
+    alignSelf: 'baseline',
+    textAlign: 'center',
+  },
+  user2: {
+    // background: "var(--darkest)",
+    height: 'auto',
+    padding: '5px',
+    letterSpacing: '3px',
+    borderRadius: '10px',
+    fontFamily: 'Permanent Marker',
+    color: 'var(--light)',
+    fontSize: '20px',
     alignSelf: 'baseline',
     textAlign: 'center',
   },
@@ -103,13 +115,13 @@ const Dashboard = () => {
               <div>
                 <div style={styles.userContainer}>
                   <h1 style={styles.user}>Welcome to Fight My Dad!</h1>
-                  <h3>
+                  {/* <h3>
                     Hey, {userData.firstName} {userData.lastName}!
-                  </h3>
+                  </h3> */}
                 </div>
                 <div style={styles.userContainer}>
                   <div>
-                    <h2 style={styles.user}>Wanna Delete your Dad?</h2>
+                    <h2 style={styles.user2}>Wanna Delete your Dad?</h2>
                     {/* <h3>
                       Hey, {userData.firstName} {userData.lastName}!
                     </h3> */}

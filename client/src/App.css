@@ -85,6 +85,18 @@ body {
     animation-duration: 1s;
 }
 
+.navContainer {
+    display: flex;
+}
+
+.navicon {
+    width: 5vw;
+    margin: 30px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    justify-self: flex-end;
+}
+
 /* Landing Page Styles */
 
 .landingimg {
