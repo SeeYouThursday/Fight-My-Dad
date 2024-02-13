@@ -46,6 +46,15 @@ mutation removeDad($dadId: ID!) {
     }
 }`;
 
+export const UPDATE_WIN = gql`
+  mutation updateWinLossCounts($dadId: ID!, $isWin: Boolean!) {
+    updateWinLossCounts(dadId: $dadId, isWin: $isWin) {
+      _id
+      winNum
+      lossNum
+    }
+  }`;
+
 // mutation addDad($dadName: String, $nickname: String, $userId: Int!, $entryMusic: String, $dadJoke: String, $weight: INT, $armLength: Int, $experience: Int, $winNum: Int, $lossNum: Int) {
 //     addDad(dadName: $dadName, nickname: $nickname, userId: $userId, entryMusic: $entryMusic, dadJoke: $dadJoke, weight: $weight, armLength: $armLength, experience: $experience, winNum: $winNum, lossNum: $lossNum) {
 //         userId

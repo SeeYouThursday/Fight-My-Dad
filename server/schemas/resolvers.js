@@ -83,8 +83,24 @@ const resolvers = {
       } catch (err) {
         console.log(err)
       }
-      
-
+  
+      updateWinLossCounts: async (_, { dadId, isWin }) => {
+        try {
+          let dad = await Dad.findById(dadId);
+          if (!dad) {
+            throw new Error("Dad not found");
+          }
+          if (isWin) {
+            dad.winNum++;
+          } else {
+            dad.lossNum++;
+          }
+          await dad.save();
+          return dad;
+        } catch (err) {
+          throw new Error(err);
+        }
+      }
     },
     
    addDad: async (parent, { input }, context) => {
