@@ -2,10 +2,7 @@
 import '../assets/css/landing.css';
 import { ButtonBase, Container, Grid } from '@mui/material/';
 import Button from '@mui/material-next/Button';
-import Logo from '../assets/images/FIGHTMYDAD.gif';
-// import AltLogo from '../assets/images/output-onlinegiftools.gif';
-// import StillLogo from '../assets/images/FMDBounce.png';
-import FMDLanding from '../assets/images/FMDLanding.png';
+// import FMDLanding from '../assets/images/FMDLanding.png';
 
 import Image from '../Components/Image'
 
