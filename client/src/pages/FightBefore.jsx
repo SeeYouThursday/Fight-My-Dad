@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Btn from "../Components/Btn";
 import { useQuery, useMutation } from "@apollo/client";
 import {
