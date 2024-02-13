@@ -5,7 +5,7 @@ const typeDefs = `
     lastName: String
     password: String!
     username: String
-    savedDads: [ID]
+    savedDads: [String]
   }
 
   type Dad {
