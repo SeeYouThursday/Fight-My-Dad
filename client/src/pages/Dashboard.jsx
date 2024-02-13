@@ -115,9 +115,9 @@ const Dashboard = () => {
               <div>
                 <div style={styles.userContainer}>
                   <h1 style={styles.user}>Welcome to Fight My Dad!</h1>
-                  {/* <h3>
+                  <h3>
                     Hey, {userData.firstName} {userData.lastName}!
-                  </h3> */}
+                  </h3>
                 </div>
                 <div style={styles.userContainer}>
                   <div>
