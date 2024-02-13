@@ -7,7 +7,7 @@ const Results = () => {
 
     return(
         <>
-            <Btn />
+            {/* <Btn /> */}
             <Stat />
         </>
     )

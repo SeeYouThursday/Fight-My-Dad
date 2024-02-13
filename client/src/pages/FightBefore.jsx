@@ -134,7 +134,7 @@ const FightBefore = () => {
     <>
       {Auth.loggedIn() ? (
         <>
-          <Btn />
+          {/* <Btn /> */}
           <form
             style={{
               display: "flex",
@@ -153,7 +153,7 @@ const FightBefore = () => {
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
               {/* Selecting Your Dad */}
-              <Grid item xs={2}>
+              <Grid item className='fightside'>
                 <FightCard selectedMyDad={selectedMyDad} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-dad">Select Your Dad!</InputLabel>
@@ -176,11 +176,11 @@ const FightBefore = () => {
               {/* Fight Img */}
               <img
                 className="fightimg"
-                src="https://cdn.discordapp.com/attachments/1205909717961015296/1206400263603355688/fightmydadlogo.png?ex=65dbdecc&is=65c969cc&hm=079dbc68119d233df4b51113a78d65a03477b9d4924d1aa2f50790df0eebb611&"
+                src="https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&"
               />
 
               {/* Select Opposing Dad */}
-              <Grid item xs={2}>
+              <Grid item className='fightside'>
                 <FightCard2 selectedOpponent={selectedOpponent} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-oppoent" >

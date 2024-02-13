@@ -36,6 +36,7 @@ export const SAVE_DAD = gql`
             nickname
             userId
             weight
+            icon
         }
     }`;
 

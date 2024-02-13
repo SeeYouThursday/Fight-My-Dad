@@ -38,6 +38,9 @@ const dadSchema = new Schema(
     userId: {
       type: String,
     },
+    icon: {
+      type: String,
+    }
   },
   {
     toJSON: {

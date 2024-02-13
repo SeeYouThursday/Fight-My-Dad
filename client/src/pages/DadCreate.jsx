@@ -20,6 +20,7 @@ const DadCreate = () => {
     nickname: '',
     userId: '',
     weight: '',
+    icon: '',
   });
 
   const { data: myData } = useQuery(QUERY_ME);
@@ -66,6 +67,14 @@ const DadCreate = () => {
     setShowModal(false);
   };
 
+  const randomIndex = Math.floor(Math.random() * dadIcons.length)
+
+  const randomImage = () => {
+    console.log('hi')
+    const newicon = dadIcons[randomIndex]
+    setFormData({ ...formData, icon: newicon});
+    console.log('updated formdata', formData)
+  }
   //card component
   //closebtn componet - top right
   //btn component - submit
@@ -75,18 +84,19 @@ const DadCreate = () => {
     <>
       {Auth.loggedIn() ? (
         <>
-        <Btn/>
+        {/* <Btn/> */}
           <Grid className='createContainer'>
             {/* Form for Creating the Dads  */}
+            <div className='createDad'>
             <form
               style={{
-                height: '60vh',
+                height: 'auto',
                 display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
+                // justifyContent: 'flex-start',
+                // alignItems: 'center',
                 flexWrap: 'nowrap',
                 flexDirection: 'column',
-                margin: 0,
+                margin: '50px',
                 padding: 0,
 
               }}
@@ -149,12 +159,15 @@ const DadCreate = () => {
               />
 
               {/* Icon select at this time? */}
-              {/* <SelectIcon type="object" name="icon" value={formData.icon} onChange={handleDadChange} /> */}
-
+              <Button name="icon" value={formData.icon} onClick={randomImage} style={{}}>
+                Choose Your Image
+              </Button>
               <Button onClick={handleFormSubmit} style={{}}>
                 Submit
               </Button>
             </form>
+            </div>
+            
             {/* FOR MVP: Make formData appear on Card as a Preview */}
             <CreateCard formData={formData}/>
           </Grid>
