@@ -14,7 +14,7 @@ import { QUERY_ME } from "../utils/queries";
 import { QUERY_DADS } from "../utils/queries";
 import Auth from "../utils/auth";
 import LoginErr from "../Components/LoginErr";
-import { REMOVE_DAD } from "../utils/mutations";
+import { REMOVE_DAD, UPDATE_WIN } from "../utils/mutations";
 import { FightCard, FightCard2 } from "../Components/Card";
 
 
@@ -125,10 +125,10 @@ const FightBefore = () => {
 
     // find winner!!
     if (totalScoreMyDad > totalScoreOpponent) {
-      setWinner("You win :D");
+      setWinner("You win :D" + selectedMyDad._id);
       console.log("You win!" + totalScoreMyDad);
     } else {
-      setWinner("You lost :(");
+      setWinner("You lost :(" + selectedOpponent._id);
       console.log("You lose!" + totalScoreOpponent);
     }
   };
