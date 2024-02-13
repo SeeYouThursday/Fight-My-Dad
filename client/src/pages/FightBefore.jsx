@@ -1,5 +1,5 @@
+// Importing React Components
 import React, { useState, useEffect } from "react";
-import Btn from "../Components/Btn";
 import { useQuery, useMutation } from "@apollo/client";
 import {
   Grid,
@@ -10,39 +10,20 @@ import {
   Select,
   MenuItem,
 } from "@mui/material/";
+
+//Importing Repo Components
+import Btn from "../Components/Btn";
+import LoginErr from "../Components/LoginErr";
+
+//Importing Auth
+import Auth from "../utils/auth";
+
+//Importing Queries and Mutations
 import { QUERY_ME } from "../utils/queries";
 import { QUERY_DADS } from "../utils/queries";
-import Auth from "../utils/auth";
-import LoginErr from "../Components/LoginErr";
 import { REMOVE_DAD, UPDATE_WIN } from "../utils/mutations";
 import { FightCard, FightCard2 } from "../Components/Card";
 
-
-//// ADD EXPERIENCE
-
-//// FIGHT EQUATION FUNCTION
-/*const Fight = () => {
-  //setTimeout
-  //Cards
-  //Form - inputs are btns or Options
-  const fightAnimationText = () => {
-    //use setTimeout/setInterval to show each Pow/Bam/Bang/etc. -> then conditionally load results on completion?
-  };
-  const handleFightStart = () => {
-    //onClick={runFightAnimation}
-  };
-  const handleFight = () => {
-    //Create code for Fight Page
-    //Add Dad1's Weight + 
-  };
-
-  return (
-    <>
-    </>
-  )
-};
-
-*/
 
 const FightBefore = () => {
   ///// Change mydata when auth is working
@@ -90,20 +71,6 @@ const FightBefore = () => {
   };
 
   const handleDadFight = async (event) => {
-    // event.preventDefault();
-    /*
-    const selectedMyDad = {
-      weight: 100,
-      armLength: 80,
-      experience: 70,
-    };
-  
-    const selectedOpponent = {
-        weight: 120,
-        armLength: 90,
-        experience: 80,
-    };*/
-    
 
     // random dad number
     const randomDadNumber = Math.floor(Math.random() * 500) + 1;
@@ -162,8 +129,7 @@ const FightBefore = () => {
 
   console.log("All Dads Data:", allData);
 
-  ///// NOTE:  need to hook dropdown to db
-  ///// NOTE: currently hard coded with vaules
+
   return (
     <>
       {Auth.loggedIn() ? (
@@ -171,7 +137,6 @@ const FightBefore = () => {
           <Btn />
           <form
             style={{
-              // height: '100vh',
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
@@ -187,6 +152,7 @@ const FightBefore = () => {
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
+              {/* Selecting Your Dad */}
               <Grid item xs={2}>
                 <FightCard selectedMyDad={selectedMyDad} />
                 <FormControl fullWidth className='fightdrop'>
@@ -207,113 +173,13 @@ const FightBefore = () => {
                 </FormControl>
               </Grid>
 
+              {/* Fight Img */}
               <img
                 className="fightimg"
                 src="https://cdn.discordapp.com/attachments/1205909717961015296/1206400263603355688/fightmydadlogo.png?ex=65dbdecc&is=65c969cc&hm=079dbc68119d233df4b51113a78d65a03477b9d4924d1aa2f50790df0eebb611&"
               />
 
-              {/* <Grid item xs={4}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-      <Grid item xs={6}>
-        <Grid item xs={6}>
-          <div> - </div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Name:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Nickname:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Entry Music:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Dad Joke:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Weight:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Arm Length:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Win Num:</div>
-        </Grid>
-        <Grid item xs={6}>
-          <div>Loss Num:</div>
-        </Grid>
-      </Grid>
-
-      <Grid item xs={6}>
-        <Grid item xs={6}>
-          <div>My Dad</div>
-        </Grid>
-        <Grid item id="my-dad-name" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.dadName}</div>}
-        </Grid>
-        <Grid item id="my-dad-nickname" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
-        </Grid>
-        <Grid item id="my-dad-entry-music" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.entryMusic}</div>}
-        </Grid>
-        <Grid item id="my-dad-dad-joke"xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.dadJoke}</div>}
-        </Grid>
-        <Grid item id="my-dad-weight" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.weight}</div>}
-        </Grid>
-        <Grid item id="my-dad-arm-length" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.armLength}</div>}
-        </Grid>
-        <Grid item id="my-dad-experience" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.experience}</div>}
-        </Grid>
-        <Grid item id="my-dad-win-num" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.winNum}</div>}
-        </Grid>
-        <Grid item id="my-dad-loss-num" xs={6}>
-          {selectedMyDad && <div>{selectedMyDad.nickname}</div>}
-        </Grid>
-
-      </Grid>
-
-      <Grid item xs={6}>
-        <Grid item xs={6}>
-          <div>Opponent</div>
-        </Grid>
-        <Grid item id="opponent-name" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
-        </Grid>
-        <Grid item id="opponent-nickname" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.dadName}</div>}
-        </Grid>
-        <Grid item id="opponent-entry-music" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.entryMusic}</div>}
-        </Grid>
-        <Grid item id="opponent-dad-joke" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.dadJoke}</div>}
-        </Grid>
-        <Grid item id="opponent-weight" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.weight}</div>}
-        </Grid>
-        <Grid item id="opponent-arm-length" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.armLength}</div>}
-        </Grid>
-        <Grid item id="opponent-experience" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.experience}</div>}
-        </Grid>
-        <Grid item id="opponent-win-num" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.winNum}</div>}
-        </Grid>
-        <Grid item id="opponent-loss-num" xs={6}>
-          {selectedOpponent && <div>{selectedOpponent.lossNum}</div>}
-        </Grid>
-
-      </Grid>
-      </Grid>
-      </Grid> */}
-
+              {/* Select Opposing Dad */}
               <Grid item xs={2}>
                 <FightCard2 selectedOpponent={selectedOpponent} />
                 <FormControl fullWidth className='fightdrop'>
@@ -337,6 +203,7 @@ const FightBefore = () => {
               </Grid>
             </Grid>
 
+            {/* Displaying Results for client to see */}
             <div>Results</div>
             <Grid item xs={12}>
               <TextField
@@ -351,6 +218,7 @@ const FightBefore = () => {
               />
             </Grid>
 
+            {/* Button to make them fight */}
             <Button
               className='fightbtn'
               onClick={() => {
@@ -361,7 +229,7 @@ const FightBefore = () => {
               Make Them Fight!
             </Button>
 
-            <FormControl fullWidth>
+            {/* <FormControl fullWidth>
               <InputLabel id="select-oppoent">Select dad to delete!</InputLabel>
               <Select
                 labelId="select-delete"
@@ -393,7 +261,7 @@ const FightBefore = () => {
               }}
             >
               Delete Dad
-            </Button>
+            </Button> */}
           </form>
         </>
       ) : (

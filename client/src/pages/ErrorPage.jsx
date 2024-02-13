@@ -13,7 +13,7 @@ const styles = {
     width: '300px',
     height: '300px',
     rotate: '20deg',
-    background: '#fedb0e',
+    background: 'var(--primary)',
 
   },
   container: {

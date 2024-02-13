@@ -41,15 +41,58 @@ function createData(name, joke, win, loss) {
   return { name, joke, win, loss };
 }
 
-// const rows = [
-//   createData("Frozen yoghurt", 159, 6.0, 24),
-//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-//   createData("Eclair", 262, 16.0, 24, 6.0),
-//   createData("Cupcake", 305, 3.7, 67, 4.3),
-//   createData("Gingerbread", 356, 16.0, 49),
-// ];
-
 export default function Stat() {
+  // added useQuery to get data from the server to display
+  const { data: allData } = useQuery(QUERY_DADS, {variables: {dadName: "dadName", dadJoke: "dadJoke", winNum: "winNum", lossNum: "lossNum"}});
+  console.log("allData", allData);
+  const rows = [
+    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[0], allData && allData.getAllDads.map((dad) => dad.dadJoke)[0], allData && allData.getAllDads.map((dad) => dad.winNum)[0], allData && allData.getAllDads.map((dad) => dad.lossNum)[0]),
+    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[1], allData && allData.getAllDads.map((dad) => dad.dadJoke)[1], allData && allData.getAllDads.map((dad) => dad.winNum)[1], allData && allData.getAllDads.map((dad) => dad.lossNum)[1]),
+    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[2], allData && allData.getAllDads.map((dad) => dad.dadJoke)[2], allData && allData.getAllDads.map((dad) => dad.winNum)[2], allData && allData.getAllDads.map((dad) => dad.lossNum)[2]),
+    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[3], allData && allData.getAllDads.map((dad) => dad.dadJoke)[3], allData && allData.getAllDads.map((dad) => dad.winNum)[3], allData && allData.getAllDads.map((dad) => dad.lossNum)[3]),
+    createData(allData && allData.getAllDads.map((dad) => dad.dadName)[4], allData && allData.getAllDads.map((dad) => dad.dadJoke)[4], allData && allData.getAllDads.map((dad) => dad.winNum)[4], allData && allData.getAllDads.map((dad) => dad.lossNum)[4]),
+  ];
+  return (
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Avatar</StyledTableCell>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell>Dad Joke</StyledTableCell>
+            <StyledTableCell align="right">Wins</StyledTableCell>
+            <StyledTableCell align="right">Losses</StyledTableCell>
+            <StyledTableCell align="right"></StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell>
+                <StyledTableRow></StyledTableRow>
+                <Avatar
+                  alt="John Doe"
+                  src={avatarImg}
+                  // sx={{ bgcolor: cyan[500] }}
+                />
+              </StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.name} 
+              </StyledTableCell>
+              <StyledTableCell>{row.joke}</StyledTableCell>
+              <StyledTableCell align="right">{row.win}</StyledTableCell>
+              <StyledTableCell align="right">{row.loss}</StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+
+export function DashStat() {
   // added useQuery to get data from the server to display
   const { data: allData } = useQuery(QUERY_DADS, {variables: {dadName: "dadName", dadJoke: "dadJoke", winNum: "winNum", lossNum: "lossNum"}});
   console.log("allData", allData);

@@ -18,12 +18,11 @@ const styles = {
     borderRadius: '10px',
     minWidth: '300px',
     margin: '5vw',
-    flexWrap: 'wrap'
   },
-  container: {
-    display: 'flex',
-    justifyContent: 'space-evenly'
-  },
+  // container: {
+  //   display: 'flex',
+  //   justifyContent: 'space-evenly'
+  // },
   bigContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -38,7 +37,7 @@ const LandingPage = () => {
     <img className='landingimg' src='https://cdn.discordapp.com/attachments/551452864615153665/1206400887510147152/fightmydadlogo.png?ex=65dbdf61&is=65c96a61&hm=b91348473b6c3b94e679d383e1da1405bd339f25cfb959e709170da21a03588a&' alt='Fight My Dad!'/>
     <div>
 
-      <Container style={styles.container}>
+      <Container className='landingContainer'>
         <ButtonBase variant="contained" style={styles.btn} href="/login">Login!</ButtonBase>
         <ButtonBase variant="contained" style={styles.btn} href="/signup">Sign Up!</ButtonBase>
       </Container>
