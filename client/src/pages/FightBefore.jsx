@@ -56,6 +56,7 @@ const FightBefore = () => {
   const [selectedDelete, setSelectedDelete] = useState("");
   var [winner, setWinner] = useState("");
   const [deleteDad] = useMutation(REMOVE_DAD);
+  const [updateWin] = useMutation(UPDATE_WIN);
 
   const handleMyDadChange = (event) => {
     console.log("Selected dad ID:", event.target.value);
@@ -102,6 +103,7 @@ const FightBefore = () => {
         armLength: 90,
         experience: 80,
     };*/
+    
 
     // random dad number
     const randomDadNumber = Math.floor(Math.random() * 500) + 1;
@@ -131,6 +133,13 @@ const FightBefore = () => {
       setWinner("You lost :(" + selectedOpponent._id);
       console.log("You lose!" + totalScoreOpponent);
     }
+
+    await updateWin({
+      variables: {
+        dadId: selectedMyDad._id,
+        isWin: true,
+      },
+    });
   };
 
   console.log("All Dads Data:", allData);
