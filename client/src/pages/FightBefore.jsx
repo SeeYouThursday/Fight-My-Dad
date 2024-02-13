@@ -15,7 +15,7 @@ import { QUERY_DADS } from "../utils/queries";
 import Auth from "../utils/auth";
 import LoginErr from "../Components/LoginErr";
 import { REMOVE_DAD } from "../utils/mutations";
-import { FightCard } from "../Components/Card";
+import { FightCard, FightCard2 } from "../Components/Card";
 
 
 //// ADD EXPERIENCE
@@ -161,7 +161,7 @@ const FightBefore = () => {
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
               <Grid item xs={2}>
-                <FightCard />
+                <FightCard selectedMyDad={selectedMyDad} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-dad">Select Your Dad!</InputLabel>
                   <Select
@@ -288,7 +288,7 @@ const FightBefore = () => {
       </Grid> */}
 
               <Grid item xs={2}>
-                <FightCard />
+                <FightCard2 selectedOpponent={selectedOpponent} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-oppoent" >
                     Select Your Opponent!
