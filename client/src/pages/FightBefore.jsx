@@ -161,7 +161,7 @@ const FightBefore = () => {
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
               <Grid item xs={2}>
-                <FightCard />
+                <FightCard selectedMyDad={selectedMyDad} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-dad">Select Your Dad!</InputLabel>
                   <Select
@@ -288,7 +288,7 @@ const FightBefore = () => {
       </Grid> */}
 
               <Grid item xs={2}>
-                <FightCard />
+                <FightCard selectedMyDad={selectedMyDad}/>
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-oppoent" >
                     Select Your Opponent!

@@ -110,7 +110,7 @@ export function CreateCard({ formData }) {
       );
 }
 
-export function FightCard() {
+export function FightCard(props) {
 
     return (
         <Card sx={{ maxWidth: 350 }} style={styles.card}>
@@ -121,14 +121,14 @@ export function FightCard() {
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
-                
+            Name {props.selectedMyDad.dadName}
             </Typography>
             <Typography gutterBottom variant="body1" color='text.secondary' component="div" style={styles.name}>
                 
             </Typography>
             <Divider />
             <Typography variant="body2" color="text.secondary" style={styles.joke}>
-              Dad Joke: 
+              Dad Joke:
             </Typography>
             <Divider />
             <div style={styles.bottom}>
