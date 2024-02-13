@@ -7,6 +7,8 @@ mutation login($username: String, $password: String!) {
         user {
             _id
             username
+            firstName
+            lastName
             savedDads
         }
     }
@@ -20,6 +22,8 @@ mutation addUser($username: String, $firstName: String, $lastName: String, $pass
         user {
             _id
             username
+            firstName
+            lastName
         }
     }
 }`;
@@ -44,6 +48,7 @@ export const REMOVE_DAD = gql`
 mutation removeDad($dadId: ID!) {
     removeDad(dadId: $dadId) {
         _id
+        dadName
     }
 }`;
 

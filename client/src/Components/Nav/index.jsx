@@ -12,7 +12,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Logout from '../Logout'
+import Logout from '../Logout';
 //styles
 
 const styles = {
@@ -30,7 +30,7 @@ const styles = {
     display: 'flex',
     // justifyContent: 'center',
     color: 'var(--light)',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
   },
   divider: {
     backgroundColor: 'var(--primary)',
@@ -146,7 +146,7 @@ export default function Nav() {
       {/* Map over an array of anchors and create a button and a drawer for each one */}
       {/* <Divider /> */}
       {['right'].map((anchor) => (
-        <React.Fragment key={anchor} className='navContainer'>
+        <div key={anchor} className="navContainer">
           {/* When the button is clicked, open the drawer */}
             <a
               onClick={toggleDrawer(anchor, true)}
@@ -170,7 +170,7 @@ export default function Nav() {
             {/* Render the list of items in the drawer */}
             {list(anchor)}
           </Drawer>
-        </React.Fragment>
+        </div>
       ))}
     </div>
   );
@@ -179,7 +179,6 @@ export default function Nav() {
 // export function nav2() {
 
 // }
-
 
 // import { styled, useTheme } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
@@ -350,7 +349,7 @@ export default function Nav() {
 //           ))}
 //         </List>
 //       </Drawer>
-      
+
 //     </Box>
 //   );
 // }

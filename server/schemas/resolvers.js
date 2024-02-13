@@ -8,12 +8,15 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const data = await User.findOne({ _id: context.user._id })
-          .populate('dad')
+          .populate({
+            path: 'dad',
+            options: { strictPopulate: false },
+          })
           .select('-__v -password');
 
         return data;
       } else {
-        throw AuthenticationError;
+        throw new AuthenticationError('You need to be logged in');
       }
     },
 
@@ -81,11 +84,9 @@ const resolvers = {
     },
 
     addDad: async (parent, { input }, context) => {
-      console.log('Eliot juggles.', input);
       if (context.user) {
         try {
           const newDad = await Dad.create(input);
-          console.log('Brian doesnt juggle', newDad);
           User.findOneAndUpdate(
             { _id: context.user._id },
             {
@@ -118,34 +119,6 @@ const resolvers = {
       }
     },
 
-    /*
-    addDad: async (parent, { userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, }, context) => {
-      console.log('Eliot juggles.',  userId, dadName, nickname, entryMusic, dadJoke, weight, armLength, experience, winNum,lossNum, );
-      try {
-        const newDad = await Dad.create({
-          userId,    
-          dadName,
-          nickname,
-          entryMusic,
-          dadJoke,
-          weight,
-          armLength,
-          experience,
-          winNum,
-          lossNum,
-        });
-        console.log('Brian doesnt juggle', newDad);
-
-        return newDad;
-
-      } catch (err) {
-
-        console.error('Error adding dad:', err);
-        throw err;
-      }
-    },
-*/
-
     removeDad: async (parent, { dadId }, context) => {
       try {
         console.log('Removing dad with ID:', dadId);
@@ -170,12 +143,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
-//
-
-// removeDad: async (parent, { dad }) => {},
-
-// getDad: async (parent, { userId }) => {
-//   const params = userId ? { userId } : {};
-//   return Dad.find(params);
-// },
