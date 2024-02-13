@@ -54,11 +54,10 @@ const Dashboard = () => {
         <main>
           
           <div style={styles.container}>
-          <img className="asset4" src='https://cdn.discordapp.com/attachments/551452864615153665/1206442984598409256/fmdasset4.png?ex=65dc0696&is=65c99196&hm=a0187464a98887499a846e3287127b71ea340013b50b94d60363ce916e01983b&' />
+          <img className="asset4" src='https://cdn.discordapp.com/attachments/551452864615153665/1206788132087799878/fmdasset4.png?ex=65dd4807&is=65cad307&hm=c84bf7f0bab21c36af8737aea3075898995caba24fe97d6f9727c05616e5fab4&' />
             <section style={styles.mainSection}>
-              <img src='https://cdn.discordapp.com/attachments/551452864615153665/1206443566445101096/fmdasset5.png?ex=65dc0720&is=65c99220&hm=be1e216e3b553b561acec0fbd5d4f6259e4fae240cd90da486d928dcb8813b21&' />
               <div>
-                <h1 style={styles.user}>Hey, Weewee!</h1>
+                {/* <h1 style={styles.user}>Hey, Weewee!</h1> */}
                 {/* <h3>Hey, {data.me.firstName} {data.me.lastName}!</h3> */}
               </div>
             </section>

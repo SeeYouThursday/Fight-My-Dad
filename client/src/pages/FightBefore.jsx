@@ -137,7 +137,7 @@ const FightBefore = () => {
       });
       await updateWin({
         variables: {
-          dadId: selectedMyDad._id,
+          dadId: selectedOpponent._id,
           isWin: false,
         },
       });
@@ -152,7 +152,7 @@ const FightBefore = () => {
       });
       await updateWin({
         variables: {
-          dadId: selectedOpponent._id,
+          dadId: selectedMyDad._id,
           isWin: false,
         },
       });
