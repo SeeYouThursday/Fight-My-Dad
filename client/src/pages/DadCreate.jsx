@@ -75,6 +75,7 @@ const DadCreate = () => {
     <>
       {Auth.loggedIn() ? (
         <>
+        <Btn/>
           <Grid className='createContainer'>
             {/* Form for Creating the Dads  */}
             <form
@@ -91,6 +92,7 @@ const DadCreate = () => {
               }}
             >
               <TextField
+                className='createInput'
                 type="text"
                 name="dadName"
                 value={formData.dadName}
@@ -98,6 +100,7 @@ const DadCreate = () => {
                 placeholder="Dad Name"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="nickname"
                 value={formData.nickname}
@@ -105,6 +108,7 @@ const DadCreate = () => {
                 placeholder="Nickname"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="entryMusic"
                 value={formData.entryMusic}
@@ -112,6 +116,7 @@ const DadCreate = () => {
                 placeholder="Choose some entry music!"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="dadJoke"
                 value={formData.dadJoke}
@@ -119,6 +124,7 @@ const DadCreate = () => {
                 placeholder="Add your dad's favorite joke!"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="weight"
                 value={formData.weight}
@@ -126,6 +132,7 @@ const DadCreate = () => {
                 placeholder="Weight"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="armLength"
                 value={formData.armLength}
@@ -133,6 +140,7 @@ const DadCreate = () => {
                 placeholder="Arm Length"
               />
               <TextField
+                className='createInput'
                 type="text"
                 name="experience"
                 value={formData.experience}

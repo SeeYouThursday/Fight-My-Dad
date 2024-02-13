@@ -90,9 +90,9 @@ export function CreateCard({ formData }) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
-                    <button style={styles.cardBtn} href={formData.theme}>
+                    {/* <button style={styles.cardBtn} href={formData.theme}>
                         Theme
-                    </button>  
+                    </button>   */}
                 </div>
             </div>
           </CardContent>
@@ -143,9 +143,9 @@ export function FightCard(props) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
-                    <button style={styles.cardBtn} href=''>
+                    {/* <button style={styles.cardBtn} href=''>
                         Theme
-                    </button>
+                    </button> */}
                     
                 </div>
             </div>
@@ -200,9 +200,9 @@ export function FightCard2(props) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
-                    <button style={styles.cardBtn} href=''>
+                    {/* <button style={styles.cardBtn} href=''>
                         Theme
-                    </button>
+                    </button> */}
                     
                 </div>
             </div>
