@@ -59,7 +59,7 @@ const links = [
 export default function Nav() {
   // State variable for controlling the open/close state of the drawer
   const [state, setState] = React.useState({
-    left: false,
+    right: false,
   });
 
   // Function to handle opening and closing of the drawer
@@ -106,7 +106,7 @@ export default function Nav() {
     <div style={styles.navBtnContainer}>
       {/* Map over an array of anchors and create a button and a drawer for each one */}
       <Divider />
-      {['left'].map((anchor) => (
+      {['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           {/* When the button is clicked, open the drawer */}
             <IconButton 

@@ -2,8 +2,8 @@ const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 // set token secret and expiration date
 require('dotenv').config();
-const secret = 'asjfdjkasdfjkalsdhfuiaowhejfouihwefj';
-const expiration = '2h';
+const secret = process.env.secret;
+const expiration = process.env.expiration;
 
 module.exports = {
   // function for our authenticated routes
