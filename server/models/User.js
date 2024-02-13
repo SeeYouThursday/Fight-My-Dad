@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-
 const dadSchema = require('./Dad');
 
 const userSchema = new Schema(
@@ -19,7 +18,7 @@ const userSchema = new Schema(
     username: {
       type: String,
     },
-    savedDads: [{ type: Schema.Types.ObjectId, ref: 'Dad' }],
+    savedDads: [{ type: Schema.Types.ObjectId, ref: 'dad' }],
   },
   {
     toJSON: {
@@ -37,7 +36,6 @@ userSchema.pre('save', async function (next) {
 
   next();
 });
-
 
 // custom method to compare and validate password for logging in
 userSchema.methods.isCorrectPassword = async function (password) {

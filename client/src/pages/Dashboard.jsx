@@ -84,20 +84,21 @@ const Dashboard = () => {
 
   //Card
   const { loading, data } = useQuery(QUERY_ME);
-  const userData = data ? data.me : {};
-  console.log(userData);
+  const userData = data && data.me;
 
-  if (loading) {
+  if (loading || !userData) {
     return <h2>LOADING...</h2>;
+  } else {
+    console.log(userData);
   }
 
   const handleDeleteChange = (event) => {
     setSelectedDelete(event.target.value);
     const selectedDelete = allData?.getAllDads.find(
-      (dad) => dad._id === event.target.value
+      (dad) => dad._id === event.target.value && data.me._id === dad.userId
     );
-    setSelectedOpponent(selectedDelete);
-    setSelectedOpponent('');
+    setSelectedDelete(selectedDelete);
+    setSelectedDelete('');
   };
 
   return (
@@ -127,7 +128,7 @@ const Dashboard = () => {
                     </h3> */}
                   </div>
                   <FormControl fullWidth>
-                    <InputLabel id="select-oppoent">
+                    <InputLabel id="select-dad">
                       Select dad to delete!
                     </InputLabel>
                     <Select
@@ -137,11 +138,13 @@ const Dashboard = () => {
                       label="Dad"
                       onChange={handleDeleteChange}
                     >
-                      {allData?.getAllDads.map((dad) => (
-                        <MenuItem key={dad._id} value={dad._id}>
-                          {dad.dadName}
-                        </MenuItem>
-                      ))}
+                      {allData.getAllDads
+                        .filter((dad) => data.me._id === dad.userId)
+                        .map((dad, index) => (
+                          <MenuItem key={index} value={dad.dadName}>
+                            {dad.dadName}
+                          </MenuItem>
+                        ))}
                     </Select>
                   </FormControl>
                   <Button
