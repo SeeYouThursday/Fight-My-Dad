@@ -92,15 +92,9 @@ export function CreateCard({ formData }) {
                 <div style={styles.rightContainer}>
                     <button style={styles.cardBtn} href={formData.theme}>
                         Theme
-                    </button>
-                    
+                    </button>  
                 </div>
             </div>
-            <Typography style={styles.winloss} variant="h5" color="text.secondary">
-                        Wins: {formData.winNum}
-                        <span> | </span> 
-                        Losses: {formData.lossNum}
-            </Typography>
           </CardContent>
           {/* <CardActions>
             <Button size="small">Fight</Button>
@@ -156,9 +150,9 @@ export function FightCard(props) {
                 </div>
             </div>
             <Typography style={styles.winloss} variant="h5" color="text.secondary">
-                        Wins: 
+                        Wins: {props.selectedMyDad.winNum}
                         <span> | </span> 
-                        Losses: 
+                        Losses: {props.selectedMyDad.lossNum}
             </Typography>
           </CardContent>
           {/* <CardActions>
@@ -213,9 +207,9 @@ export function FightCard2(props) {
                 </div>
             </div>
             <Typography style={styles.winloss} variant="h5" color="text.secondary">
-                        Wins: 
+                        Wins: {props.selectedOpponent.winNum}
                         <span> | </span> 
-                        Losses: 
+                        Losses: {props.selectedOpponent.lossNum}
             </Typography>
           </CardContent>
           {/* <CardActions>
