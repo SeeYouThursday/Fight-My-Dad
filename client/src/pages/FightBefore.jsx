@@ -113,6 +113,8 @@ const FightBefore = () => {
           isWin: false,
         },
       });
+      // setSelectedMyDad(myData)
+      // setSelectedOpponent(allData)
     } else {
       setWinner("You lost :(");
       console.log("You lose!");
@@ -128,6 +130,8 @@ const FightBefore = () => {
           isWin: false,
         },
       });
+      // setSelectedMyDad(myData)
+      // setSelectedOpponent(allData)
     }
     
   };

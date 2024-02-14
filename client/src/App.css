@@ -146,6 +146,10 @@ body {
 }
 /* DashBoard Styles */
 
+#select-dad{
+    color: var(--light)
+}
+
 /* DadCreate Styles */
 .createimg{
     height: 25vw;

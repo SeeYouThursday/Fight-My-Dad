@@ -65,7 +65,11 @@ const links = [
 const socialMedia = [
   {
     name: 'Instagram',
-    link: '',
+    link: 'https://www.instagram.com/fightmydadofficial/',
+  },
+  {
+    name: 'Twitter',
+    link: 'https://twitter.com/_FightMyDad'
   }
 ]
 
