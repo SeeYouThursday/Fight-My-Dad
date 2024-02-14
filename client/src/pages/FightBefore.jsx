@@ -27,8 +27,12 @@ import { FightCard, FightCard2 } from "../Components/Card";
 
 const FightBefore = () => {
   ///// Change mydata when auth is working
-  const { data: myData } = useQuery(QUERY_ME);
-  const { data: allData } = useQuery(QUERY_DADS);
+  const { data: myData, refetch: refetchMyData } = useQuery(QUERY_ME, {
+    fetchPolicy: 'network-only',
+  });
+  const { data: allData, refetch: refetchAllData } = useQuery(QUERY_DADS, {
+    fetchPolicy: 'network-only',
+  });
   const [totalScoreMyDad, setTotalScoreMyDad] = useState(null);
   const [myDad, setMyDad] = useState("");
   const [opponent, setMyOpponent] = useState("");
@@ -42,15 +46,19 @@ const FightBefore = () => {
   const handleMyDadChange = (event) => {
     console.log("Selected dad ID:", event.target.value);
     const selectedDadId = event.target.value;
-    const selectedDad = allData?.getAllDads.find(
-      (dad) => dad._id === selectedDadId
+    const savedDadIds = myData?.me.savedDads;
+    
+    // Filter allDads to only include the saved dads
+    const myDads = allData?.getAllDads.filter((dad) => savedDadIds.includes(dad._id.toString()));
+    
+    const selectedMyDad = myDads.find(
+      (dad) => dad._id.toString() === selectedDadId
     );
-    console.log("Selected dad:", selectedDad);
-    setMyDad(selectedDadId);
-    setSelectedMyDad(selectedDad);
+    console.log("Selected dad:", selectedMyDad);
+    setMyDad(selectedDadId); // Set myDad to the dad's _id
+    setSelectedMyDad(selectedMyDad);
     setWinner("");
   };
-
   const handleOpponentChange = (event) => {
     const selectedOpponentId = event.target.value;
     const selectedOpponent = allData?.getAllDads.find(
@@ -66,8 +74,6 @@ const FightBefore = () => {
     const selectedDelete = allData?.getAllDads.find(
       (dad) => dad._id === event.target.value
     );
-    setSelectedOpponent(selectedDelete);
-    setSelectedOpponent("");
   };
 
   const handleDadFight = async (event) => {
@@ -124,7 +130,7 @@ const FightBefore = () => {
         },
       });
     }
-
+    
   };
 
   console.log("All Dads Data:", allData);
@@ -152,35 +158,49 @@ const FightBefore = () => {
               rowSpacing={1}
               columnSpacing={{ xs: 1, sm: 2, md: 3 }}
             >
+              {/* Fight Img */}
+              <img
+                className="fightimg"
+                src="https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&"
+              />
               {/* Selecting Your Dad */}
-              <Grid item className='fightside'>
+
+              <Grid item className='fightside fight1'>
                 <FightCard selectedMyDad={selectedMyDad} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-dad">Select Your Dad!</InputLabel>
                   <Select
                     labelId="select-dad"
                     id="select-dad-dropdown"
-                    value={myDad}
+                    value={myDad} // Set value to myDad
                     label="Dad"
                     onChange={handleMyDadChange}
                   >
-                    {allData?.getAllDads.map((dad) => (
-                      <MenuItem key={dad._id} value={dad._id}>
-                        {dad.dadName}
-                      </MenuItem>
-                    ))}
+                    {myData?.me.savedDads.map((dadId) => {
+                      // Find the dad object in allData.getAllDads
+                      const dad = allData?.getAllDads.find(
+                        (dad) => dad._id.toString() === dadId
+                      );
+
+                      // If the dad object is undefined, return null
+                      if (!dad) {
+                        return null;
+                      }
+
+                      return (
+                        <MenuItem key={dadId} value={dadId}>
+                          {dad.dadName}
+                        </MenuItem>
+                      );
+                    })}
                   </Select>
                 </FormControl>
               </Grid>
 
-              {/* Fight Img */}
-              <img
-                className="fightimg"
-                src="https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&"
-              />
+              
 
               {/* Select Opposing Dad */}
-              <Grid item className='fightside'>
+              <Grid item className='fightside fight2'>
                 <FightCard2 selectedOpponent={selectedOpponent} />
                 <FormControl fullWidth className='fightdrop'>
                   <InputLabel id="select-oppoent" >
