@@ -93,7 +93,7 @@ const resolvers = {
               $addToSet: { savedDads: newDad._id },
             },
             { new: true, runValidators: true }
-          );
+          ).exec();
           return newDad;
         } catch (err) {
           // If user attempts to execute this mutation and isn't logged in, throw an error

@@ -107,6 +107,7 @@ body {
     width: 30vw;
     animation-name: fadein;
     animation-duration: 1s;
+    margin-top: 5vh
 }
 
 .landingContainer{
@@ -169,7 +170,8 @@ body {
 
 .fightimg {
     /* width: 30vw; */
-    height: 50vh;
+    height: 80vh;
+    /* width: 75vw; */
     animation-name: fadein;
     animation-duration: 1s;
 }
@@ -211,6 +213,25 @@ body {
 
 /* Media Queries */
 
+@media screen and (min-width: 1450px) {
+    .fightimg{
+        order: 2;
+        height: 50vh;
+    }
+    .fight1{
+        order: 1
+    }
+    .fight2{
+        order: 3
+    }
+    .fightDiv {
+        flex-direction: column;
+        display: flex;
+    }
+}
+
+
+
 @media screen and (max-width: 1000px) {
     .asset4{
         position: relative;
@@ -218,12 +239,12 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .fightimg{
+    /* .fightimg{
         order: 1
     }
     .fightCard{
         order: 2
-    }
+    } */
     .landingContainer{
         justify-content: center;
     }

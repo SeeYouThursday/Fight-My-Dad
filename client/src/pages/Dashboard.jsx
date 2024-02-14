@@ -83,8 +83,11 @@ const Dashboard = () => {
   const { data: allData } = useQuery(QUERY_DADS);
 
   //Card
+  // const { loading, data } = useQuery(QUERY_ME);
+  // const userData = data && data.me;
+
   const { loading, data } = useQuery(QUERY_ME);
-  const userData = data && data.me;
+  const userData = data?.me;
 
   if (loading || !userData) {
     return <h2>LOADING...</h2>;
@@ -97,8 +100,6 @@ const Dashboard = () => {
     const selectedDelete = allData?.getAllDads.find(
       (dad) => dad._id === event.target.value && data.me._id === dad.userId
     );
-    setSelectedDelete(selectedDelete);
-    setSelectedDelete('');
   };
 
   return (
@@ -141,17 +142,34 @@ const Dashboard = () => {
                       {allData.getAllDads
                         .filter((dad) => data.me._id === dad.userId)
                         .map((dad, index) => (
-                          <MenuItem key={index} value={dad.dadName}>
+                          <MenuItem key={index} value={dad._id}>
                             {dad.dadName}
                           </MenuItem>
                         ))}
                     </Select>
                   </FormControl>
-                  <Button
+                  {/* <Button
                     onClick={() => {
                       deleteDad({
                         variables: {
                           dadId: selectedDelete,
+                        },
+                      })
+                        .then((res) => {
+                          console.log('The dad has been deleted:', res);
+                        })
+                        .catch((err) => {
+                          console.error('Error deleting dad:', err);
+                        });
+                    }}
+                  >
+                    Delete Dad
+                  </Button> */}
+                  <Button
+                    onClick={() => {
+                      deleteDad({
+                        variables: {
+                          dadId: selectedDelete, 
                         },
                       })
                         .then((res) => {

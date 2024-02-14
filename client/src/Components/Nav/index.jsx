@@ -32,10 +32,20 @@ const styles = {
     color: 'var(--light)',
     justifyContent: 'flex-end',
   },
+  divider: {
+    backgroundColor: 'var(--primary)',
+    margin: '20px'
+  }
+
 };
 
 //Links for the navbar
-
+const back = [
+  {
+    name: 'Back',
+    link: '/dashboard'
+  }
+]
 const links = [
   {
     name: 'Logout',
@@ -54,6 +64,13 @@ const links = [
     link: '/leaderboard',
   },
 ];
+
+const socialMedia = [
+  {
+    name: 'Instagram',
+    link: '',
+  }
+]
 
 // Defining the Nav component
 export default function Nav() {
@@ -88,7 +105,29 @@ export default function Nav() {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
+      {back.map((link) => (
+          <ListItem
+            key={link.name}
+            // disablePadding
+          >
+            <ListItemButton component={Link} to={link.link}>
+              <ListItemText primary={link.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        <Divider style={styles.divider} />
         {links.map((link) => (
+          <ListItem
+            key={link.name}
+            // disablePadding
+          >
+            <ListItemButton component={Link} to={link.link}>
+              <ListItemText primary={link.name} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        <Divider style={styles.divider} />
+        {socialMedia.map((link) => (
           <ListItem
             key={link.name}
             // disablePadding
@@ -109,19 +148,19 @@ export default function Nav() {
       {['right'].map((anchor) => (
         <div key={anchor} className="navContainer">
           {/* When the button is clicked, open the drawer */}
-          <a
-            onClick={toggleDrawer(anchor, true)}
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <img
-              className="navicon"
-              src="https://cdn.discordapp.com/attachments/551452864615153665/1206418867669442641/fmdasset3.png?ex=65dbf020&is=65c97b20&hm=46b7f88b61d33af70085b0ca557f66e4c71ef4d37c301a56e074d309e5dbcafe&"
-            />
-          </a>
+            <a
+              onClick={toggleDrawer(anchor, true)}
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              sx={{ mr: 2 }}
+              
+            >
+              {/* <MenuIcon /> */}
+              <img className='navicon' src='https://cdn.discordapp.com/attachments/551452864615153665/1207094537512812584/fmdasset9.png?ex=65de6564&is=65cbf064&hm=165901f8634934db6416e6d3e374663096c8d5a79e5e2a18b4aa057fd26290b7&'/>
+
+            </a>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
