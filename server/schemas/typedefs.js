@@ -10,7 +10,7 @@ const typeDefs = `
 
   type Dad {
     _id: ID
-    dadName: String
+    dadName: String!
     nickname: String
     userId: String
     entryMusic: String
@@ -38,7 +38,7 @@ const typeDefs = `
 
 input dadStats {
   userId: String
-  dadName: String
+  dadName: String!
   nickname: String
   entryMusic: String
   dadJoke: String

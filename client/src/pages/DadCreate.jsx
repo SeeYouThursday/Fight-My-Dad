@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import Btn from '../Components/Btn';
+// import Btn from '../Components/Btn';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
+
 import { SAVE_DAD } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 import Auth from '../utils/auth.js';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import LoginErr from '../Components/LoginErr';
 import dadIcons from '../utils/dadIcons.js';
 import { CreateCard } from '../Components/Card';
@@ -30,6 +31,7 @@ const DadCreate = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    setFormError(false);
 
     if (Auth.loggedIn()) {
       const userId = Auth.getProfile().data._id;
@@ -43,7 +45,6 @@ const DadCreate = () => {
       };
 
       try {
-        setFormError(false);
         const { data } = await addDad({
           variables: { newDad: convertedFormData },
         });
@@ -84,7 +85,17 @@ const DadCreate = () => {
       {Auth.loggedIn() ? (
         <>
           {/* <Btn/> */}
-          <Grid className="createContainer">
+          <h1>REGISTER YOUR DAD!</h1>
+          <Grid
+            className="createContainer"
+            // style={{
+            //   display: 'flex',
+            //   flexDirection: 'row',
+            //   flexWrap: 'wrap',
+            //   justifyContent: 'center',
+            //   alignItems: 'center',
+            // }}
+          >
             {/* Form for Creating the Dads  */}
             <div className="createDad">
               <form
@@ -107,9 +118,11 @@ const DadCreate = () => {
                   className="createInput"
                   type="text"
                   name="dadName"
+                  label="Dad Name"
                   value={formData.dadName}
                   onChange={handleDadChange}
                   placeholder="Dad Name"
+                  margin="dense"
                 />
                 <TextField
                   required
@@ -118,9 +131,11 @@ const DadCreate = () => {
                   className="createInput"
                   type="text"
                   name="nickname"
+                  label="Nickname"
                   value={formData.nickname}
                   onChange={handleDadChange}
                   placeholder="Nickname"
+                  margin="dense"
                 />
                 <TextField
                   required
@@ -129,9 +144,11 @@ const DadCreate = () => {
                   className="createInput"
                   type="text"
                   name="entryMusic"
+                  label="Entry Music"
                   value={formData.entryMusic}
                   onChange={handleDadChange}
                   placeholder="Choose some entry music!"
+                  margin="dense"
                 />
                 <TextField
                   required
@@ -140,42 +157,50 @@ const DadCreate = () => {
                   className="createInput"
                   type="text"
                   name="dadJoke"
+                  label="Dad Joke"
                   value={formData.dadJoke}
                   onChange={handleDadChange}
                   placeholder="Add your dad's favorite joke!"
+                  margin="dense"
                 />
                 <TextField
                   required
                   error={Boolean(formError)}
                   helperText={!formError ? '' : 'Try again!'}
                   className="createInput"
-                  type="text"
+                  type="number"
                   name="weight"
+                  label="Weight"
                   value={formData.weight}
                   onChange={handleDadChange}
                   placeholder="Weight"
+                  margin="dense"
                 />
                 <TextField
                   required
                   error={Boolean(formError)}
                   helperText={!formError ? '' : 'Try again!'}
                   className="createInput"
-                  type="text"
+                  type="number"
+                  label="Arm Length"
                   name="armLength"
                   value={formData.armLength}
                   onChange={handleDadChange}
                   placeholder="Arm Length"
+                  margin="dense"
                 />
                 <TextField
                   required
                   error={Boolean(formError)}
                   helperText={!formError ? '' : 'Try again!'}
                   className="createInput"
-                  type="text"
+                  type="number"
                   name="experience"
                   value={formData.experience}
                   onChange={handleDadChange}
-                  placeholder="Experience Score"
+                  label="Years Fighting"
+                  placeholder="9"
+                  margin="dense"
                 />
 
                 {/* Icon select at this time? */}
@@ -192,8 +217,8 @@ const DadCreate = () => {
                 </Button>
               </form>
             </div>
-
             {/* FOR MVP: Make formData appear on Card as a Preview */}
+
             <CreateCard formData={formData} />
           </Grid>
 
