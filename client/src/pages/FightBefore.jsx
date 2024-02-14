@@ -138,7 +138,17 @@ const FightBefore = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <>
+        <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          flexDirection: 'column',
+          margin: 0,
+          padding: 0,
+        }}
+      >
           {/* <Btn /> */}
           <form
             style={{
@@ -248,7 +258,7 @@ const FightBefore = () => {
               Make Them Fight!
             </Button>
           </form>
-        </>
+        </div>
       ) : (
         <LoginErr />
       )}
