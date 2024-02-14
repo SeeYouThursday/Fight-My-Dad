@@ -35,7 +35,7 @@ const styles = {
     fontFamily: 'Permanent Marker',
     color: 'var(--light)',
     fontSize: '40px',
-    alignSelf: 'baseline',
+    alignSelf: 'center',
     textAlign: 'center',
   },
   user2: {
@@ -61,11 +61,10 @@ const styles = {
     margin: '20px',
   },
   container: {
-    height: '50vh',
+    height: 'auto',
     display: 'flex',
     justifyContent: 'center',
     background: 'var(--primary)',
-    // height: '60vh',
     borderRadius: '5px',
     width: '80vw',
     alignItems: 'center',
@@ -85,6 +84,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column'
   },
 };
 
@@ -148,8 +148,8 @@ const Dashboard = () => {
                   <div>
                     <h2 style={styles.user2}>Wanna Delete your Dad?</h2>
                   </div>
-                  <form onSubmit={handleDeletedDad}>
-                    <FormControl fullWidth>
+                  <form style={styles.body} onSubmit={handleDeletedDad}>
+                    <FormControl style={styles.body} fullWidth>
                       <InputLabel id="select-dad">
                         Select dad to delete!
                       </InputLabel>
