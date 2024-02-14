@@ -247,40 +247,6 @@ const FightBefore = () => {
             >
               Make Them Fight!
             </Button>
-
-            {/* <FormControl fullWidth>
-              <InputLabel id="select-oppoent">Select dad to delete!</InputLabel>
-              <Select
-                labelId="select-delete"
-                id="select-delete-dropdown"
-                value={selectedDelete}
-                label="Dad"
-                onChange={handleDeleteChange}
-              >
-                {allData?.getAllDads.map((dad) => (
-                  <MenuItem key={dad._id} value={dad._id}>
-                    {dad.dadName}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <Button
-              onClick={() => {
-                deleteDad({
-                  variables: {
-                    dadId: selectedDelete,
-                  },
-                })
-                  .then((res) => {
-                    console.log("The dad has been deleted:", res);
-                  })
-                  .catch((err) => {
-                    console.error("Error deleting dad:", err);
-                  });
-              }}
-            >
-              Delete Dad
-            </Button> */}
           </form>
         </>
       ) : (

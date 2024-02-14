@@ -1,10 +1,7 @@
-// import Logo from '../assets/images/FIGHTMYDAD.gif';
+
 import '../assets/css/landing.css';
 import { ButtonBase, Container, Grid } from '@mui/material/';
 import Button from '@mui/material-next/Button';
-// import FMDLanding from '../assets/images/FMDLanding.png';
-
-// import Image from '../Components/Image'
 
 const styles = {
   btn: {
@@ -16,10 +13,6 @@ const styles = {
     minWidth: '300px',
     margin: '5vw',
   },
-  // container: {
-  //   display: 'flex',
-  //   justifyContent: 'space-evenly'
-  // },
   bigContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -27,7 +20,7 @@ const styles = {
   }
 }
 const LandingPage = () => {
-  // import into App to show on load '/'
+
   // Giant Fight My Dad img in the middle of page
   return (
     <div style={styles.bigContainer}>
@@ -47,22 +40,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-{/* <Grid>
-<Button */}
-  // size="large"
-  // variant="contained"
-  // style={{
-  //   backgroundPosition: 'center',
-  //   display: 'flex',
-  //   overflow: 'hidden',
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  // }}
-  // href="/dashboard"
-  // ?? Consider using a Link component from react-router-dom
-  //! Change Background color of img
-// >
-  {/* <img src={Logo} alt="fightmydad logo" /> */}
-// </Button>
-// </Grid>

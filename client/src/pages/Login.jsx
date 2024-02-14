@@ -44,12 +44,7 @@ const Login = () => {
       <div>
         <form 
           style={{
-            // backgroundImage: `url(${loginImage})`,
-            // backgroundSize: 'contain',
-            // backgroundRepeat: 'no-repeat',
-            // backgroundPosition: 'center',
-            // backgroundColor: 'var(--darkest)',
-            height: '60vh', // 100% of the viewport height
+            height: '60vh',
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'center',
@@ -86,7 +81,6 @@ const Login = () => {
             onChange={handleChange}
           />
           <Button onClick={handleFormSubmit}>BET!</Button>
-          {/* <Link to={'/signup'}>Sign Up!</Link> //! Does not work */}
         </form>
       </div>
       <img className='asset1' src='https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&' />
