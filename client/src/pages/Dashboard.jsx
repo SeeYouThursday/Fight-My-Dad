@@ -47,7 +47,7 @@ const styles = {
     fontFamily: 'Permanent Marker',
     color: 'var(--light)',
     fontSize: '20px',
-    alignSelf: 'baseline',
+    alignSelf: 'center',
     textAlign: 'center',
   },
   divider: {
@@ -63,6 +63,13 @@ const styles = {
   },
   container: {
     height: '50vh',
+    display: 'flex',
+    justifyContent: 'center',
+    background: 'var(--primary)',
+    height: "60vh",
+    borderRadius: '5px',
+    width: '80vw',
+    alignItems: 'center',
   },
   userContainer: {
     margin: '1vw 10vw',
@@ -70,7 +77,16 @@ const styles = {
     borderRadius: '5px',
     width: 'auto',
     padding: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
+  body: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 };
 
 const Dashboard = () => {
@@ -78,9 +94,7 @@ const Dashboard = () => {
   const [deleteDad] = useMutation(REMOVE_DAD);
   const { data: allData } = useQuery(QUERY_DADS);
 
-  //Card
-  // const { loading, data } = useQuery(QUERY_ME);
-  // const userData = data && data.me;
+ console.log(allData)
 
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me;
@@ -90,6 +104,8 @@ const Dashboard = () => {
   } else {
     console.log(userData);
   }
+
+  // const dadArray = allData.getAllDads.map((dad) => data.me._id === dad.userId)
 
   const handleDeleteChange = (event) => {
     setSelectedDelete(event.target.value);
@@ -102,13 +118,13 @@ const Dashboard = () => {
     // moved main so site can handle viewing Stat page without being logged in
     <>
       {Auth.loggedIn() ? (
-        <main>
+        <main style={styles.body}>
           <div style={styles.container}>
             <section style={styles.mainSection}>
               <div>
                 <div style={styles.userContainer}>
                   <h1 style={styles.user}>Welcome to Fight My Dad!</h1>
-                  <h3>
+                  <h3 style={styles.user2}>
                     Hey, {userData.firstName} {userData.lastName}!
                   </h3>
                 </div>
@@ -137,24 +153,28 @@ const Dashboard = () => {
                     </Select>
                   </FormControl>
                 
-                {/* Delete Dad Functionality */}
+                  {/* Delete Dad Functionality */}
+                  {allData.getAllDads.length == 0 ? 
+                  <></> 
+                  : 
                   <Button
-                    onClick={() => {
-                      deleteDad({
-                        variables: {
-                          dadId: selectedDelete, 
-                        },
-                      })
-                        .then((res) => {
-                          console.log('The dad has been deleted:', res);
+                      onClick={() => {
+                        deleteDad({
+                          variables: {
+                            dadId: selectedDelete, 
+                          },
                         })
-                        .catch((err) => {
-                          console.error('Error deleting dad:', err);
-                        });
-                    }}
-                  >
-                    Delete Dad
-                  </Button>
+                          .then((res) => {
+                            console.log('The dad has been deleted:', res);
+                          })
+                          .catch((err) => {
+                            console.error('Error deleting dad:', err);
+                          });
+                      }}
+                    >
+                      Delete Dad
+                    </Button>}
+                  
                 </div>
               </div>
             </section>
