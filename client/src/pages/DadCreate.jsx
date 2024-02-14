@@ -90,14 +90,12 @@ const DadCreate = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <>
-          <Grid className='createContainer'>
-          {/* <Btn/> */}
-          <h1>REGISTER YOUR DAD!</h1>
-          <Grid className="createContainer">
-            {/* Form for Creating the Dads  */}
-            <div className='createDad'>
+        <div>
+        <Grid className="createContainer">
+          {/* Form for Creating the Dads  */}
+          <div className="createDad">
             <form
+              noValidate
               style={{
                 height: 'auto',
                 display: 'flex',
@@ -105,233 +103,164 @@ const DadCreate = () => {
                 flexDirection: 'column',
                 margin: '50px',
                 padding: 0,
-
               }}
             >
               <TextField
-                className='createInput'
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
                 type="text"
                 name="dadName"
+                label="Dad Name"
                 value={formData.dadName}
                 onChange={handleDadChange}
                 placeholder="Dad Name"
+                margin="dense"
               />
               <TextField
-                className='createInput'
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
                 type="text"
                 name="nickname"
+                label="Nickname"
                 value={formData.nickname}
                 onChange={handleDadChange}
                 placeholder="Nickname"
+                margin="dense"
               />
               <TextField
-                className='createInput'
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
                 type="text"
                 name="entryMusic"
+                label="Entry Music"
                 value={formData.entryMusic}
                 onChange={handleDadChange}
                 placeholder="Choose some entry music!"
+                margin="dense"
               />
               <TextField
-                className='createInput'
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
                 type="text"
                 name="dadJoke"
+                label="Dad Joke"
                 value={formData.dadJoke}
                 onChange={handleDadChange}
                 placeholder="Add your dad's favorite joke!"
+                margin="dense"
               />
+              {/* //! TODO: add NumInput instead of textfield - time permitting */}
               <TextField
-                className='createInput'
-                type="text"
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
+                type="number"
                 name="weight"
+                label="Weight"
                 value={formData.weight}
                 onChange={handleDadChange}
                 placeholder="Weight"
+                margin="dense"
               />
               <TextField
-                className='createInput'
-                type="text"
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
+                type="number"
+                label="Arm Length"
                 name="armLength"
                 value={formData.armLength}
                 onChange={handleDadChange}
                 placeholder="Arm Length"
+                margin="dense"
               />
               <TextField
-                className='createInput'
-                type="text"
+                required
+                error={Boolean(formError)}
+                helperText={!formError ? '' : 'Try again!'}
+                className="createInput"
+                type="number"
                 name="experience"
                 value={formData.experience}
                 onChange={handleDadChange}
-                placeholder="Experience Score"
+                label="Years Fighting"
+                placeholder="9"
+                margin="dense"
               />
-            <div className="createDad">
-              <form
-                noValidate
-                style={{
-                  height: 'auto',
-                  display: 'flex',
-                  // justifyContent: 'flex-start',
-                  // alignItems: 'center',
-                  flexWrap: 'nowrap',
-                  flexDirection: 'column',
-                  margin: '50px',
-                  padding: 0,
-                }}
+
+              {/* Icon select at this time? */}
+              <Button
+                name="icon"
+                value={formData.icon}
+                onClick={randomImage}
+                style={{}}
               >
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="text"
-                  name="dadName"
-                  label="Dad Name"
-                  value={formData.dadName}
-                  onChange={handleDadChange}
-                  placeholder="Dad Name"
-                  margin="dense"
-                />
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="text"
-                  name="nickname"
-                  label="Nickname"
-                  value={formData.nickname}
-                  onChange={handleDadChange}
-                  placeholder="Nickname"
-                  margin="dense"
-                />
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="text"
-                  name="entryMusic"
-                  label="Entry Music"
-                  value={formData.entryMusic}
-                  onChange={handleDadChange}
-                  placeholder="Choose some entry music!"
-                  margin="dense"
-                />
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="text"
-                  name="dadJoke"
-                  label="Dad Joke"
-                  value={formData.dadJoke}
-                  onChange={handleDadChange}
-                  placeholder="Add your dad's favorite joke!"
-                  margin="dense"
-                />
-                {/* //! TODO: add NumInput instead of textfield - time permitting */}
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="number"
-                  name="weight"
-                  label="Weight"
-                  value={formData.weight}
-                  onChange={handleDadChange}
-                  placeholder="Weight"
-                  margin="dense"
-                />
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="number"
-                  label="Arm Length"
-                  name="armLength"
-                  value={formData.armLength}
-                  onChange={handleDadChange}
-                  placeholder="Arm Length"
-                  margin="dense"
-                />
-                <TextField
-                  required
-                  error={Boolean(formError)}
-                  helperText={!formError ? '' : 'Try again!'}
-                  className="createInput"
-                  type="number"
-                  name="experience"
-                  value={formData.experience}
-                  onChange={handleDadChange}
-                  label="Years Fighting"
-                  placeholder="9"
-                  margin="dense"
-                />
+                Choose Your Image
+              </Button>
+              <Button onClick={handleFormSubmit} style={{}}>
+                Submit
+              </Button>
+            </form>
+          </div>
+          <img
+                className="createimg"
+                src="https://cdn.discordapp.com/attachments/551452864615153665/1207385750492946512/fmdasset1.png?ex=65df749b&is=65ccff9b&hm=343b088a3012754410cf628a8213feef87b2eec5954f0ff276719a3f3a51ef73&"
+              />
+          <CreateCard formData={formData}/>
+        </Grid>
 
-                {/* Icon select at this time? */}
-                <Button
-                  name="icon"
-                  value={formData.icon}
-                  onClick={randomImage}
-                  style={{}}
-                >
-                  Choose Your Image
-                </Button>
-                <Button onClick={handleFormSubmit} style={{}}>
-                  Submit
-                </Button>
-              </form>
-            </div>
-            
-            <CreateCard formData={formData}/>
-          </Grid>
-
-          {/* When Form is Submitted, Throw a Modal with the Result */}
-          <Modal
-            open={showModal}
-            onClose={handleCloseModal}
-            aria-labelledby="result-modal"
-            aria-describedby="result-modal-description"
+        {/* When Form is Submitted, Throw a Modal with the Result */}
+        <Modal
+          open={showModal}
+          onClose={handleCloseModal}
+          aria-labelledby="result-modal"
+          aria-describedby="result-modal-description"
+        >
+          <Box
+            sx={{
+              position: 'absolute',
+              width: 400,
+              bgcolor: 'background.paper',
+              border: '2px solid #000',
+              boxShadow: 24,
+              p: 4,
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+            }}
           >
-            <Box
-              sx={{
-                position: 'absolute',
-                width: 400,
-                bgcolor: 'background.paper',
-                border: '2px solid #000',
-                boxShadow: 24,
-                p: 4,
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-              }}
-            >
-              {/* Success */}
-              <h2 id="result-modal">Result</h2>
-              {data && (
-                <p className="result-modal-description">
-                  Success! Data:
-                  {formData.dadName}
-                </p>
-              )}
-              {/* Fail */}
-              {error && (
-                <p className="result-modal-description">
-                  FAIL! Error: {error.message}. Dad Name:
-                  {formData.dadName}
-                  Dad Joke:
-                  {formData.dadJoke}
-                </p>
-              )}
-              <Button onClick={handleCloseModal}>Close</Button>
-            </Box>
-          </Modal>
-        </>
+            {/* Success */}
+            <h2 id="result-modal">Result</h2>
+            {data && (
+              <p className="result-modal-description">
+                Success! Data:
+                {formData.dadName}
+              </p>
+            )}
+            {/* Fail */}
+            {error && (
+              <p className="result-modal-description">
+                FAIL! Error: {error.message}. Dad Name:
+                {formData.dadName}
+                Dad Joke:
+                {formData.dadJoke}
+              </p>
+            )}
+            <Button onClick={handleCloseModal}>Close</Button>
+          </Box>
+        </Modal>
+      </div>
       ) : (
-        // If You're not logged in, Throw error screen!
         <LoginErr />
       )}
     </>

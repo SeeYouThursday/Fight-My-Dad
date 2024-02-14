@@ -61,8 +61,11 @@ const Signup = () => {
           padding: 0,
         }}
       >
-        <img className='loginLogo' src='https://cdn.discordapp.com/attachments/551452864615153665/1206632850254860288/fmdasset7.png?ex=65dcb769&is=65ca4269&hm=4d3bfd646144909d23e19bf3b2271ffd3125eb8e4b9ab55bb04e14358ec16c39&' alt='Sign Up'/>
-        
+        <img
+          className="loginLogo"
+          src="https://cdn.discordapp.com/attachments/551452864615153665/1206632850254860288/fmdasset7.png?ex=65dcb769&is=65ca4269&hm=4d3bfd646144909d23e19bf3b2271ffd3125eb8e4b9ab55bb04e14358ec16c39&"
+          alt="Sign Up"
+        />
         {/* InputFields */}
         <TextField
           required
