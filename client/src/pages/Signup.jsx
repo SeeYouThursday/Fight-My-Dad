@@ -118,8 +118,10 @@ const Signup = () => {
           onChange={handleInputChange}
         />
         <TextField
+          required
+          error={Boolean(formError)}
+          helperText={!formError ? '' : 'Try again!'}
           className="loginInput"
-          id="filled-basic"
           label="Password"
           variant="filled"
           margin="none"
