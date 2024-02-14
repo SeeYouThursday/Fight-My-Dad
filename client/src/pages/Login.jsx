@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import loginImage from '../assets/images/login-signup/login.png'; //background for form
 // import loginLabel from '../assets/images/login-signup/labels/login-animated.gif'; //label for form
 import smallLogin from '../assets/images/login-signup/labels/login300200.gif'; //label for form
-import { Grid, TextField, Button } from '@mui/material/';
+import { Grid, TextField, Button, Box } from '@mui/material/';
 import Auth from '../utils/auth';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
@@ -10,6 +10,7 @@ import { LOGIN_USER } from '../utils/mutations';
 const Login = () => {
   const [formState, setFormState] = useState({ username: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [formError, setFormError] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -19,15 +20,17 @@ const Login = () => {
       [name]: value,
     });
   };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
+      setFormError(false);
       const { data } = await login({
         variables: { ...formState },
       });
       Auth.login(data.login.token);
-
     } catch (e) {
+      setFormError(true);
       console.error(e);
     }
 
@@ -37,7 +40,6 @@ const Login = () => {
       password: '',
     });
   };
-
 
   return (
     <Grid>
