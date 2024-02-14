@@ -147,6 +147,9 @@ body {
 /* DashBoard Styles */
 
 /* DadCreate Styles */
+.createimg{
+    height: 25vw;
+}
 
 .createContainer {
     display: flex;
@@ -171,7 +174,7 @@ body {
 .fightimg {
     /* width: 30vw; */
     height: 80vh;
-    /* width: 75vw; */
+    margin: 0vw 30vw;
     animation-name: fadein;
     animation-duration: 1s;
 }
@@ -217,6 +220,7 @@ body {
     .fightimg{
         order: 2;
         height: 50vh;
+        margin: 0
     }
     .fight1{
         order: 1
@@ -236,15 +240,17 @@ body {
     .asset4{
         position: relative;
     }
+    .fightimg{
+        height: 60vh
+    }
 }
 
 @media screen and (max-width: 800px) {
-    /* .fightimg{
-        order: 1
+
+    .fightDiv {
+        flex-direction: column;
+        display: flex;
     }
-    .fightCard{
-        order: 2
-    } */
     .landingContainer{
         justify-content: center;
     }
@@ -256,6 +262,9 @@ body {
 @media screen and (max-width: 600px) {
     .loginInput{
         width: 50vw;
+    }
+    .fightimg{
+        height: 40vh
     }
     
 }

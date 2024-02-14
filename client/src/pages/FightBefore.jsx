@@ -12,7 +12,6 @@ import {
 } from "@mui/material/";
 
 //Importing Repo Components
-import Btn from "../Components/Btn";
 import LoginErr from "../Components/LoginErr";
 
 //Importing Auth
@@ -139,7 +138,17 @@ const FightBefore = () => {
   return (
     <>
       {Auth.loggedIn() ? (
-        <>
+        <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          flexDirection: 'column',
+          margin: 0,
+          padding: 0,
+        }}
+      >
           {/* <Btn /> */}
           <form
             style={{
@@ -248,42 +257,8 @@ const FightBefore = () => {
             >
               Make Them Fight!
             </Button>
-
-            {/* <FormControl fullWidth>
-              <InputLabel id="select-oppoent">Select dad to delete!</InputLabel>
-              <Select
-                labelId="select-delete"
-                id="select-delete-dropdown"
-                value={selectedDelete}
-                label="Dad"
-                onChange={handleDeleteChange}
-              >
-                {allData?.getAllDads.map((dad) => (
-                  <MenuItem key={dad._id} value={dad._id}>
-                    {dad.dadName}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            <Button
-              onClick={() => {
-                deleteDad({
-                  variables: {
-                    dadId: selectedDelete,
-                  },
-                })
-                  .then((res) => {
-                    console.log("The dad has been deleted:", res);
-                  })
-                  .catch((err) => {
-                    console.error("Error deleting dad:", err);
-                  });
-              }}
-            >
-              Delete Dad
-            </Button> */}
           </form>
-        </>
+        </div>
       ) : (
         <LoginErr />
       )}

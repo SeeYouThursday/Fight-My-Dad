@@ -7,8 +7,6 @@ import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-//Font Awesome
-
 //USE THIS CARD FOR EVERY DISPLAY OF DADS
 
 
@@ -51,17 +49,16 @@ const styles = {
 
 }
 
+//THE CARD USED FOR DADCREATE
+
 export function CreateCard({ formData }) {
 
     return (
         <Card sx={{ width: 350 }} style={styles.card}>
-          {/* <CardMedia
-            style={styles.pic}
-            image={formData.icon}
-            title="Dad img"
-          /> */}
+            {/* Dad Picture */}
           <img src={formData.icon} style={styles.pic}/>
           <CardContent>
+            {/* Dad Info */}
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
                 {formData.dadName}
             </Typography>
@@ -89,30 +86,28 @@ export function CreateCard({ formData }) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
+                    {/* Future Dev! */}
                     {/* <button style={styles.cardBtn} href={formData.theme}>
                         Theme
                     </button>   */}
                 </div>
             </div>
           </CardContent>
-          {/* <CardActions>
-            <Button size="small">Fight</Button>
-            <Button size="small">Bet</Button>
-          </CardActions> */}
         </Card>
       );
 }
 
+//CARD FOR YOUR DAD IN FIGHT MENU
 export function FightCard(props) {
 
     return (
         <Card sx={{ width: 350 }} style={styles.card}>
+            {/* Dad Icon */}
           <img src={props.selectedMyDad.icon} style={styles.pic}/>
           <CardContent>
+            {/* Dad Info */}
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
-
-            {props.selectedMyDad.dadName}
-
+                {props.selectedMyDad.dadName}
             </Typography>
             <Typography gutterBottom variant="body1" color='text.secondary' component="div" style={styles.name}>
                 {props.selectedMyDad.nickname}
@@ -138,6 +133,7 @@ export function FightCard(props) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
+                    {/* Future Dev! */}
                     {/* <button style={styles.cardBtn} href=''>
                         Theme
                     </button> */}
@@ -150,20 +146,20 @@ export function FightCard(props) {
                         Losses: {props.selectedMyDad.lossNum}
             </Typography>
           </CardContent>
-          {/* <CardActions>
-            <Button size="small">Fight</Button>
-            <Button size="small">Bet</Button>
-          </CardActions> */}
         </Card>
       );
 }
+
+//CARD FOR OPPOSING DAD IN FIGHT MENU
 
 export function FightCard2(props) {
 
     return (
         <Card sx={{ width: 350 }} style={styles.card}>
+            {/* Dad Icon */}
           <img src={props.selectedOpponent.icon} style={styles.pic}/>
           <CardContent>
+            {/* Dad Info */}
             <Typography gutterBottom variant="h5" component="div" style={styles.name}>
             {props.selectedOpponent.dadName}
             </Typography>
@@ -191,6 +187,7 @@ export function FightCard2(props) {
                     <Divider />
                 </aside>
                 <div style={styles.rightContainer}>
+                    {/* Future Dev! */}
                     {/* <button style={styles.cardBtn} href=''>
                         Theme
                     </button> */}
@@ -203,10 +200,6 @@ export function FightCard2(props) {
                         Losses: {props.selectedOpponent.lossNum}
             </Typography>
           </CardContent>
-          {/* <CardActions>
-            <Button size="small">Fight</Button>
-            <Button size="small">Bet</Button>
-          </CardActions> */}
         </Card>
       );
 }
