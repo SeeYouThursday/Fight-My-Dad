@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
+import { useNavigate } from 'react-router-dom';
 
 //LOCAL IMPORTS
 import LoginErr from '../Components/LoginErr';
@@ -30,6 +31,7 @@ const DadCreate = () => {
   const { data: myData } = useQuery(QUERY_ME);
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   //Submits Form When Submit Button is Clicked
   const handleFormSubmit = async (event) => {
@@ -38,7 +40,6 @@ const DadCreate = () => {
 
     if (Auth.loggedIn()) {
       const userId = Auth.getProfile().data._id;
-
       // Convert form fields to the correct data types
       const convertedFormData = {
         ...formData,
@@ -72,6 +73,9 @@ const DadCreate = () => {
     setShowModal(false);
   };
 
+  const handleRedirect = () => {
+    navigate('/dashboard');
+  };
   //FOR THE RANDOM IMAGE:
 
   //Getting a random number to use in randomImage()
@@ -163,7 +167,7 @@ const DadCreate = () => {
                   className="createInput"
                   type="number"
                   name="weight"
-                  label="Weight"
+                  label="Weight (lbs)"
                   value={formData.weight}
                   onChange={handleDadChange}
                   placeholder="Weight"
@@ -175,7 +179,7 @@ const DadCreate = () => {
                   helperText={!formError ? '' : 'Try again!'}
                   className="createInput"
                   type="number"
-                  label="Arm Length"
+                  label="Arm Length (in.)"
                   name="armLength"
                   value={formData.armLength}
                   onChange={handleDadChange}
@@ -254,7 +258,14 @@ const DadCreate = () => {
                   {formData.dadJoke}
                 </p>
               )}
-              <Button onClick={handleCloseModal}>Close</Button>
+              <Button
+                onClick={() => {
+                  handleCloseModal();
+                  handleRedirect();
+                }}
+              >
+                Close
+              </Button>
             </Box>
           </Modal>
         </div>
