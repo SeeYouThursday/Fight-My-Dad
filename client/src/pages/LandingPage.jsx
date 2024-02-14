@@ -4,7 +4,7 @@ import { ButtonBase, Container, Grid } from '@mui/material/';
 import Button from '@mui/material-next/Button';
 // import FMDLanding from '../assets/images/FMDLanding.png';
 
-import Image from '../Components/Image'
+// import Image from '../Components/Image'
 
 const styles = {
   btn: {

@@ -1,14 +1,19 @@
+//NECESSARY IMPORTS
 import React, { useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
-import Btn from '../Components/Btn';
 import { Modal, Box, Grid, TextField, Button } from '@mui/material/';
+import { Link } from 'react-router-dom';
+
+//LOCAL IMPORTS
+import LoginErr from '../Components/LoginErr';
+import { CreateCard } from '../Components/Card'
+
+//QUERIES, MUTATIONS, + ETC
 import { SAVE_DAD } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
-import Auth from '../utils/auth.js';
-import { Link } from 'react-router-dom';
-import LoginErr from '../Components/LoginErr';
 import dadIcons from '../utils/dadIcons.js';
-import { CreateCard } from '../Components/Card'
+import Auth from '../utils/auth.js';
+
 
 const DadCreate = () => {
   const [formData, setFormData] = useState({
@@ -27,12 +32,14 @@ const DadCreate = () => {
   const [addDad, { data, error }] = useMutation(SAVE_DAD);
   const [showModal, setShowModal] = useState(false);
 
+  //Submits Form When Submit Button is Clicked
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
     if (Auth.loggedIn()) {
 
       const userId = Auth.getProfile().data._id;
+
       // Convert form fields to the correct data types
       const convertedFormData = {
         ...formData,
@@ -57,6 +64,7 @@ const DadCreate = () => {
     }
   };
 
+  // Uses setFormData() to change any Dad Value to the value entered in an event's given input box
   const handleDadChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -67,24 +75,23 @@ const DadCreate = () => {
     setShowModal(false);
   };
 
+  //FOR THE RANDOM IMAGE:
+
+  //Getting a random number to use in randomImage()
   const randomIndex = Math.floor(Math.random() * dadIcons.length)
 
+  //Uses randomIndex and setFormData to change the newDad's icon to the randomIndex number
   const randomImage = () => {
     console.log('hi')
     const newicon = dadIcons[randomIndex]
     setFormData({ ...formData, icon: newicon});
     console.log('updated formdata', formData)
   }
-  //card component
-  //closebtn componet - top right
-  //btn component - submit
-  //submit logic - need to complete
 
   return (
     <>
       {Auth.loggedIn() ? (
         <>
-        {/* <Btn/> */}
           <Grid className='createContainer'>
             {/* Form for Creating the Dads  */}
             <div className='createDad'>
@@ -92,8 +99,6 @@ const DadCreate = () => {
               style={{
                 height: 'auto',
                 display: 'flex',
-                // justifyContent: 'flex-start',
-                // alignItems: 'center',
                 flexWrap: 'nowrap',
                 flexDirection: 'column',
                 margin: '50px',
@@ -158,7 +163,7 @@ const DadCreate = () => {
                 placeholder="Experience Score"
               />
 
-              {/* Icon select at this time? */}
+              {/* Randomly Selected Image */}
               <Button name="icon" value={formData.icon} onClick={randomImage} style={{}}>
                 Choose Your Image
               </Button>
@@ -168,10 +173,10 @@ const DadCreate = () => {
             </form>
             </div>
             
-            {/* FOR MVP: Make formData appear on Card as a Preview */}
             <CreateCard formData={formData}/>
           </Grid>
 
+          {/* When Form is Submitted, Throw a Modal with the Result */}
           <Modal
             open={showModal}
             onClose={handleCloseModal}
@@ -191,6 +196,7 @@ const DadCreate = () => {
                 transform: 'translate(-50%, -50%)',
               }}
             >
+              {/* Success */}
               <h2 id="result-modal">Result</h2>
               {data && (
                 <p id="result-modal-description">
@@ -198,6 +204,7 @@ const DadCreate = () => {
                   {formData.dadName}
                 </p>
               )}
+              {/* Fail */}
               {error && (
                 <p id="result-modal-description">
                   FAIL! Error: {error.message}. Dad Name:
@@ -211,6 +218,7 @@ const DadCreate = () => {
           </Modal>
         </>
       ) : (
+        // If You're not logged in, Throw error screen!
         <LoginErr />
       )}
     </>

@@ -1,5 +1,3 @@
-import Nav from '../Components/Nav';
-import Image from '../Components/Image';
 // import DadCard from "../Components/Card";
 import { DashStat } from '../Components/Stat';
 import Auth from '../utils/auth.js';
