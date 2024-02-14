@@ -86,16 +86,7 @@ const DadCreate = () => {
         <>
           {/* <Btn/> */}
           <h1>REGISTER YOUR DAD!</h1>
-          <Grid
-            className="createContainer"
-            // style={{
-            //   display: 'flex',
-            //   flexDirection: 'row',
-            //   flexWrap: 'wrap',
-            //   justifyContent: 'center',
-            //   alignItems: 'center',
-            // }}
-          >
+          <Grid className="createContainer">
             {/* Form for Creating the Dads  */}
             <div className="createDad">
               <form
@@ -163,6 +154,7 @@ const DadCreate = () => {
                   placeholder="Add your dad's favorite joke!"
                   margin="dense"
                 />
+                {/* //! TODO: add NumInput instead of textfield - time permitting */}
                 <TextField
                   required
                   error={Boolean(formError)}

@@ -46,6 +46,7 @@ const dadSchema = new Schema(
     },
     icon: {
       type: String,
+      required: true,
     },
   },
   {
@@ -58,3 +59,5 @@ const dadSchema = new Schema(
 const Dad = model('Dad', dadSchema);
 
 module.exports = Dad;
+
+// default: "../assets/images/defaultIcon" for icon, future dev: add in a default for the card

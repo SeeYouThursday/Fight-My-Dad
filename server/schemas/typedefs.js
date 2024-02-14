@@ -39,15 +39,15 @@ const typeDefs = `
 input dadStats {
   userId: String
   dadName: String!
-  nickname: String
-  entryMusic: String
-  dadJoke: String
-  weight: Int
-  armLength: Int
-  experience: Int
+  nickname: String!
+  entryMusic: String!
+  dadJoke: String!
+  weight: Int!
+  armLength: Int!
+  experience: Int!
   winNum: Int
   lossNum: Int
-  icon: String
+  icon: String!
 }
 
   type Query {
