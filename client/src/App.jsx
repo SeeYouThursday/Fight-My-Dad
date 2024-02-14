@@ -42,7 +42,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {Auth.loggedIn() ? (<Nav />) : (<></>)}
+      <Nav />
       <Outlet />
     </ApolloProvider>
   );

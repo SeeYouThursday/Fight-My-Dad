@@ -9,6 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Logout from '../Logout';
+import Auth from '../utils/auth';
 
 
 //styles
@@ -75,6 +76,13 @@ const socialMedia = [
 
 // Defining the Nav component
 export default function Nav() {
+
+  const loggedIn = Auth.loggedIn();
+
+  if (!loggedIn) {
+    return null;
+  }
+
   // State variable for controlling the open/close state of the drawer
   const [state, setState] = React.useState({
     right: false,
