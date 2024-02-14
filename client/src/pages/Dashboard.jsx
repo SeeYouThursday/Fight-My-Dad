@@ -132,48 +132,52 @@ const Dashboard = () => {
                   <div>
                     <h2 style={styles.user2}>Wanna Delete your Dad?</h2>
                   </div>
-                  <FormControl fullWidth>
-                    <InputLabel id="select-dad">
-                      Select dad to delete!
-                    </InputLabel>
-                    <Select
-                      labelId="select-delete"
-                      id="select-delete-dropdown"
-                      value={selectedDelete}
-                      label="Dad"
-                      onChange={handleDeleteChange}
-                    >
-                      {allData.getAllDads
-                        .filter((dad) => data.me._id === dad.userId)
-                        .map((dad, index) => (
-                          <MenuItem key={index} value={dad._id}>
-                            {dad.dadName}
-                          </MenuItem>
-                        ))}
-                    </Select>
-                  </FormControl>
+                  
                 
                   {/* Delete Dad Functionality */}
                   {allData.getAllDads.length == 0 ? 
-                  <></> 
-                  : 
-                  <Button
-                      onClick={() => {
-                        deleteDad({
-                          variables: {
-                            dadId: selectedDelete, 
-                          },
-                        })
-                          .then((res) => {
-                            console.log('The dad has been deleted:', res);
-                          })
-                          .catch((err) => {
-                            console.error('Error deleting dad:', err);
-                          });
-                      }}
-                    >
-                      Delete Dad
-                    </Button>}
+                      <></> 
+                    : 
+                    <>
+                      <FormControl fullWidth>
+                        <InputLabel id="select-dad">
+                          Select dad to delete!
+                        </InputLabel>
+                        <Select
+                          labelId="select-delete"
+                          id="select-delete-dropdown"
+                          value={selectedDelete}
+                          label="Dad"
+                          onChange={handleDeleteChange}
+                        >
+                          {allData.getAllDads
+                            .filter((dad) => data.me._id === dad.userId)
+                            .map((dad, index) => (
+                              <MenuItem key={index} value={dad._id}>
+                                {dad.dadName}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </FormControl>
+                      <Button
+                          onClick={() => {
+                            deleteDad({
+                              variables: {
+                                dadId: selectedDelete, 
+                              },
+                            })
+                              .then((res) => {
+                                console.log('The dad has been deleted:', res);
+                              })
+                              .catch((err) => {
+                                console.error('Error deleting dad:', err);
+                              });
+                          }}
+                        >
+                          Delete Dad
+                        </Button>
+                      </>
+                  }
                   
                 </div>
               </div>
