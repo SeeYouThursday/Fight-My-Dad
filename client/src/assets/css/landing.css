@@ -8,3 +8,8 @@ img {
 body {
   margin: 0;
 }
+
+.landingimg {
+  flex-shrink: 0; /* This item can shrink if necessary */
+  min-width: 210px; /* But not smaller than 200px */
+}
