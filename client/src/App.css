@@ -150,6 +150,10 @@ body {
     color: var(--light)
 }
 
+#select-delete-dropdown {
+    width: 50vw
+}
+
 /* DadCreate Styles */
 .createimg{
     height: 25vw;

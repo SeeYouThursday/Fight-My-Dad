@@ -9,7 +9,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Logout from '../Logout';
-import Auth from '../utils/auth';
+import Auth from '../../utils/auth';
 
 
 //styles
@@ -40,7 +40,7 @@ const styles = {
 //Links for the navbar
 const back = [
   {
-    name: 'Back',
+    name: 'Dashboard',
     link: '/dashboard'
   }
 ]
