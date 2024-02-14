@@ -14,8 +14,6 @@
 ## Table of Contents
 - [Description](#description)
 - [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Link](#Link)
 - [Contributing](#contributing)
