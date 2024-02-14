@@ -1,5 +1,5 @@
 //NECESSARY IMPORTS
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import {
   Grid,
@@ -21,7 +21,6 @@ import Auth from '../utils/auth.js';
 import { QUERY_DADS } from '../utils/queries';
 import { REMOVE_DAD } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
-
 
 const styles = {
   mainSection: {
@@ -66,7 +65,7 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     background: 'var(--primary)',
-    height: "60vh",
+    // height: '60vh',
     borderRadius: '5px',
     width: '80vw',
     alignItems: 'center',
@@ -86,32 +85,49 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 };
 
 const Dashboard = () => {
   const [selectedDelete, setSelectedDelete] = useState('');
+  const [formError, setFormError] = useState(false);
+  const [myDads, setMyDad] = useState([]);
   const [deleteDad] = useMutation(REMOVE_DAD);
   const { data: allData } = useQuery(QUERY_DADS);
-
- console.log(allData)
 
   const { loading, data } = useQuery(QUERY_ME);
   const userData = data?.me;
 
   if (loading || !userData) {
     return <h2>LOADING...</h2>;
-  } else {
-    console.log(userData);
   }
 
   // const dadArray = allData.getAllDads.map((dad) => data.me._id === dad.userId)
 
+  const handleDeletedDad = (event) => {
+    const updatedDads = allData?.getAllDads.find(
+      (dad) => dad._id !== event.target.value && data.me._id === dad.userId
+    );
+    setMyDad(updatedDads);
+  };
+
+  const handleDelete = () => {
+    try {
+      deleteDad({
+        variables: {
+          dadId: selectedDelete,
+        },
+      });
+    } catch (err) {
+      setFormError(true);
+    }
+  };
+
   const handleDeleteChange = (event) => {
     setSelectedDelete(event.target.value);
-    const selectedDelete = allData?.getAllDads.find(
-      (dad) => dad._id === event.target.value && data.me._id === dad.userId
-    );
+    // const selectedDelete = allData?.getAllDads.find(
+    //   (dad) => dad._id === event.target.value && data.me._id === dad.userId
+    // );
   };
 
   return (
@@ -132,49 +148,33 @@ const Dashboard = () => {
                   <div>
                     <h2 style={styles.user2}>Wanna Delete your Dad?</h2>
                   </div>
-                  <FormControl fullWidth>
-                    <InputLabel id="select-dad">
-                      Select dad to delete!
-                    </InputLabel>
-                    <Select
-                      labelId="select-delete"
-                      id="select-delete-dropdown"
-                      value={selectedDelete}
-                      label="Dad"
-                      onChange={handleDeleteChange}
-                    >
-                      {allData.getAllDads
-                        .filter((dad) => data.me._id === dad.userId)
-                        .map((dad, index) => (
-                          <MenuItem key={index} value={dad._id}>
-                            {dad.dadName}
-                          </MenuItem>
-                        ))}
-                    </Select>
-                  </FormControl>
-                
-                  {/* Delete Dad Functionality */}
-                  {allData.getAllDads.length == 0 ? 
-                  <></> 
-                  : 
-                  <Button
-                      onClick={() => {
-                        deleteDad({
-                          variables: {
-                            dadId: selectedDelete, 
-                          },
-                        })
-                          .then((res) => {
-                            console.log('The dad has been deleted:', res);
-                          })
-                          .catch((err) => {
-                            console.error('Error deleting dad:', err);
-                          });
-                      }}
-                    >
-                      Delete Dad
-                    </Button>}
-                  
+                  <form onSubmit={handleDeletedDad}>
+                    <FormControl fullWidth>
+                      <InputLabel id="select-dad">
+                        Select dad to delete!
+                      </InputLabel>
+                      <Select
+                        error={Boolean(formError)}
+                        helperText={!formError ? '' : 'No Dads to Delete'}
+                        labelId="select-delete"
+                        id="select-delete-dropdown"
+                        value={selectedDelete}
+                        label="Dad"
+                        onChange={handleDeleteChange}
+                      >
+                        {allData?.getAllDads
+                          .filter((dad) => data.me._id === dad.userId)
+                          .map((dad, index) => (
+                            <MenuItem key={index} value={dad._id}>
+                              {dad.dadName}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+
+                    {/* Delete Dad Functionality */}
+                    {<Button onClick={handleDelete}>Delete Dad</Button>}
+                  </form>
                 </div>
               </div>
             </section>
@@ -182,7 +182,6 @@ const Dashboard = () => {
           {/* <DadCard /> <DadCard /> */}
 
           {/* <DashStat /> */}
-          
         </main>
       ) : (
         <LoginErr />
