@@ -216,7 +216,7 @@ const DadCreate = () => {
             </div>
             <img
               className="createimg"
-              src="https://cdn.discordapp.com/attachments/551452864615153665/1207385750492946512/fmdasset1.png?ex=65df749b&is=65ccff9b&hm=343b088a3012754410cf628a8213feef87b2eec5954f0ff276719a3f3a51ef73&"
+              src="src/assets/images/ComponentAssets/fmdassetregister.png"
             />
             <CreateCard formData={formData} />
           </Grid>

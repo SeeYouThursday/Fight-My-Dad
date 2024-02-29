@@ -27,7 +27,7 @@ const LandingPage = () => {
     <div style={styles.bigContainer}>
       <img
         className="landingimg"
-        src="https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&"
+        src="src/assets/images/ComponentAssets/fightmydadlogo.png"
         alt="Fight My Dad!"
       />
       <div>
@@ -42,11 +42,11 @@ const LandingPage = () => {
       </div>
       <img
         className="asset1"
-        src="https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&"
+        src="src/assets/images/ComponentAssets/fmdassetbottom.png"
       />
       <img
         className="asset2"
-        src="https://cdn.discordapp.com/attachments/551452864615153665/1206416165975621672/fmdasset2.png?ex=65dbed9c&is=65c9789c&hm=59ce95656da56ac45e0aa191816313ee34bc13596dea0145836ac91a920e067d&"
+        src="src/assets/images/ComponentAssets/fmdassettop.png"
       />
     </div>
   );

@@ -165,7 +165,7 @@ export default function Nav() {
               sx={{ mr: 2 }}
               
             >
-              <img className='navicon' src='https://cdn.discordapp.com/attachments/551452864615153665/1207094537512812584/fmdasset9.png?ex=65de6564&is=65cbf064&hm=165901f8634934db6416e6d3e374663096c8d5a79e5e2a18b4aa057fd26290b7&'/>
+              <img className='navicon' src='src/assets/images/ComponentAssets/fmdassetdrawer.png'/>
 
             </a>
           <Drawer
