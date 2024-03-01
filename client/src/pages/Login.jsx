@@ -72,7 +72,7 @@ const Login = () => {
       >
         <img
           className="loginLogo"
-          src="src/assets/images/ComponentAssets/fmdassetlogin.png"
+          src="/fmdassetlogin.png"
           alt="Login"
         />
         {/* <Box
@@ -119,11 +119,11 @@ const Login = () => {
       </form>
       <img
         className="asset1"
-        src="src/assets/images/ComponentAssets/fmdassetbottom.png"
+        src="/fmdassetbottom.png"
       />
       <img
         className="asset2"
-        src="src/assets/images/ComponentAssets/fmdassettop.png"
+        src="/fmdassettop.png"
       />
     </Grid>
   );

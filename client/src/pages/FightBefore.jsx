@@ -174,7 +174,7 @@ const FightBefore = () => {
               {/* Fight Img */}
               <img
                 className="fightimg"
-                src="src/assets/images/ComponentAssets/fightmydadlogo.png"
+                src="/fightmydadlogo.png"
               />
               {/* Selecting Your Dad */}
 

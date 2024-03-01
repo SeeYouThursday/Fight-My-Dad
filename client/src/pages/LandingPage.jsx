@@ -27,7 +27,7 @@ const LandingPage = () => {
     <div style={styles.bigContainer}>
       <img
         className="landingimg"
-        src="src/assets/images/ComponentAssets/fightmydadlogo.png"
+        src="/fightmydadlogo.png"
         alt="Fight My Dad!"
       />
       <div>
@@ -42,11 +42,11 @@ const LandingPage = () => {
       </div>
       <img
         className="asset1"
-        src="src/assets/images/ComponentAssets/fmdassetbottom.png"
+        src="/fmdassetbottom.png"
       />
       <img
         className="asset2"
-        src="src/assets/images/ComponentAssets/fmdassettop.png"
+        src="/fmdassettop.png"
       />
     </div>
   );
