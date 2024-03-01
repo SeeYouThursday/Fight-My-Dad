@@ -216,7 +216,7 @@ const DadCreate = () => {
             </div>
             <img
               className="createimg"
-              src="src/assets/images/ComponentAssets/fmdassetregister.png"
+              src="/fmdassetregister.png"
             />
             <CreateCard formData={formData} />
           </Grid>

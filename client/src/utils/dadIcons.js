@@ -1,11 +1,11 @@
 
 const dadIcons = [
-    'src/assets/images/DadIcons/dadicon1.png',
-    'src/assets/images/DadIcons/dadicon2.png',
-    'src/assets/images/DadIcons/dadicon3.png',
-    'src/assets/images/DadIcons/dadicon4.png',
-    'src/assets/images/DadIcons/dadicon5.png',
-    'src/assets/images/DadIcons/dadicon6.png',
+    '/DadIcons/dadicon1.png',
+    '/DadIcons/dadicon2.png',
+    '/DadIcons/dadicon3.png',
+    '/DadIcons/dadicon4.png',
+    '/DadIcons/dadicon5.png',
+    '/DadIcons/dadicon6.png',
 ]
 
 export default dadIcons

@@ -63,7 +63,7 @@ const Signup = () => {
       >
         <img
           className="loginLogo"
-          src="src/assets/images/ComponentAssets/fmdassetsignup.png"
+          src="/fmdassetsignup.png"
           alt="Sign Up"
         />
         {/* InputFields */}
@@ -122,11 +122,11 @@ const Signup = () => {
       </form>
       <img
         className="asset1"
-        src="src/assets/images/ComponentAssets/fmdassetbottom.png"
+        src="/fmdassetbottom.png"
       />
       <img
         className="asset2"
-        src="src/assets/images/ComponentAssets/fmdassettop.png"
+        src="/fmdassettop.png"
       />
     </Grid>
   );
