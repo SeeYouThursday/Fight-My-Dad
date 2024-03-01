@@ -72,7 +72,7 @@ const Login = () => {
       >
         <img
           className="loginLogo"
-          src="https://cdn.discordapp.com/attachments/551452864615153665/1206631191319543878/fmdasset6.png?ex=65dcb5de&is=65ca40de&hm=5774d5aa5822b7476f01e8de7f42329424139b4066c63b496bd3bc7d63201128&"
+          src="src/assets/images/ComponentAssets/fmdassetlogin.png"
           alt="Login"
         />
         {/* <Box
@@ -119,11 +119,11 @@ const Login = () => {
       </form>
       <img
         className="asset1"
-        src="https://cdn.discordapp.com/attachments/551452864615153665/1206408557239476306/fmdasset1.png?ex=65dbe686&is=65c97186&hm=374105d2f333b86832c3887f7edbe3be785e1783185e16c1892444017d45ed6f&"
+        src="src/assets/images/ComponentAssets/fmdassetbottom.png"
       />
       <img
         className="asset2"
-        src="https://cdn.discordapp.com/attachments/551452864615153665/1206416165975621672/fmdasset2.png?ex=65dbed9c&is=65c9789c&hm=59ce95656da56ac45e0aa191816313ee34bc13596dea0145836ac91a920e067d&"
+        src="src/assets/images/ComponentAssets/fmdassettop.png"
       />
     </Grid>
   );

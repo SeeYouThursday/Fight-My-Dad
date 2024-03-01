@@ -1,11 +1,11 @@
 
 const dadIcons = [
-    'https://cdn.discordapp.com/attachments/551452864615153665/1205330881473155122/dadicon3.png?ex=65d7fadc&is=65c585dc&hm=69804b025c6209f7a725cc5e957b8e1ceb383a93fc8ae811ac188b444c934297&',
-    'https://cdn.discordapp.com/attachments/551452864615153665/1205330418715467857/dadicon4.png?ex=65d7fa6d&is=65c5856d&hm=11154903a97421c52eb39a2df142a7189e93d2dd53281193110544306603b997&',
-    'https://cdn.discordapp.com/attachments/551452864615153665/1205332455389925406/dadicon6.png?ex=65d7fc53&is=65c58753&hm=54e66318eadba3da199fa7f676cf1332a5bc31402957905298a0d7b671a3e43f&',
-    'https://cdn.discordapp.com/attachments/551452864615153665/1205315165810065458/dadicon1.png?ex=65d7ec39&is=65c57739&hm=6f00cfa456a456ef0d1984bcb0834adb9bd026f7c02660d19481e19c7d7721ac&',
-    'https://cdn.discordapp.com/attachments/551452864615153665/1205315612365033512/dadicon2.png?ex=65d7eca3&is=65c577a3&hm=a342e305b46589b9f65701a9db813208d8e1e4e8c40094bc135a7f60997c2948&',
-    'https://cdn.discordapp.com/attachments/1202424916402634822/1205333389805092864/dadicon5.png?ex=65d7fd32&is=65c58832&hm=c1c752ed478e3cae60d601cd832dd3e40889a43e7aa0a2f18101e6b556005f91&',
+    'src/assets/images/DadIcons/dadicon1.png',
+    'src/assets/images/DadIcons/dadicon2.png',
+    'src/assets/images/DadIcons/dadicon3.png',
+    'src/assets/images/DadIcons/dadicon4.png',
+    'src/assets/images/DadIcons/dadicon5.png',
+    'src/assets/images/DadIcons/dadicon6.png',
 ]
 
 export default dadIcons

@@ -174,7 +174,7 @@ const FightBefore = () => {
               {/* Fight Img */}
               <img
                 className="fightimg"
-                src="https://cdn.discordapp.com/attachments/1205909717961015296/1206997441891672195/fmdasset1.png?ex=65de0af7&is=65cb95f7&hm=f4641fed1bc62fb58c3d71ebc0aa7e0eea391940d6231b59e7ccd63fe3157cd7&"
+                src="src/assets/images/ComponentAssets/fightmydadlogo.png"
               />
               {/* Selecting Your Dad */}
 
