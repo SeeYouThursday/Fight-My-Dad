@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './assets/css/index.css';
-
+import { Analytics } from '@vercel/analytics/react';
 //Page Imports
 import App from './App.jsx';
 import LandingPage from './pages/LandingPage.jsx';
@@ -14,7 +14,7 @@ import FightBefore from './pages/FightBefore.jsx';
 import Results from './pages/Results.jsx';
 import Login from './pages/Login.jsx';
 import Signup from './pages/Signup.jsx';
-import Logout from './Components/Logout'
+import Logout from './Components/Logout';
 
 //Set Up Page Routes Here
 const router = createBrowserRouter([
@@ -33,15 +33,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/dadcreate',
-        element: <DadCreate />
+        element: <DadCreate />,
       },
       {
         path: '/fight',
-        element: <FightBefore />
+        element: <FightBefore />,
       },
       {
         path: '/leaderboard',
-        element: <Results />
+        element: <Results />,
       },
       {
         path: '/login',
@@ -53,8 +53,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/logout',
-        element: <Logout />
-      }
+        element: <Logout />,
+      },
     ],
   },
 ]);
@@ -62,6 +62,8 @@ const router = createBrowserRouter([
 //Render the page
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Analytics>
+      <RouterProvider router={router} />
+    </Analytics>
   </React.StrictMode>
 );
