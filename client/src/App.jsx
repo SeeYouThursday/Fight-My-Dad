@@ -10,16 +10,13 @@ import { setContext } from '@apollo/client/link/context';
 
 //Importing Components...
 import Nav from './Components/Nav';
-import Auth from './utils/auth'
-import './App.css'
-
+import Auth from './utils/auth';
+import './App.css';
 
 //Making GraphQL Link
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
-
-
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
 const authLink = setContext((_, { headers }) => {
