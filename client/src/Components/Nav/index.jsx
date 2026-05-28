@@ -165,7 +165,7 @@ export default function Nav() {
               sx={{ mr: 2 }}
               
             >
-              <img className='navicon' src='src/assets/images/ComponentAssets/fmdassetdrawer.png'/>
+              <img className='navicon' src='src/assets/images/fmdassetdrawer.png'/>
 
             </a>
           <Drawer
